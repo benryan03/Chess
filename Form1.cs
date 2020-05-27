@@ -13,7 +13,7 @@ namespace Chess
 {
     public partial class Form1 : Form
     {
-        public PictureBox[] pictureBoxes = new PictureBox[63];
+        Color color = new Color();
 
         public Form1()
         {
@@ -23,13 +23,14 @@ namespace Chess
         private void mouseEnterSquare(object sender, EventArgs e)
         {
             PictureBox square = ((PictureBox)sender);
+            color = square.BackColor;
             square.BackColor = Color.White;
         }
 
         private void mouseLeaveSquare(object sender, EventArgs e)
         {
             PictureBox square = ((PictureBox)sender);
-            square.BackColor = default(Color);
+            square.BackColor = color;
         }
     }
 }
