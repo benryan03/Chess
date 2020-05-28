@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -255,9 +256,11 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Beige;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -267,9 +270,11 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(125, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -279,9 +284,11 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Beige;
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(247, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -291,9 +298,11 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(369, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -303,9 +312,11 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Beige;
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(491, 3);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -315,9 +326,11 @@
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(613, 3);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 5;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -327,9 +340,11 @@
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Beige;
             this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(735, 3);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -339,9 +354,11 @@
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(857, 3);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(118, 112);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 7;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -351,9 +368,11 @@
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(3, 121);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 8;
             this.pictureBox9.TabStop = false;
             this.pictureBox9.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -363,9 +382,11 @@
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.Beige;
             this.pictureBox10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(125, 121);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 9;
             this.pictureBox10.TabStop = false;
             this.pictureBox10.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -375,9 +396,11 @@
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
             this.pictureBox11.Location = new System.Drawing.Point(247, 121);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox11.TabIndex = 10;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -387,9 +410,11 @@
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.Beige;
             this.pictureBox12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
             this.pictureBox12.Location = new System.Drawing.Point(369, 121);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox12.TabIndex = 11;
             this.pictureBox12.TabStop = false;
             this.pictureBox12.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -399,9 +424,11 @@
             // 
             this.pictureBox13.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
             this.pictureBox13.Location = new System.Drawing.Point(491, 121);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox13.TabIndex = 12;
             this.pictureBox13.TabStop = false;
             this.pictureBox13.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -411,9 +438,11 @@
             // 
             this.pictureBox14.BackColor = System.Drawing.Color.Beige;
             this.pictureBox14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
             this.pictureBox14.Location = new System.Drawing.Point(613, 121);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox14.TabIndex = 13;
             this.pictureBox14.TabStop = false;
             this.pictureBox14.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -423,9 +452,11 @@
             // 
             this.pictureBox15.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
             this.pictureBox15.Location = new System.Drawing.Point(735, 121);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox15.TabIndex = 14;
             this.pictureBox15.TabStop = false;
             this.pictureBox15.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -435,9 +466,11 @@
             // 
             this.pictureBox16.BackColor = System.Drawing.Color.Beige;
             this.pictureBox16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
             this.pictureBox16.Location = new System.Drawing.Point(857, 121);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(118, 112);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox16.TabIndex = 15;
             this.pictureBox16.TabStop = false;
             this.pictureBox16.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -831,9 +864,11 @@
             // 
             this.pictureBox49.BackColor = System.Drawing.Color.Beige;
             this.pictureBox49.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox49.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox49.Image")));
             this.pictureBox49.Location = new System.Drawing.Point(3, 711);
             this.pictureBox49.Name = "pictureBox49";
             this.pictureBox49.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox49.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox49.TabIndex = 48;
             this.pictureBox49.TabStop = false;
             this.pictureBox49.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -843,9 +878,11 @@
             // 
             this.pictureBox50.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox50.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox50.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox50.Image")));
             this.pictureBox50.Location = new System.Drawing.Point(125, 711);
             this.pictureBox50.Name = "pictureBox50";
             this.pictureBox50.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox50.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox50.TabIndex = 49;
             this.pictureBox50.TabStop = false;
             this.pictureBox50.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -855,9 +892,11 @@
             // 
             this.pictureBox51.BackColor = System.Drawing.Color.Beige;
             this.pictureBox51.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox51.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox51.Image")));
             this.pictureBox51.Location = new System.Drawing.Point(247, 711);
             this.pictureBox51.Name = "pictureBox51";
             this.pictureBox51.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox51.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox51.TabIndex = 50;
             this.pictureBox51.TabStop = false;
             this.pictureBox51.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -867,9 +906,11 @@
             // 
             this.pictureBox52.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox52.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox52.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox52.Image")));
             this.pictureBox52.Location = new System.Drawing.Point(369, 711);
             this.pictureBox52.Name = "pictureBox52";
             this.pictureBox52.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox52.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox52.TabIndex = 51;
             this.pictureBox52.TabStop = false;
             this.pictureBox52.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -879,9 +920,11 @@
             // 
             this.pictureBox53.BackColor = System.Drawing.Color.Beige;
             this.pictureBox53.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox53.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox53.Image")));
             this.pictureBox53.Location = new System.Drawing.Point(491, 711);
             this.pictureBox53.Name = "pictureBox53";
             this.pictureBox53.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox53.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox53.TabIndex = 52;
             this.pictureBox53.TabStop = false;
             this.pictureBox53.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -891,9 +934,11 @@
             // 
             this.pictureBox54.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox54.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox54.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox54.Image")));
             this.pictureBox54.Location = new System.Drawing.Point(613, 711);
             this.pictureBox54.Name = "pictureBox54";
             this.pictureBox54.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox54.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox54.TabIndex = 53;
             this.pictureBox54.TabStop = false;
             this.pictureBox54.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -903,9 +948,11 @@
             // 
             this.pictureBox55.BackColor = System.Drawing.Color.Beige;
             this.pictureBox55.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox55.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox55.Image")));
             this.pictureBox55.Location = new System.Drawing.Point(735, 711);
             this.pictureBox55.Name = "pictureBox55";
             this.pictureBox55.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox55.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox55.TabIndex = 54;
             this.pictureBox55.TabStop = false;
             this.pictureBox55.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -915,9 +962,11 @@
             // 
             this.pictureBox56.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox56.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox56.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox56.Image")));
             this.pictureBox56.Location = new System.Drawing.Point(857, 711);
             this.pictureBox56.Name = "pictureBox56";
             this.pictureBox56.Size = new System.Drawing.Size(118, 112);
+            this.pictureBox56.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox56.TabIndex = 55;
             this.pictureBox56.TabStop = false;
             this.pictureBox56.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -927,9 +976,11 @@
             // 
             this.pictureBox57.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox57.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox57.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox57.Image")));
             this.pictureBox57.Location = new System.Drawing.Point(3, 829);
             this.pictureBox57.Name = "pictureBox57";
             this.pictureBox57.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox57.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox57.TabIndex = 56;
             this.pictureBox57.TabStop = false;
             this.pictureBox57.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -939,9 +990,11 @@
             // 
             this.pictureBox58.BackColor = System.Drawing.Color.Beige;
             this.pictureBox58.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox58.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox58.Image")));
             this.pictureBox58.Location = new System.Drawing.Point(125, 829);
             this.pictureBox58.Name = "pictureBox58";
             this.pictureBox58.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox58.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox58.TabIndex = 57;
             this.pictureBox58.TabStop = false;
             this.pictureBox58.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -951,9 +1004,11 @@
             // 
             this.pictureBox59.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox59.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox59.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox59.Image")));
             this.pictureBox59.Location = new System.Drawing.Point(247, 829);
             this.pictureBox59.Name = "pictureBox59";
             this.pictureBox59.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox59.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox59.TabIndex = 58;
             this.pictureBox59.TabStop = false;
             this.pictureBox59.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -963,9 +1018,11 @@
             // 
             this.pictureBox60.BackColor = System.Drawing.Color.Beige;
             this.pictureBox60.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox60.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox60.Image")));
             this.pictureBox60.Location = new System.Drawing.Point(369, 829);
             this.pictureBox60.Name = "pictureBox60";
             this.pictureBox60.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox60.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox60.TabIndex = 59;
             this.pictureBox60.TabStop = false;
             this.pictureBox60.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -975,9 +1032,11 @@
             // 
             this.pictureBox61.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox61.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox61.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox61.Image")));
             this.pictureBox61.Location = new System.Drawing.Point(491, 829);
             this.pictureBox61.Name = "pictureBox61";
             this.pictureBox61.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox61.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox61.TabIndex = 60;
             this.pictureBox61.TabStop = false;
             this.pictureBox61.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -987,9 +1046,11 @@
             // 
             this.pictureBox62.BackColor = System.Drawing.Color.Beige;
             this.pictureBox62.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox62.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox62.Image")));
             this.pictureBox62.Location = new System.Drawing.Point(613, 829);
             this.pictureBox62.Name = "pictureBox62";
             this.pictureBox62.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox62.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox62.TabIndex = 61;
             this.pictureBox62.TabStop = false;
             this.pictureBox62.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -999,9 +1060,11 @@
             // 
             this.pictureBox63.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox63.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox63.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox63.Image")));
             this.pictureBox63.Location = new System.Drawing.Point(735, 829);
             this.pictureBox63.Name = "pictureBox63";
             this.pictureBox63.Size = new System.Drawing.Size(116, 112);
+            this.pictureBox63.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox63.TabIndex = 62;
             this.pictureBox63.TabStop = false;
             this.pictureBox63.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -1011,9 +1074,11 @@
             // 
             this.pictureBox64.BackColor = System.Drawing.Color.Beige;
             this.pictureBox64.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox64.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox64.Image")));
             this.pictureBox64.Location = new System.Drawing.Point(857, 829);
             this.pictureBox64.Name = "pictureBox64";
             this.pictureBox64.Size = new System.Drawing.Size(118, 112);
+            this.pictureBox64.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox64.TabIndex = 63;
             this.pictureBox64.TabStop = false;
             this.pictureBox64.MouseEnter += new System.EventHandler(this.mouseEnterSquare);
@@ -1027,6 +1092,7 @@
             this.ClientSize = new System.Drawing.Size(978, 944);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Title";
             this.tableLayoutPanel1.ResumeLayout(false);
