@@ -120,18 +120,20 @@ namespace Chess
 
         private void mouseEnterSquare(object sender, EventArgs e)
         {
-
-            //PictureBox square = ((PictureBox)sender);
-            //color = square.BackColor;
-            //square.BackColor = Color.White;
+            PictureBox square = ((PictureBox)sender);
+            if (square1 != square && square2 != square)
+            {
+                square.BackColor = Color.White;
+            }
         }
 
         private void mouseLeaveSquare(object sender, EventArgs e)
         {
-            //PictureBox square = ((PictureBox)sender);
-            //if (square.Tag == null)
-            //{
-            //}
+            PictureBox square = ((PictureBox)sender);
+            if (square1 != square && square2 != square)
+            {
+                ResetColorOfSquare(square);
+            }
         }
 
         private void squareClick(object sender, EventArgs e)
@@ -154,7 +156,6 @@ namespace Chess
                 square1 = null;
                 square1Clicked = false;
             }
-
         }
     }
 }
