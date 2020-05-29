@@ -536,6 +536,7 @@
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox17.TabIndex = 16;
             this.pictureBox17.TabStop = false;
+            this.pictureBox17.Tag = "empty";
             this.pictureBox17.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox17.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox17.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -551,6 +552,7 @@
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox18.TabIndex = 17;
             this.pictureBox18.TabStop = false;
+            this.pictureBox18.Tag = "empty";
             this.pictureBox18.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox18.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox18.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -566,6 +568,7 @@
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox19.TabIndex = 18;
             this.pictureBox19.TabStop = false;
+            this.pictureBox19.Tag = "empty";
             this.pictureBox19.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox19.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox19.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -581,6 +584,7 @@
             this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox20.TabIndex = 19;
             this.pictureBox20.TabStop = false;
+            this.pictureBox20.Tag = "empty";
             this.pictureBox20.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox20.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox20.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -596,6 +600,7 @@
             this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox21.TabIndex = 20;
             this.pictureBox21.TabStop = false;
+            this.pictureBox21.Tag = "empty";
             this.pictureBox21.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox21.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox21.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -611,6 +616,7 @@
             this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox22.TabIndex = 21;
             this.pictureBox22.TabStop = false;
+            this.pictureBox22.Tag = "empty";
             this.pictureBox22.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox22.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox22.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -626,6 +632,7 @@
             this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox23.TabIndex = 22;
             this.pictureBox23.TabStop = false;
+            this.pictureBox23.Tag = "empty";
             this.pictureBox23.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox23.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox23.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -641,6 +648,7 @@
             this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox24.TabIndex = 23;
             this.pictureBox24.TabStop = false;
+            this.pictureBox24.Tag = "empty";
             this.pictureBox24.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox24.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox24.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -656,6 +664,7 @@
             this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox25.TabIndex = 24;
             this.pictureBox25.TabStop = false;
+            this.pictureBox25.Tag = "empty";
             this.pictureBox25.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox25.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox25.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -671,6 +680,7 @@
             this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox26.TabIndex = 25;
             this.pictureBox26.TabStop = false;
+            this.pictureBox26.Tag = "empty";
             this.pictureBox26.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox26.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox26.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -686,6 +696,7 @@
             this.pictureBox27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox27.TabIndex = 26;
             this.pictureBox27.TabStop = false;
+            this.pictureBox27.Tag = "empty";
             this.pictureBox27.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox27.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox27.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -701,6 +712,7 @@
             this.pictureBox28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox28.TabIndex = 27;
             this.pictureBox28.TabStop = false;
+            this.pictureBox28.Tag = "empty";
             this.pictureBox28.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox28.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox28.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -716,6 +728,7 @@
             this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox29.TabIndex = 28;
             this.pictureBox29.TabStop = false;
+            this.pictureBox29.Tag = "empty";
             this.pictureBox29.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox29.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox29.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -731,6 +744,7 @@
             this.pictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox30.TabIndex = 29;
             this.pictureBox30.TabStop = false;
+            this.pictureBox30.Tag = "empty";
             this.pictureBox30.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox30.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox30.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -746,6 +760,7 @@
             this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox31.TabIndex = 30;
             this.pictureBox31.TabStop = false;
+            this.pictureBox31.Tag = "empty";
             this.pictureBox31.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox31.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox31.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -761,6 +776,7 @@
             this.pictureBox32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox32.TabIndex = 31;
             this.pictureBox32.TabStop = false;
+            this.pictureBox32.Tag = "empty";
             this.pictureBox32.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox32.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox32.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -776,6 +792,7 @@
             this.pictureBox33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox33.TabIndex = 32;
             this.pictureBox33.TabStop = false;
+            this.pictureBox33.Tag = "empty";
             this.pictureBox33.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox33.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox33.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -791,6 +808,7 @@
             this.pictureBox34.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox34.TabIndex = 33;
             this.pictureBox34.TabStop = false;
+            this.pictureBox34.Tag = "empty";
             this.pictureBox34.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox34.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox34.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -806,6 +824,7 @@
             this.pictureBox35.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox35.TabIndex = 34;
             this.pictureBox35.TabStop = false;
+            this.pictureBox35.Tag = "empty";
             this.pictureBox35.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox35.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox35.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -821,6 +840,7 @@
             this.pictureBox36.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox36.TabIndex = 35;
             this.pictureBox36.TabStop = false;
+            this.pictureBox36.Tag = "empty";
             this.pictureBox36.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox36.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox36.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -836,6 +856,7 @@
             this.pictureBox37.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox37.TabIndex = 36;
             this.pictureBox37.TabStop = false;
+            this.pictureBox37.Tag = "empty";
             this.pictureBox37.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox37.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox37.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -844,6 +865,7 @@
             // 
             this.pictureBox38.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox38.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox38.Image = global::Chess.Properties.Resources.white_rook;
             this.pictureBox38.Location = new System.Drawing.Point(610, 472);
             this.pictureBox38.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox38.Name = "pictureBox38";
@@ -851,6 +873,7 @@
             this.pictureBox38.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox38.TabIndex = 37;
             this.pictureBox38.TabStop = false;
+            this.pictureBox38.Tag = "white_rook";
             this.pictureBox38.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox38.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox38.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -866,6 +889,7 @@
             this.pictureBox39.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox39.TabIndex = 38;
             this.pictureBox39.TabStop = false;
+            this.pictureBox39.Tag = "empty";
             this.pictureBox39.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox39.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox39.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -881,6 +905,7 @@
             this.pictureBox40.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox40.TabIndex = 39;
             this.pictureBox40.TabStop = false;
+            this.pictureBox40.Tag = "empty";
             this.pictureBox40.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox40.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox40.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -896,6 +921,7 @@
             this.pictureBox41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox41.TabIndex = 40;
             this.pictureBox41.TabStop = false;
+            this.pictureBox41.Tag = "empty";
             this.pictureBox41.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox41.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox41.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -911,6 +937,7 @@
             this.pictureBox42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox42.TabIndex = 41;
             this.pictureBox42.TabStop = false;
+            this.pictureBox42.Tag = "empty";
             this.pictureBox42.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox42.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox42.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -926,6 +953,7 @@
             this.pictureBox43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox43.TabIndex = 42;
             this.pictureBox43.TabStop = false;
+            this.pictureBox43.Tag = "empty";
             this.pictureBox43.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox43.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox43.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -941,6 +969,7 @@
             this.pictureBox44.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox44.TabIndex = 43;
             this.pictureBox44.TabStop = false;
+            this.pictureBox44.Tag = "empty";
             this.pictureBox44.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox44.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox44.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -956,6 +985,7 @@
             this.pictureBox45.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox45.TabIndex = 44;
             this.pictureBox45.TabStop = false;
+            this.pictureBox45.Tag = "empty";
             this.pictureBox45.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox45.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox45.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -971,6 +1001,7 @@
             this.pictureBox46.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox46.TabIndex = 45;
             this.pictureBox46.TabStop = false;
+            this.pictureBox46.Tag = "empty";
             this.pictureBox46.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox46.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox46.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -986,6 +1017,7 @@
             this.pictureBox47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox47.TabIndex = 46;
             this.pictureBox47.TabStop = false;
+            this.pictureBox47.Tag = "empty";
             this.pictureBox47.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox47.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox47.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -1001,6 +1033,7 @@
             this.pictureBox48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox48.TabIndex = 47;
             this.pictureBox48.TabStop = false;
+            this.pictureBox48.Tag = "empty";
             this.pictureBox48.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox48.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox48.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
