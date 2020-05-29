@@ -17,6 +17,7 @@ namespace Chess
         bool square2Clicked = false;
         PictureBox square1 = new PictureBox();
         PictureBox square2 = new PictureBox();
+        string selectedPiece = null;
 
         public Form1()
         {
@@ -118,7 +119,7 @@ namespace Chess
             }
         }
 
-        private void mouseEnterSquare(object sender, EventArgs e)
+        private void MouseEnterSquare(object sender, EventArgs e)
         {
             PictureBox square = ((PictureBox)sender);
             if (square1 != square && square2 != square)
@@ -136,7 +137,7 @@ namespace Chess
             }
         }
 
-        private void squareClick(object sender, EventArgs e)
+        private void SquareClick(object sender, EventArgs e)
         {
             PictureBox square = ((PictureBox)sender);
             //First click of move
@@ -145,16 +146,159 @@ namespace Chess
                 square.BackColor = Color.DarkGray;
                 square1Clicked = true;
                 square1 = square;
+
+                //Detect which piece was clicked
+                if (square.Tag.ToString() == "white_pawn")
+                {
+                    selectedPiece = "white_pawn";
+                }
+                else if (square.Tag.ToString() == "black_pawn")
+                {
+                    selectedPiece = "black_pawn";
+                }
+                else if (square.Tag.ToString() == "white_rook")
+                {
+                    selectedPiece = "white_rook";
+                }
+                else if (square.Tag.ToString() == "black_rook")
+                {
+                    selectedPiece = "black_rook";
+                }
+                else if (square.Tag.ToString() == "white_knight")
+                {
+                    selectedPiece = "white_knight";
+                }
+                else if (square.Tag.ToString() == "black_knight")
+                {
+                    selectedPiece = "black_knight";
+                }
+                else if (square.Tag.ToString() == "white_bishop")
+                {
+                    selectedPiece = "white_bishop";
+                }
+                else if (square.Tag.ToString() == "black_bishop")
+                {
+                    selectedPiece = "black_bishop";
+                }
+                else if (square.Tag.ToString() == "white_queen")
+                {
+                    selectedPiece = "white_queen";
+                }
+                else if (square.Tag.ToString() == "black_queen")
+                {
+                    selectedPiece = "black_queem";
+                }
+                else if (square.Tag.ToString() == "white_rook")
+                {
+                    selectedPiece = "white_rook";
+                }
+                else if (square.Tag.ToString() == "black_king")
+                {
+                    selectedPiece = "black_king";
+                }
             }
 
             //Second click of move
             else if (square1Clicked == true & square2Clicked == false)
             {
+
                 //NEED TO CHECK IF MOVE IS VALID
-                
-                ResetColorOfSquare(square1);
-                square1 = null;
-                square1Clicked = false;
+                if (selectedPiece == "white_pawn")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("WHITE PAWN"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "black_pawn")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("BLACK PAWN"); //DEBUG
+                    selectedPiece = null;
+                }
+                if (selectedPiece == "white_rook")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("WHITE ROOK"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "black_rook")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("BLACK ROOK"); //DEBUG
+                    selectedPiece = null;
+                }
+                if (selectedPiece == "white_knight")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("WHITE KNIGHT"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "black_knight")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("BLACK KNIGHT"); //DEBUG
+                    selectedPiece = null;
+                }
+                if (selectedPiece == "white_bishop")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("WHITE BISHOP"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "black_bishop")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("BLACK BISHOP"); //DEBUG
+                    selectedPiece = null;
+                }
+                if (selectedPiece == "white_queen")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("WHITE QUEEN"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "black_queen")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("BLACK QUEEN"); //DEBUG
+                    selectedPiece = null;
+                }
+                if (selectedPiece == "white_king")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("WHITE KING"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "black_king")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("BLACK KING"); //DEBUG
+                    selectedPiece = null;
+                }
             }
         }
     }
