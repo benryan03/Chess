@@ -654,9 +654,79 @@ namespace Chess
                         }
                         else if (this.tableLayoutPanel1.GetRow(square1) == this.tableLayoutPanel1.GetRow(square)) //Horizontal move
                         {
+                            int row = this.tableLayoutPanel1.GetRow(square1);
+                            int startCol = this.tableLayoutPanel1.GetColumn(square1);
+                            int endCol = this.tableLayoutPanel1.GetColumn(square);
+                            bool squareInWay2 = false;
 
-
-
+                            if (startCol < endCol) // Horizontal move "left"
+                            {
+                                for (int x = startCol - 1; x > endCol; x--) //For each square in the way, check occupied
+                                {
+                                    Control y = this.tableLayoutPanel1.GetControlFromPosition(x, row);
+                                    if (y.Tag.ToString().Contains("empty") == false)
+                                    {
+                                        squareInWay2 = true;
+                                        //MessageBox.Show(y.Tag.ToString()); //DEBUG
+                                    }
+                                }
+                                if (squareInWay2 == false)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move1"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = "empty";
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.white_rook;
+                                    square.Tag = "white_rook";
+                                }
+                                else
+                                {
+                                    //Invalid move
+                                    ResetColorOfSquare(square1);
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    //MessageBox.Show("invalid move1"); //DEBUG
+                                    selectedPiece = null;
+                                }
+                            }
+                            else //Horizontal move right
+                            {
+                                for (int x = startCol + 1; x < endCol; x++) //For each square in the way, check occupied
+                                {
+                                    Control y = this.tableLayoutPanel1.GetControlFromPosition(x, row);
+                                    if (y.Tag.ToString().Contains("empty") == false)
+                                    {
+                                        squareInWay2 = true;
+                                        //MessageBox.Show(y.Tag.ToString()); //DEBUG
+                                    }
+                                }
+                                if (squareInWay2 == false)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move2"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = "empty";
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.white_rook;
+                                    square.Tag = "white_rook";
+                                }
+                                else
+                                {
+                                    //Invalid move
+                                    ResetColorOfSquare(square1);
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    //MessageBox.Show("invalid move2"); //DEBUG
+                                    selectedPiece = null;
+                                }
+                            }
                         }
                         else
                         {
@@ -664,7 +734,7 @@ namespace Chess
                             ResetColorOfSquare(square1);
                             square1 = null;
                             square1Clicked = false;
-                            //MessageBox.Show("invalid move2"); //DEBUG
+                            //MessageBox.Show("invalid move3"); //DEBUG
                             selectedPiece = null;
                         }
                     }
@@ -674,7 +744,7 @@ namespace Chess
                         ResetColorOfSquare(square1);
                         square1 = null;
                         square1Clicked = false;
-                        //MessageBox.Show("invalid move2"); //DEBUG
+                        //MessageBox.Show("invalid move4"); //DEBUG
                         selectedPiece = null;
                     }
                 }
@@ -684,7 +754,7 @@ namespace Chess
                     ResetColorOfSquare(square1);
                     square1 = null;
                     square1Clicked = false;
-                    //MessageBox.Show("invalid move2"); //DEBUG
+                    //MessageBox.Show("invalid move5"); //DEBUG
                     selectedPiece = null;
                 }
             }
