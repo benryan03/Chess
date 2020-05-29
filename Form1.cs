@@ -384,13 +384,188 @@ namespace Chess
                 }
                 else if (selectedPiece == "black_pawn")
                 {
-                    ResetColorOfSquare(square1);
-                    square1 = null;
-                    square1Clicked = false;
-                    MessageBox.Show("BLACK PAWN"); //DEBUG
-                    selectedPiece = null;
+                    if (this.tableLayoutPanel1.GetRow(square1) == 1) //Original row
+                    {
+                        if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Original row and same column
+                        {
+                            if (((this.tableLayoutPanel1.GetRow(square1) + 1) == this.tableLayoutPanel1.GetRow(square)) || ((this.tableLayoutPanel1.GetRow(square1) + 2) == this.tableLayoutPanel1.GetRow(square))) //Original row and same column and "1 up" or "2 up"
+                            {
+                                if (square.Tag == null) //If square is empty
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move1"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = null;
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.black_pawn;
+                                    square.Tag = "black_pawn";
+                                }
+                                else
+                                {
+                                    //Invalid move
+                                    ResetColorOfSquare(square1);
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    //MessageBox.Show("invalid move1"); //DEBUG
+                                    selectedPiece = null;
+                                }
+                            }
+                            else
+                            {
+                                //Invalid move
+                                ResetColorOfSquare(square1);
+                                square1 = null;
+                                square1Clicked = false;
+                                //MessageBox.Show("invalid move2"); //DEBUG
+                                selectedPiece = null;
+                            }
+                        }
+                        else //Original row, and not same column
+                        {
+                            if ((this.tableLayoutPanel1.GetRow(square1) + 1) == this.tableLayoutPanel1.GetRow(square))  //Original row, and not same column, and "1 up"
+                            {
+                                if ((this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square) + 1) || (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square) - 1)) //Original row, and column is 1 over
+                                {
+                                    if (square.Tag != null) //If square is full
+                                    {
+                                        //Valid move
+                                        //MessageBox.Show("valid move2"); //DEBUG
+                                        ResetColorOfSquare(square1);
+                                        square1.Image = null;
+                                        square1.Tag = null;
+                                        square1 = null;
+                                        square1Clicked = false;
+                                        selectedPiece = null;
+                                        square.Image = global::Chess.Properties.Resources.black_pawn;
+                                        square.Tag = "black_pawn";
+                                    }
+                                    else
+                                    {
+                                        //Invalid move
+                                        ResetColorOfSquare(square1);
+                                        square1 = null;
+                                        square1Clicked = false;
+                                        //MessageBox.Show("invalid move3"); //DEBUG
+                                        selectedPiece = null;
+                                    }
+                                }
+                                else
+                                {
+                                    //Invalid move
+                                    ResetColorOfSquare(square1);
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    //MessageBox.Show("invalid move4"); //DEBUG
+                                    selectedPiece = null;
+                                }
+                            }
+                            else
+                            {
+                                //Invalid move
+                                ResetColorOfSquare(square1);
+                                square1 = null;
+                                square1Clicked = false;
+                                //MessageBox.Show("invalid move5"); //DEBUG
+                                selectedPiece = null;
+                            }
+                        }
+                    }
+                    else //Not original row
+                    {
+                        if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Not original row, and same column
+                        {
+                            if ((this.tableLayoutPanel1.GetRow(square1) + 1) == this.tableLayoutPanel1.GetRow(square))  //Not original row, and same column, and "1 up"
+                            {
+                                if (square.Tag == null)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move3"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = null;
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.black_pawn;
+                                    square.Tag = "black_pawn";
+                                }
+                                else
+                                {
+                                    //Invalid move
+                                    ResetColorOfSquare(square1);
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    //MessageBox.Show("invalid move6"); //DEBUG
+                                    selectedPiece = null;
+                                }
+                            }
+                            else
+                            {
+                                //Invalid move
+                                ResetColorOfSquare(square1);
+                                square1 = null;
+                                square1Clicked = false;
+                                //MessageBox.Show("invalid move7"); //DEBUG
+                                selectedPiece = null;
+                            }
+                        }
+                        else //Not original row, and different column
+                        {
+                            if ((this.tableLayoutPanel1.GetRow(square1) + 1) == this.tableLayoutPanel1.GetRow(square))  //Not original row, and not same column, and "1 up"
+                            {
+                                if ((this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square) + 1) || (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square) - 1)) //Not original row, and not same column, and column is 1 over
+                                {
+                                    if (square.Tag != null) //If square is full
+                                    {
+                                        //Valid move
+                                        //MessageBox.Show("valid move4"); //DEBUG
+                                        ResetColorOfSquare(square1);
+                                        square1.Image = null;
+                                        square1.Tag = null;
+                                        square1 = null;
+                                        square1Clicked = false;
+                                        selectedPiece = null;
+                                        square.Image = global::Chess.Properties.Resources.black_pawn;
+                                        square.Tag = "black_pawn";
+                                    }
+                                    else
+                                    {
+                                        //Invalid move
+                                        ResetColorOfSquare(square1);
+                                        square1 = null;
+                                        square1Clicked = false;
+                                        //MessageBox.Show("invalid move8"); //DEBUG
+                                        selectedPiece = null;
+                                    }
+                                }
+                                else
+                                {
+                                    //Invalid move
+                                    ResetColorOfSquare(square1);
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    //MessageBox.Show("invalid move9"); //DEBUG
+                                    selectedPiece = null;
+                                }
+                            }
+                            else
+                            {
+                                //Invalid move
+                                ResetColorOfSquare(square1);
+                                square1 = null;
+                                square1Clicked = false;
+                                //MessageBox.Show("invalid move10"); //DEBUG
+                                selectedPiece = null;
+                            }
+                        }
+                    }
                 }
-                if (selectedPiece == "white_rook")
+            
+
+            if (selectedPiece == "white_rook")
                 {
                     ResetColorOfSquare(square1);
                     square1 = null;
