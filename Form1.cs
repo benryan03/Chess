@@ -186,11 +186,11 @@ namespace Chess
                 }
                 else if (square.Tag.ToString() == "black_queen")
                 {
-                    selectedPiece = "black_queem";
+                    selectedPiece = "black_queen";
                 }
-                else if (square.Tag.ToString() == "white_rook")
+                else if (square.Tag.ToString() == "white_king")
                 {
-                    selectedPiece = "white_rook";
+                    selectedPiece = "white_king";
                 }
                 else if (square.Tag.ToString() == "black_king")
                 {
