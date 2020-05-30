@@ -749,90 +749,80 @@ namespace Chess
                         selectedPiece = null;
                     }
                 }
-                else
+
+                else if (selectedPiece == "black_rook")
                 {
-                    //Invalid move
                     ResetColorOfSquare(square1);
                     square1 = null;
                     square1Clicked = false;
-                    //MessageBox.Show("invalid move5"); //DEBUG
+                    MessageBox.Show("BLACK ROOK"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "white_knight")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("WHITE KNIGHT"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "black_knight")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("BLACK KNIGHT"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "white_bishop")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("WHITE BISHOP"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "black_bishop")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("BLACK BISHOP"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "white_queen")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("WHITE QUEEN"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "black_queen")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("BLACK QUEEN"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "white_king")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("WHITE KING"); //DEBUG
+                    selectedPiece = null;
+                }
+                else if (selectedPiece == "black_king")
+                {
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                    square1Clicked = false;
+                    MessageBox.Show("BLACK KING"); //DEBUG
                     selectedPiece = null;
                 }
             }
-
-
-            else if (selectedPiece == "black_rook")
-            {
-                ResetColorOfSquare(square1);
-                square1 = null;
-                square1Clicked = false;
-                MessageBox.Show("BLACK ROOK"); //DEBUG
-                selectedPiece = null;
-            }
-            else if (selectedPiece == "white_knight")
-            {
-                ResetColorOfSquare(square1);
-                square1 = null;
-                square1Clicked = false;
-                MessageBox.Show("WHITE KNIGHT"); //DEBUG
-                selectedPiece = null;
-            }
-            else if (selectedPiece == "black_knight")
-            {
-                ResetColorOfSquare(square1);
-                square1 = null;
-                square1Clicked = false;
-                MessageBox.Show("BLACK KNIGHT"); //DEBUG
-                selectedPiece = null;
-            }
-            else if (selectedPiece == "white_bishop")
-            {
-                ResetColorOfSquare(square1);
-                square1 = null;
-                square1Clicked = false;
-                MessageBox.Show("WHITE BISHOP"); //DEBUG
-                selectedPiece = null;
-            }
-            else if (selectedPiece == "black_bishop")
-            {
-                ResetColorOfSquare(square1);
-                square1 = null;
-                square1Clicked = false;
-                MessageBox.Show("BLACK BISHOP"); //DEBUG
-                selectedPiece = null;
-            }
-            else if (selectedPiece == "white_queen")
-            {
-                ResetColorOfSquare(square1);
-                square1 = null;
-                square1Clicked = false;
-                MessageBox.Show("WHITE QUEEN"); //DEBUG
-                selectedPiece = null;
-            }
-            else if (selectedPiece == "black_queen")
-            {
-                ResetColorOfSquare(square1);
-                square1 = null;
-                square1Clicked = false;
-                MessageBox.Show("BLACK QUEEN"); //DEBUG
-                selectedPiece = null;
-            }
-            else if (selectedPiece == "white_king")
-            {
-                ResetColorOfSquare(square1);
-                square1 = null;
-                square1Clicked = false;
-                MessageBox.Show("WHITE KING"); //DEBUG
-                selectedPiece = null;
-            }
-            else if (selectedPiece == "black_king")
-            {
-                ResetColorOfSquare(square1);
-                square1 = null;
-                square1Clicked = false;
-                MessageBox.Show("BLACK KING"); //DEBUG
-                selectedPiece = null;
-            }
-            }
         }
     }
+}
