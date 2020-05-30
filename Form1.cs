@@ -404,7 +404,7 @@ namespace Chess
                                         //MessageBox.Show("valid move1"); //DEBUG
                                         ResetColorOfSquare(square1);
                                         square1.Image = null;
-                                        square1.Tag = null;
+                                        square1.Tag = "empty";
                                         square1 = null;
                                         square1Clicked = false;
                                         selectedPiece = null;
@@ -752,12 +752,181 @@ namespace Chess
 
                 else if (selectedPiece == "black_rook")
                 {
-                    ResetColorOfSquare(square1);
-                    square1 = null;
-                    square1Clicked = false;
-                    MessageBox.Show("BLACK ROOK"); //DEBUG
-                    selectedPiece = null;
+                    if (square.Tag.ToString().Contains("black") == false || square.Tag.ToString().Contains("empty") == true)
+                    {
+                        int column = this.tableLayoutPanel1.GetColumn(square1);
+                        int startRow = this.tableLayoutPanel1.GetRow(square1);
+                        int endRow = this.tableLayoutPanel1.GetRow(square);
+                        bool squareInWay = false;
+
+                        if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Vertical move
+                        {
+                            if (endRow < startRow) // Vertical move "up"
+                            {
+                                for (int x = startRow - 1; x > endRow; x--) //For each square in the way, check occupied
+                                {
+                                    Control y = this.tableLayoutPanel1.GetControlFromPosition(column, x);
+                                    if (y.Tag.ToString().Contains("empty") == false)
+                                    {
+                                        squareInWay = true;
+                                        //MessageBox.Show(y.Tag.ToString()); //DEBUG
+                                    }
+                                }
+                                if (squareInWay == false)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move1"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = "empty";
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.black_rook;
+                                    square.Tag = "black_rook";
+                                }
+                                else
+                                {
+                                    //Invalid move
+                                    ResetColorOfSquare(square1);
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    //MessageBox.Show("invalid move1"); //DEBUG
+                                    selectedPiece = null;
+                                }
+                            }
+                            else //Vertical move "down"
+                            {
+                                for (int x = startRow + 1; x < endRow; x++) //For each square in the way, check occupied
+                                {
+                                    Control y = this.tableLayoutPanel1.GetControlFromPosition(column, x);
+                                    if (y.Tag.ToString().Contains("empty") == false)
+                                    {
+                                        squareInWay = true;
+                                        //MessageBox.Show(y.Tag.ToString()); //DEBUG
+                                    }
+                                }
+                                if (squareInWay == false)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move1"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = "empty";
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.black_rook;
+                                    square.Tag = "black_rook";
+                                }
+                                else
+                                {
+                                    //Invalid move
+                                    ResetColorOfSquare(square1);
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    //MessageBox.Show("invalid move1"); //DEBUG
+                                    selectedPiece = null;
+                                }
+                            }
+                        }
+                        else if (this.tableLayoutPanel1.GetRow(square1) == this.tableLayoutPanel1.GetRow(square)) //Horizontal move
+                        {
+                            int row = this.tableLayoutPanel1.GetRow(square1);
+                            int startCol = this.tableLayoutPanel1.GetColumn(square1);
+                            int endCol = this.tableLayoutPanel1.GetColumn(square);
+                            bool squareInWay2 = false;
+
+                            if (startCol > endCol) // Horizontal move "left"
+                            {
+                                for (int x = startCol - 1; x > endCol; x--) //For each square in the way, check if occupied
+                                {
+                                    Control y = this.tableLayoutPanel1.GetControlFromPosition(x, row);
+                                    if (y.Tag.ToString().Contains("empty") == false)
+                                    {
+                                        squareInWay2 = true;
+                                        //MessageBox.Show(y.Tag.ToString()); //DEBUG
+                                    }
+                                }
+                                if (squareInWay2 == false)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move1"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = "empty";
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.black_rook;
+                                    square.Tag = "black_rook";
+                                }
+                                else
+                                {
+                                    //Invalid move
+                                    ResetColorOfSquare(square1);
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    //MessageBox.Show("invalid move1"); //DEBUG
+                                    selectedPiece = null;
+                                }
+                            }
+                            else //Horizontal move right
+                            {
+                                for (int x = startCol + 1; x < endCol; x++) //For each square in the way, check occupied
+                                {
+                                    Control y = this.tableLayoutPanel1.GetControlFromPosition(x, row);
+                                    if (y.Tag.ToString().Contains("empty") == false)
+                                    {
+                                        squareInWay2 = true;
+                                        //MessageBox.Show(y.Tag.ToString()); //DEBUG
+                                    }
+                                }
+                                if (squareInWay2 == false)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move2"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = "empty";
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.black_rook;
+                                    square.Tag = "black_rook";
+                                }
+                                else
+                                {
+                                    //Invalid move
+                                    ResetColorOfSquare(square1);
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    //MessageBox.Show("invalid move2"); //DEBUG
+                                    selectedPiece = null;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //Invalid move
+                            ResetColorOfSquare(square1);
+                            square1 = null;
+                            square1Clicked = false;
+                            //MessageBox.Show("invalid move3"); //DEBUG
+                            selectedPiece = null;
+                        }
+                    }
+                    else
+                    {
+                        //Invalid move
+                        ResetColorOfSquare(square1);
+                        square1 = null;
+                        square1Clicked = false;
+                        //MessageBox.Show("invalid move4"); //DEBUG
+                        selectedPiece = null;
+                    }
                 }
+
                 else if (selectedPiece == "white_knight")
                 {
                     ResetColorOfSquare(square1);
