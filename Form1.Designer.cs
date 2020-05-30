@@ -865,7 +865,6 @@
             // 
             this.pictureBox38.BackColor = System.Drawing.Color.Goldenrod;
             this.pictureBox38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox38.Image = global::Chess.Properties.Resources.white_rook;
             this.pictureBox38.Location = new System.Drawing.Point(610, 472);
             this.pictureBox38.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox38.Name = "pictureBox38";
@@ -873,7 +872,7 @@
             this.pictureBox38.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox38.TabIndex = 37;
             this.pictureBox38.TabStop = false;
-            this.pictureBox38.Tag = "white_rook";
+            this.pictureBox38.Tag = "empty";
             this.pictureBox38.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox38.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox38.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);

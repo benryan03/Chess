@@ -386,6 +386,7 @@ namespace Chess
                         }
                     }
                 }
+
                 else if (selectedPiece == "black_pawn")
                 {
                     if (square.Tag.ToString().Contains("black") == false || square.Tag.ToString().Contains("empty") == true)
@@ -659,9 +660,9 @@ namespace Chess
                             int endCol = this.tableLayoutPanel1.GetColumn(square);
                             bool squareInWay2 = false;
 
-                            if (startCol < endCol) // Horizontal move "left"
+                            if (startCol > endCol) // Horizontal move "left"
                             {
-                                for (int x = startCol - 1; x > endCol; x--) //For each square in the way, check occupied
+                                for (int x = startCol - 1; x > endCol; x--) //For each square in the way, check if occupied
                                 {
                                     Control y = this.tableLayoutPanel1.GetControlFromPosition(x, row);
                                     if (y.Tag.ToString().Contains("empty") == false)
