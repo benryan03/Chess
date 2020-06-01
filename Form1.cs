@@ -139,7 +139,8 @@ namespace Chess
 
         private void SquareClick(object sender, EventArgs e)
         {
-            PictureBox square = ((PictureBox)sender);
+            PictureBox square = (PictureBox)sender;
+
             //First click of move
             if (square.Image != null & square1Clicked == false & square2Clicked == false)
             {
@@ -385,6 +386,15 @@ namespace Chess
                             }
                         }
                     }
+                    else
+                    {
+                        //Invalid move
+                        ResetColorOfSquare(square1);
+                        square1 = null;
+                        square1Clicked = false;
+                        //MessageBox.Show("invalid move1"); //DEBUG
+                        selectedPiece = null;
+                    }
                 }
 
                 else if (selectedPiece == "black_pawn")
@@ -570,6 +580,15 @@ namespace Chess
                                 }
                             }
                         }
+                    }
+                    else
+                    {
+                        //Invalid move
+                        ResetColorOfSquare(square1);
+                        square1 = null;
+                        square1Clicked = false;
+                        //MessageBox.Show("invalid move1"); //DEBUG
+                        selectedPiece = null;
                     }
                 }
 
@@ -1293,12 +1312,52 @@ namespace Chess
 
                 else if (selectedPiece == "white_bishop")
                 {
-                    ResetColorOfSquare(square1);
-                    square1 = null;
-                    square1Clicked = false;
-                    MessageBox.Show("WHITE BISHOP"); //DEBUG
-                    selectedPiece = null;
+                    if (square.Tag.ToString().Contains("white") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    {
+                        int startColumn = this.tableLayoutPanel1.GetColumn(square1);
+                        int startRow = this.tableLayoutPanel1.GetRow(square1);
+                        int endColumn = this.tableLayoutPanel1.GetColumn(square);
+                        int endRow = this.tableLayoutPanel1.GetRow(square);
+
+                        int rowDifference = endRow - startRow;
+                        int columnDifference = endColumn - startColumn;
+
+                        if (Math.Abs(rowDifference) == Math.Abs(columnDifference))
+                        {
+                            //Need to check if a piece is in the way
+
+                            //Valid move
+                            //MessageBox.Show("valid move1"); //DEBUG
+                            ResetColorOfSquare(square1);
+                            square1.Image = null;
+                            square1.Tag = "empty";
+                            square1 = null;
+                            square1Clicked = false;
+                            selectedPiece = null;
+                            square.Image = global::Chess.Properties.Resources.white_bishop;
+                            square.Tag = "white_bishop";
+                        }
+                        else
+                        {
+                            //Invalid move
+                            ResetColorOfSquare(square1);
+                            square1 = null;
+                            square1Clicked = false;
+                            //MessageBox.Show("invalid move6"); //DEBUG
+                            selectedPiece = null;
+                        }
+                    }
+                    else
+                    {
+                        //Invalid move
+                        ResetColorOfSquare(square1);
+                        square1 = null;
+                        square1Clicked = false;
+                        //MessageBox.Show("invalid move6"); //DEBUG
+                        selectedPiece = null;
+                    }
                 }
+
                 else if (selectedPiece == "black_bishop")
                 {
                     ResetColorOfSquare(square1);
