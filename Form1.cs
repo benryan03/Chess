@@ -929,12 +929,186 @@ namespace Chess
 
                 else if (selectedPiece == "white_knight")
                 {
-                    ResetColorOfSquare(square1);
-                    square1 = null;
-                    square1Clicked = false;
-                    MessageBox.Show("WHITE KNIGHT"); //DEBUG
-                    selectedPiece = null;
+                    if (square.Tag.ToString().Contains("white") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    {
+                        int startColumn = this.tableLayoutPanel1.GetColumn(square1);
+                        int startRow = this.tableLayoutPanel1.GetRow(square1);
+                        int endColumn = this.tableLayoutPanel1.GetColumn(square);
+                        int endRow = this.tableLayoutPanel1.GetRow(square);
+
+                        if (endColumn == startColumn - 2) //Vertical move up
+                        {
+                            if (endRow == startRow + 1) //Vertical move up/right
+                            {
+                                //Valid move
+                                //MessageBox.Show("valid move1"); //DEBUG
+                                ResetColorOfSquare(square1);
+                                square1.Image = null;
+                                square1.Tag = "empty";
+                                square1 = null;
+                                square1Clicked = false;
+                                selectedPiece = null;
+                                square.Image = global::Chess.Properties.Resources.white_knight;
+                                square.Tag = "white_knight";
+                            }
+                            else if (endRow == startRow - 1) //Vertical move up/left
+                            {
+                                //Valid move
+                                //MessageBox.Show("valid move1"); //DEBUG
+                                ResetColorOfSquare(square1);
+                                square1.Image = null;
+                                square1.Tag = "empty";
+                                square1 = null;
+                                square1Clicked = false;
+                                selectedPiece = null;
+                                square.Image = global::Chess.Properties.Resources.white_knight;
+                                square.Tag = "white_knight";
+                            }
+                            else
+                            {
+                                //Invalid move
+                                ResetColorOfSquare(square1);
+                                square1 = null;
+                                square1Clicked = false;
+                                MessageBox.Show("invalid move1"); //DEBUG
+                                selectedPiece = null;
+                            }
+                        }
+                        else if (endColumn == startColumn + 2) //Vertical move down
+                        {
+                            if (endRow == startRow + 1) //Vertical move down/right
+                            {
+                                //Valid move
+                                //MessageBox.Show("valid move1"); //DEBUG
+                                ResetColorOfSquare(square1);
+                                square1.Image = null;
+                                square1.Tag = "empty";
+                                square1 = null;
+                                square1Clicked = false;
+                                selectedPiece = null;
+                                square.Image = global::Chess.Properties.Resources.white_knight;
+                                square.Tag = "white_knight";
+                            }
+                            else if (endRow == startRow - 1) //Vertical move down/left
+                            {
+                                //Valid move
+                                //MessageBox.Show("valid move1"); //DEBUG
+                                ResetColorOfSquare(square1);
+                                square1.Image = null;
+                                square1.Tag = "empty";
+                                square1 = null;
+                                square1Clicked = false;
+                                selectedPiece = null;
+                                square.Image = global::Chess.Properties.Resources.white_knight;
+                                square.Tag = "white_knight";
+                            }
+                            else
+                            {
+                                //Invalid move
+                                ResetColorOfSquare(square1);
+                                square1 = null;
+                                square1Clicked = false;
+                                MessageBox.Show("invalid move2"); //DEBUG
+                                selectedPiece = null;
+                            }
+                        }
+                        else if (endRow == startRow - 2) //Horizontal move left
+                        {
+                            if (endColumn == startColumn - 1) //Horizontal move left/up
+                            {
+                                //Valid move
+                                //MessageBox.Show("valid move1"); //DEBUG
+                                ResetColorOfSquare(square1);
+                                square1.Image = null;
+                                square1.Tag = "empty";
+                                square1 = null;
+                                square1Clicked = false;
+                                selectedPiece = null;
+                                square.Image = global::Chess.Properties.Resources.white_knight;
+                                square.Tag = "white_knight";
+                            }
+                            else if (endColumn == startColumn + 1) //Horizontal move left/down
+                            {
+                                //Valid move
+                                //MessageBox.Show("valid move1"); //DEBUG
+                                ResetColorOfSquare(square1);
+                                square1.Image = null;
+                                square1.Tag = "empty";
+                                square1 = null;
+                                square1Clicked = false;
+                                selectedPiece = null;
+                                square.Image = global::Chess.Properties.Resources.white_knight;
+                                square.Tag = "white_knight";
+                            }
+                            else
+                            {
+                                //Invalid move
+                                ResetColorOfSquare(square1);
+                                square1 = null;
+                                square1Clicked = false;
+                                MessageBox.Show("invalid move3"); //DEBUG
+                                selectedPiece = null;
+                            }
+                        }
+                        else if (endRow == startRow + 2) //Horizontal move right
+                        {
+                            if (endColumn == startColumn - 1) //Horizontal move right/up
+                            {
+                                //Valid move
+                                //MessageBox.Show("valid move1"); //DEBUG
+                                ResetColorOfSquare(square1);
+                                square1.Image = null;
+                                square1.Tag = "empty";
+                                square1 = null;
+                                square1Clicked = false;
+                                selectedPiece = null;
+                                square.Image = global::Chess.Properties.Resources.white_knight;
+                                square.Tag = "white_knight";
+                            }
+                            else if (endColumn == startColumn + 1) //Horizontal move right/down
+                            {
+                                //Valid move
+                                //MessageBox.Show("valid move1"); //DEBUG
+                                ResetColorOfSquare(square1);
+                                square1.Image = null;
+                                square1.Tag = "empty";
+                                square1 = null;
+                                square1Clicked = false;
+                                selectedPiece = null;
+                                square.Image = global::Chess.Properties.Resources.white_knight;
+                                square.Tag = "white_knight";
+                            }
+                            else
+                            {
+                                //Invalid move
+                                ResetColorOfSquare(square1);
+                                square1 = null;
+                                square1Clicked = false;
+                                MessageBox.Show("invalid move4"); //DEBUG
+                                selectedPiece = null;
+                            }
+                        }
+                        else
+                        {
+                            //Invalid move
+                            ResetColorOfSquare(square1);
+                            square1 = null;
+                            square1Clicked = false;
+                            MessageBox.Show("invalid move5"); //DEBUG
+                            selectedPiece = null;
+                        }
+                    }
+                    else //Target is own piece
+                    {
+                        //Invalid move
+                        ResetColorOfSquare(square1);
+                        square1 = null;
+                        square1Clicked = false;
+                        MessageBox.Show("invalid move6"); //DEBUG
+                        selectedPiece = null;
+                    }
                 }
+
                 else if (selectedPiece == "black_knight")
                 {
                     ResetColorOfSquare(square1);
