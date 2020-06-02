@@ -237,22 +237,12 @@ namespace Chess
                                     }
                                     else
                                     {
-                                        //Invalid move
-                                        ResetColorOfSquare(square1);
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        //MessageBox.Show("invalid move1"); //DEBUG
-                                        selectedPiece = null;
+                                        InvalidMove();
                                     }
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move2"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                             else //Original row, and not same column
@@ -276,32 +266,17 @@ namespace Chess
                                         }
                                         else
                                         {
-                                            //Invalid move
-                                            ResetColorOfSquare(square1);
-                                            square1 = null;
-                                            square1Clicked = false;
-                                            //MessageBox.Show("invalid move3"); //DEBUG
-                                            selectedPiece = null;
+                                            InvalidMove();
                                         }
                                     }
                                     else
                                     {
-                                        //Invalid move
-                                        ResetColorOfSquare(square1);
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        //MessageBox.Show("invalid move4"); //DEBUG
-                                        selectedPiece = null;
+                                        InvalidMove();
                                     }
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move5"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                         }
@@ -326,22 +301,12 @@ namespace Chess
                                     }
                                     else
                                     {
-                                        //Invalid move
-                                        ResetColorOfSquare(square1);
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        //MessageBox.Show("invalid move6"); //DEBUG
-                                        selectedPiece = null;
+                                        InvalidMove();
                                     }
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move7"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                             else //Not original row, and different column
@@ -365,44 +330,24 @@ namespace Chess
                                         }
                                         else
                                         {
-                                            //Invalid move
-                                            ResetColorOfSquare(square1);
-                                            square1 = null;
-                                            square1Clicked = false;
-                                            //MessageBox.Show("invalid move8"); //DEBUG
-                                            selectedPiece = null;
+                                            InvalidMove();
                                         }
                                     }
                                     else
                                     {
-                                        //Invalid move
-                                        ResetColorOfSquare(square1);
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        //MessageBox.Show("invalid move9"); //DEBUG
-                                        selectedPiece = null;
+                                        InvalidMove();
                                     }
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move10"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                         }
                     }
                     else
                     {
-                        //Invalid move
-                        ResetColorOfSquare(square1);
-                        square1 = null;
-                        square1Clicked = false;
-                        //MessageBox.Show("invalid move1"); //DEBUG
-                        selectedPiece = null;
+                        InvalidMove();
                     }
                 }
 
@@ -432,22 +377,12 @@ namespace Chess
                                     }
                                     else
                                     {
-                                        //Invalid move
-                                        ResetColorOfSquare(square1);
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        //MessageBox.Show("invalid move1"); //DEBUG
-                                        selectedPiece = null;
+                                        InvalidMove();
                                     }
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move2"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                             else //Original row, and not same column
@@ -471,32 +406,17 @@ namespace Chess
                                         }
                                         else
                                         {
-                                            //Invalid move
-                                            ResetColorOfSquare(square1);
-                                            square1 = null;
-                                            square1Clicked = false;
-                                            //MessageBox.Show("invalid move3"); //DEBUG
-                                            selectedPiece = null;
+                                            InvalidMove();
                                         }
                                     }
                                     else
                                     {
-                                        //Invalid move
-                                        ResetColorOfSquare(square1);
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        //MessageBox.Show("invalid move4"); //DEBUG
-                                        selectedPiece = null;
+                                        InvalidMove();
                                     }
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move5"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                         }
@@ -521,22 +441,12 @@ namespace Chess
                                     }
                                     else
                                     {
-                                        //Invalid move
-                                        ResetColorOfSquare(square1);
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        //MessageBox.Show("invalid move6"); //DEBUG
-                                        selectedPiece = null;
+                                        InvalidMove();
                                     }
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move7"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                             else //Not original row, and different column
@@ -560,44 +470,24 @@ namespace Chess
                                         }
                                         else
                                         {
-                                            //Invalid move
-                                            ResetColorOfSquare(square1);
-                                            square1 = null;
-                                            square1Clicked = false;
-                                            //MessageBox.Show("invalid move8"); //DEBUG
-                                            selectedPiece = null;
+                                            InvalidMove();
                                         }
                                     }
                                     else
                                     {
-                                        //Invalid move
-                                        ResetColorOfSquare(square1);
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        //MessageBox.Show("invalid move9"); //DEBUG
-                                        selectedPiece = null;
+                                        InvalidMove();
                                     }
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move10"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                         }
                     }
                     else
                     {
-                        //Invalid move
-                        ResetColorOfSquare(square1);
-                        square1 = null;
-                        square1Clicked = false;
-                        //MessageBox.Show("invalid move1"); //DEBUG
-                        selectedPiece = null;
+                        InvalidMove();
                     }
                 }
 
@@ -638,12 +528,7 @@ namespace Chess
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move1"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                             else //Vertical move "down"
@@ -672,12 +557,7 @@ namespace Chess
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move1"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                         }
@@ -714,12 +594,7 @@ namespace Chess
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move1"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                             else //Horizontal move right
@@ -748,33 +623,18 @@ namespace Chess
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move2"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                         }
                         else
                         {
-                            //Invalid move
-                            ResetColorOfSquare(square1);
-                            square1 = null;
-                            square1Clicked = false;
-                            //MessageBox.Show("invalid move3"); //DEBUG
-                            selectedPiece = null;
+                            InvalidMove();
                         }
                     }
                     else
                     {
-                        //Invalid move
-                        ResetColorOfSquare(square1);
-                        square1 = null;
-                        square1Clicked = false;
-                        //MessageBox.Show("invalid move4"); //DEBUG
-                        selectedPiece = null;
+                        InvalidMove();
                     }
                 }
 
@@ -815,12 +675,7 @@ namespace Chess
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move1"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                             else //Vertical move "down"
@@ -849,12 +704,7 @@ namespace Chess
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move1"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                         }
@@ -891,12 +741,7 @@ namespace Chess
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move1"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                             else //Horizontal move right
@@ -925,33 +770,18 @@ namespace Chess
                                 }
                                 else
                                 {
-                                    //Invalid move
-                                    ResetColorOfSquare(square1);
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    //MessageBox.Show("invalid move2"); //DEBUG
-                                    selectedPiece = null;
+                                    InvalidMove();
                                 }
                             }
                         }
                         else
                         {
-                            //Invalid move
-                            ResetColorOfSquare(square1);
-                            square1 = null;
-                            square1Clicked = false;
-                            //MessageBox.Show("invalid move3"); //DEBUG
-                            selectedPiece = null;
+                            InvalidMove();
                         }
                     }
                     else
                     {
-                        //Invalid move
-                        ResetColorOfSquare(square1);
-                        square1 = null;
-                        square1Clicked = false;
-                        //MessageBox.Show("invalid move4"); //DEBUG
-                        selectedPiece = null;
+                        InvalidMove();
                     }
                 }
 
@@ -994,12 +824,7 @@ namespace Chess
                             }
                             else
                             {
-                                //Invalid move
-                                ResetColorOfSquare(square1);
-                                square1 = null;
-                                square1Clicked = false;
-                                //MessageBox.Show("invalid move1"); //DEBUG
-                                selectedPiece = null;
+                                InvalidMove();
                             }
                         }
                         else if (endColumn == startColumn + 2) //Vertical move down
@@ -1032,12 +857,7 @@ namespace Chess
                             }
                             else
                             {
-                                //Invalid move
-                                ResetColorOfSquare(square1);
-                                square1 = null;
-                                square1Clicked = false;
-                                //MessageBox.Show("invalid move2"); //DEBUG
-                                selectedPiece = null;
+                                InvalidMove();
                             }
                         }
                         else if (endRow == startRow - 2) //Horizontal move left
@@ -1070,12 +890,7 @@ namespace Chess
                             }
                             else
                             {
-                                //Invalid move
-                                ResetColorOfSquare(square1);
-                                square1 = null;
-                                square1Clicked = false;
-                                //MessageBox.Show("invalid move3"); //DEBUG
-                                selectedPiece = null;
+                                InvalidMove();
                             }
                         }
                         else if (endRow == startRow + 2) //Horizontal move right
@@ -1108,32 +923,17 @@ namespace Chess
                             }
                             else
                             {
-                                //Invalid move
-                                ResetColorOfSquare(square1);
-                                square1 = null;
-                                square1Clicked = false;
-                                //MessageBox.Show("invalid move4"); //DEBUG
-                                selectedPiece = null;
+                                InvalidMove();
                             }
                         }
                         else
                         {
-                            //Invalid move
-                            ResetColorOfSquare(square1);
-                            square1 = null;
-                            square1Clicked = false;
-                            //MessageBox.Show("invalid move5"); //DEBUG
-                            selectedPiece = null;
+                            InvalidMove();
                         }
                     }
                     else //Target is own piece
                     {
-                        //Invalid move
-                        ResetColorOfSquare(square1);
-                        square1 = null;
-                        square1Clicked = false;
-                        //MessageBox.Show("invalid move6"); //DEBUG
-                        selectedPiece = null;
+                        InvalidMove();
                     }
                 }
 
@@ -1214,12 +1014,7 @@ namespace Chess
                             }
                             else
                             {
-                                //Invalid move
-                                ResetColorOfSquare(square1);
-                                square1 = null;
-                                square1Clicked = false;
-                                //MessageBox.Show("invalid move2"); //DEBUG
-                                selectedPiece = null;
+                                InvalidMove();
                             }
                         }
                         else if (endRow == startRow - 2) //Horizontal move left
@@ -1252,12 +1047,7 @@ namespace Chess
                             }
                             else
                             {
-                                //Invalid move
-                                ResetColorOfSquare(square1);
-                                square1 = null;
-                                square1Clicked = false;
-                                //MessageBox.Show("invalid move3"); //DEBUG
-                                selectedPiece = null;
+                                InvalidMove();
                             }
                         }
                         else if (endRow == startRow + 2) //Horizontal move right
@@ -1290,32 +1080,17 @@ namespace Chess
                             }
                             else
                             {
-                                //Invalid move
-                                ResetColorOfSquare(square1);
-                                square1 = null;
-                                square1Clicked = false;
-                                //MessageBox.Show("invalid move4"); //DEBUG
-                                selectedPiece = null;
+                                InvalidMove();
                             }
                         }
                         else
                         {
-                            //Invalid move
-                            ResetColorOfSquare(square1);
-                            square1 = null;
-                            square1Clicked = false;
-                            //MessageBox.Show("invalid move5"); //DEBUG
-                            selectedPiece = null;
+                            InvalidMove();
                         }
                     }
                     else //Target is own piece
                     {
-                        //Invalid move
-                        ResetColorOfSquare(square1);
-                        square1 = null;
-                        square1Clicked = false;
-                        //MessageBox.Show("invalid move6"); //DEBUG
-                        selectedPiece = null;
+                        InvalidMove();
                     }
                 }
 
@@ -1365,13 +1140,11 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        // MessageBox.Show("invalid move1"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                             else if (endRow < startRow) //Target square is up and to the left
@@ -1403,19 +1176,16 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        //MessageBox.Show("invalid move3"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                             else
                             {
                                 InvalidMove();
-                                //MessageBox.Show("horizontal move by bishop"); //DEBUG
                             }
                         }
                         else if (endColumn > startColumn) //RIGHT
@@ -1449,13 +1219,11 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        //MessageBox.Show("invalid move6"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                             else if (endRow < startRow) //Target square is up and to the right
@@ -1488,26 +1256,22 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        //MessageBox.Show("invalid move8"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                         }
                         else
                         {
                             InvalidMove(); //horizontal move by bishop
-                            //MessageBox.Show("horizontal move by bishop"); //DEBUG
                         }
                     }
                     else
                     {
                         InvalidMove();
-                        //MessageBox.Show("target is own piece"); //DEBUG
                     }
                 }
 
@@ -1557,13 +1321,11 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        // MessageBox.Show("invalid move1"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                             else if (endRow < startRow) //Target square is up and to the left
@@ -1595,13 +1357,11 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        //MessageBox.Show("invalid move3"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                             else
@@ -1641,13 +1401,11 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        //MessageBox.Show("invalid move6"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                             else if (endRow < startRow) //Target square is up and to the right
@@ -1680,26 +1438,22 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        //MessageBox.Show("invalid move8"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                         }
                         else
                         {
                             InvalidMove(); //horizontal move by bishop
-                            //MessageBox.Show("horizontal move by bishop"); //DEBUG
                         }
                     }
                     else
                     {
                         InvalidMove();
-                        //MessageBox.Show("target is own piece"); //DEBUG
                     }
                 }
 
@@ -1778,7 +1532,6 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        // MessageBox.Show("invalid move1"); //DEBUG
                                     }
                                 }
                                 else
@@ -1816,19 +1569,16 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        //MessageBox.Show("invalid move3"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                             else
                             {
                                 InvalidMove();
-                                //MessageBox.Show("horizontal move by bishop"); //DEBUG
                             }
                         }
                         else if (endColumn == startColumn) //VERTICAL MOVE
@@ -1952,13 +1702,11 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        //MessageBox.Show("invalid move6"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                             else if (endRow < startRow) //Target square is up and to the right
@@ -1991,13 +1739,11 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                        //MessageBox.Show("invalid move8"); //DEBUG
                                     }
                                 }
                                 else
                                 {
                                     InvalidMove();
-                                    //MessageBox.Show("not diagonal"); //DEBUG
                                 }
                             }
                         }
@@ -2009,7 +1755,6 @@ namespace Chess
                     else
                     {
                         InvalidMove();
-                        //MessageBox.Show("target is own piece"); //DEBUG
                     }
                 }
 
@@ -2319,7 +2064,6 @@ namespace Chess
                     else
                     {
                         InvalidMove();
-                        //MessageBox.Show("target is own piece"); //DEBUG
                     }
                 }
 
