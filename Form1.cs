@@ -1365,7 +1365,7 @@ namespace Chess
                                     else
                                     {
                                         InvalidMove();
-                                       // MessageBox.Show("invalid move1"); //DEBUG
+                                        // MessageBox.Show("invalid move1"); //DEBUG
                                     }
                                 }
                                 else
@@ -1390,7 +1390,7 @@ namespace Chess
                                     if (squareInWay == false)
                                     {
                                         //Valid move
-                                       // MessageBox.Show("valid move2"); //DEBUG
+                                        // MessageBox.Show("valid move2"); //DEBUG
                                         ResetColorOfSquare(square1);
                                         square1.Image = null;
                                         square1.Tag = "empty";
@@ -1422,7 +1422,7 @@ namespace Chess
                         {
                             if (endRow > startRow) //Target square is down and to the right
                             {
-                                if (Math.Abs(rowDifference) == Math.Abs(columnDifference)) 
+                                if (Math.Abs(rowDifference) == Math.Abs(columnDifference))
                                 {
                                     for (int x = 1; x < Math.Abs(rowDifference); x++) //For each square in the way, check occupied
                                     {
@@ -1475,7 +1475,7 @@ namespace Chess
                                     if (squareInWay == false)
                                     {
                                         //Valid move
-                                       // MessageBox.Show("valid move4"); //DEBUG
+                                        // MessageBox.Show("valid move4"); //DEBUG
                                         ResetColorOfSquare(square1);
                                         square1.Image = null;
                                         square1.Tag = "empty";
@@ -1747,7 +1747,7 @@ namespace Chess
                                 {
                                     InvalidMove();
                                 }
-                            }                           
+                            }
                             else if (endRow > startRow) //Target square is down and to the left 
                             {
                                 if (Math.Abs(rowDifference) == Math.Abs(columnDifference)) //Target square is diagonal
@@ -2325,11 +2325,39 @@ namespace Chess
 
                 else if (selectedPiece == "white_king")
                 {
-                    ResetColorOfSquare(square1);
-                    square1 = null;
-                    square1Clicked = false;
-                    MessageBox.Show("WHITE KING"); //DEBUG
-                    selectedPiece = null;
+                    if (square.Tag.ToString().Contains("white") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    {
+                        int startColumn = this.tableLayoutPanel1.GetColumn(square1);
+                        int startRow = this.tableLayoutPanel1.GetRow(square1);
+                        int endColumn = this.tableLayoutPanel1.GetColumn(square);
+                        int endRow = this.tableLayoutPanel1.GetRow(square);
+
+                        int rowDifference = endRow - startRow;
+                        int columnDifference = endColumn - startColumn;
+                        
+                        if (Math.Abs(rowDifference) == 1 || Math.Abs(columnDifference) == 1)
+                        {
+                            //Valid move
+                            //MessageBox.Show("valid move1"); //DEBUG
+                            ResetColorOfSquare(square1);
+                            square1.Image = null;
+                            square1.Tag = "empty";
+                            square1 = null;
+                            square1Clicked = false;
+                            selectedPiece = null;
+                            square.Image = global::Chess.Properties.Resources.white_king;
+                            square.Tag = "white_king";
+                        }
+                        else
+                        {
+                            InvalidMove();
+                        }
+
+                    }
+                    else
+                    {
+                        InvalidMove();
+                    }
                 }
                 else if (selectedPiece == "black_king")
                 {
