@@ -2012,14 +2012,317 @@ namespace Chess
                         //MessageBox.Show("target is own piece"); //DEBUG
                     }
                 }
+
                 else if (selectedPiece == "black_queen")
                 {
-                    ResetColorOfSquare(square1);
-                    square1 = null;
-                    square1Clicked = false;
-                    MessageBox.Show("BLACK QUEEN"); //DEBUG
-                    selectedPiece = null;
+                    if (square.Tag.ToString().Contains("black") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    {
+                        int startColumn = this.tableLayoutPanel1.GetColumn(square1);
+                        int startRow = this.tableLayoutPanel1.GetRow(square1);
+                        int endColumn = this.tableLayoutPanel1.GetColumn(square);
+                        int endRow = this.tableLayoutPanel1.GetRow(square);
+
+                        int rowDifference = endRow - startRow;
+                        int columnDifference = endColumn - startColumn;
+
+                        bool squareInWay = false;
+
+                        if (endColumn < startColumn) //LEFT
+                        {
+                            if (startRow == endRow) // Horizontal move left
+                            {
+                                for (int x = startColumn - 1; x > endColumn; x--) //For each square in the way, check if occupied
+                                {
+                                    Control y = this.tableLayoutPanel1.GetControlFromPosition(x, endRow);
+                                    if (y.Tag.ToString().Contains("empty") == false)
+                                    {
+                                        squareInWay = true;
+                                        //MessageBox.Show(y.Tag.ToString()); //DEBUG
+                                    }
+                                }
+                                if (squareInWay == false)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move1"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = "empty";
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.black_queen;
+                                    square.Tag = "black_queen";
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                }
+                            }
+                            else if (endRow > startRow) //Target square is down and to the left 
+                            {
+                                if (Math.Abs(rowDifference) == Math.Abs(columnDifference)) //Target square is diagonal
+                                {
+                                    for (int x = 1; x < Math.Abs(rowDifference); x++) //For each square in the way, check occupied
+                                    {
+                                        Control y = this.tableLayoutPanel1.GetControlFromPosition(startColumn - x, startRow + x);
+                                        //MessageBox.Show("Checking square"); //DEBUG
+                                        if (y.Tag.ToString().Contains("empty") == false)
+                                        {
+                                            squareInWay = true;
+                                            //MessageBox.Show("test"); //debug
+                                        }
+                                    }
+                                    if (squareInWay == false)
+                                    {
+                                        //Valid move
+                                        //MessageBox.Show("valid move1"); //DEBUG
+                                        ResetColorOfSquare(square1);
+                                        square1.Image = null;
+                                        square1.Tag = "empty";
+                                        square1 = null;
+                                        square1Clicked = false;
+                                        selectedPiece = null;
+                                        square.Image = global::Chess.Properties.Resources.black_queen;
+                                        square.Tag = "black_queen";
+                                    }
+                                    else
+                                    {
+                                        InvalidMove();
+                                        // MessageBox.Show("invalid move1"); //DEBUG
+                                    }
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                    //MessageBox.Show("not diagonal"); //DEBUG
+                                }
+                            }
+                            else if (endRow < startRow) //Target square is up and to the left
+                            {
+                                if (Math.Abs(rowDifference) == Math.Abs(columnDifference)) //Target square is diagonal
+                                {
+                                    for (int x = 1; x < Math.Abs(rowDifference); x++) //For each square in the way, check occupied
+                                    {
+                                        Control y = this.tableLayoutPanel1.GetControlFromPosition(startColumn - x, startRow - x);
+                                        //MessageBox.Show("Checking square"); //DEBUG
+                                        if (y.Tag.ToString().Contains("empty") == false)
+                                        {
+                                            squareInWay = true;
+                                        }
+                                    }
+                                    if (squareInWay == false)
+                                    {
+                                        //Valid move
+                                        // MessageBox.Show("valid move2"); //DEBUG
+                                        ResetColorOfSquare(square1);
+                                        square1.Image = null;
+                                        square1.Tag = "empty";
+                                        square1 = null;
+                                        square1Clicked = false;
+                                        selectedPiece = null;
+                                        square.Image = global::Chess.Properties.Resources.black_queen;
+                                        square.Tag = "black_queen";
+                                    }
+                                    else
+                                    {
+                                        InvalidMove();
+                                        //MessageBox.Show("invalid move3"); //DEBUG
+                                    }
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                    //MessageBox.Show("not diagonal"); //DEBUG
+                                }
+                            }
+                            else
+                            {
+                                InvalidMove();
+                                //MessageBox.Show("horizontal move by bishop"); //DEBUG
+                            }
+                        }
+                        else if (endColumn == startColumn) //VERTICAL MOVE
+                        {
+                            if (endRow < startRow) // Vertical move "up"
+                            {
+                                for (int x = startRow - 1; x > endRow; x--) //For each square in the way, check occupied
+                                {
+                                    Control y = this.tableLayoutPanel1.GetControlFromPosition(endColumn, x);
+                                    if (y.Tag.ToString().Contains("empty") == false)
+                                    {
+                                        squareInWay = true;
+                                        //MessageBox.Show(y.Tag.ToString()); //DEBUG
+                                    }
+                                }
+                                if (squareInWay == false)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move1"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = "empty";
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.black_queen;
+                                    square.Tag = "black_queen";
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                }
+                            }
+                            else //Vertical move "down"
+                            {
+                                for (int x = startRow + 1; x < endRow; x++) //For each square in the way, check occupied
+                                {
+                                    Control y = this.tableLayoutPanel1.GetControlFromPosition(endColumn, x);
+                                    if (y.Tag.ToString().Contains("empty") == false)
+                                    {
+                                        squareInWay = true;
+                                        //MessageBox.Show(y.Tag.ToString()); //DEBUG
+                                    }
+                                }
+                                if (squareInWay == false)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move1"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = "empty";
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.black_queen;
+                                    square.Tag = "black_queen";
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                }
+                            }
+                        }
+                        else if (endColumn > startColumn) //RIGHT
+                        {
+                            if (startRow == endRow) //Horizontal move right
+                            {
+                                for (int x = startColumn + 1; x < endColumn; x++) //For each square in the way, check occupied
+                                {
+                                    Control y = this.tableLayoutPanel1.GetControlFromPosition(x, endRow);
+                                    if (y.Tag.ToString().Contains("empty") == false)
+                                    {
+                                        squareInWay = true;
+                                        //MessageBox.Show(y.Tag.ToString()); //DEBUG
+                                    }
+                                }
+                                if (squareInWay == false)
+                                {
+                                    //Valid move
+                                    //MessageBox.Show("valid move2"); //DEBUG
+                                    ResetColorOfSquare(square1);
+                                    square1.Image = null;
+                                    square1.Tag = "empty";
+                                    square1 = null;
+                                    square1Clicked = false;
+                                    selectedPiece = null;
+                                    square.Image = global::Chess.Properties.Resources.black_queen;
+                                    square.Tag = "black_queen";
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                }
+                            }
+                            else if (endRow > startRow) //Target square is down and to the right
+                            {
+                                if (Math.Abs(rowDifference) == Math.Abs(columnDifference)) //Target square is diagonal
+                                {
+                                    for (int x = 1; x < Math.Abs(rowDifference); x++) //For each square in the way, check occupied
+                                    {
+                                        Control y = this.tableLayoutPanel1.GetControlFromPosition(startColumn + x, startRow + x);
+                                        //MessageBox.Show("Checking square"); //DEBUG
+                                        if (y.Tag.ToString().Contains("empty") == false)
+                                        {
+                                            squareInWay = true;
+                                        }
+                                    }
+                                    if (squareInWay == false)
+                                    {
+                                        //Valid move
+                                        //MessageBox.Show("valid move3"); //DEBUG
+                                        ResetColorOfSquare(square1);
+                                        square1.Image = null;
+                                        square1.Tag = "empty";
+                                        square1 = null;
+                                        square1Clicked = false;
+                                        selectedPiece = null;
+                                        square.Image = global::Chess.Properties.Resources.black_queen;
+                                        square.Tag = "black_queen";
+                                    }
+                                    else
+                                    {
+                                        InvalidMove();
+                                        //MessageBox.Show("invalid move6"); //DEBUG
+                                    }
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                    //MessageBox.Show("not diagonal"); //DEBUG
+                                }
+                            }
+                            else if (endRow < startRow) //Target square is up and to the right
+                            {
+                                if (Math.Abs(rowDifference) == Math.Abs(columnDifference)) //Target square is diagonal
+                                {
+                                    for (int x = 1; x < Math.Abs(rowDifference); x++) //For each square in the way, check occupied
+                                    {
+                                        Control y = this.tableLayoutPanel1.GetControlFromPosition(startColumn + x, startRow - x);
+                                        //MessageBox.Show("Checking square"); //DEBUG
+                                        if (y.Tag.ToString().Contains("empty") == false && squareInWay == false)
+                                        {
+                                            squareInWay = true;
+                                            MessageBox.Show(y.Tag.ToString());
+                                        }
+                                    }
+                                    if (squareInWay == false)
+                                    {
+                                        //Valid move
+                                        // MessageBox.Show("valid move4"); //DEBUG
+                                        ResetColorOfSquare(square1);
+                                        square1.Image = null;
+                                        square1.Tag = "empty";
+                                        square1 = null;
+                                        square1Clicked = false;
+                                        selectedPiece = null;
+                                        square.Image = global::Chess.Properties.Resources.black_queen;
+                                        square.Tag = "black_queen";
+                                    }
+                                    else
+                                    {
+                                        InvalidMove();
+                                        //MessageBox.Show("invalid move8"); //DEBUG
+                                    }
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                    //MessageBox.Show("not diagonal"); //DEBUG
+                                }
+                            }
+                        }
+                        else //if (endColumn == startColumn) //Horizontal move
+                        {
+                            InvalidMove();
+                        }
+                    }
+                    else
+                    {
+                        InvalidMove();
+                        //MessageBox.Show("target is own piece"); //DEBUG
+                    }
                 }
+
                 else if (selectedPiece == "white_king")
                 {
                     ResetColorOfSquare(square1);
