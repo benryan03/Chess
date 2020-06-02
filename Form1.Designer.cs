@@ -961,6 +961,7 @@
             // 
             this.pictureBox44.BackColor = System.Drawing.Color.Beige;
             this.pictureBox44.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox44.Image = global::Chess.Properties.Resources.white_queen;
             this.pictureBox44.Location = new System.Drawing.Point(366, 590);
             this.pictureBox44.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox44.Name = "pictureBox44";
@@ -968,7 +969,7 @@
             this.pictureBox44.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox44.TabIndex = 43;
             this.pictureBox44.TabStop = false;
-            this.pictureBox44.Tag = "empty";
+            this.pictureBox44.Tag = "white_queen";
             this.pictureBox44.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox44.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox44.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
