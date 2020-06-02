@@ -18,11 +18,74 @@ namespace Chess
         bool square2Clicked = false;
         PictureBox square1 = new PictureBox();
         PictureBox square2 = new PictureBox();
+        PictureBox square = new PictureBox();
         string selectedPiece = null;
 
         public Form1()
         {
             InitializeComponent();
+        }
+        private void ValidMove(string piece)
+        {
+            ResetColorOfSquare(square1);
+            square1.Image = null;
+            square1.Tag = "empty";
+            square1 = null;
+            square1Clicked = false;
+            selectedPiece = null;
+            square.Tag = piece;
+
+            //I still need to find a way to simplify this
+            if (piece == "white_pawn")
+            {
+                square.Image = Properties.Resources.white_pawn;
+            }
+            else if (piece == "black_pawn")
+            {
+                square.Image = Properties.Resources.black_pawn;
+            }
+            else if (piece == "white_rook")
+            {
+                square.Image = Properties.Resources.white_rook;
+            }
+            else if (piece == "black_rook")
+            {
+                square.Image = Properties.Resources.black_rook;
+            }
+            else if (piece == "white_knight")
+            {
+                square.Image = Properties.Resources.white_knight;
+            }
+            else if (piece == "black_knight")
+            {
+                square.Image = Properties.Resources.black_knight;
+            }
+            else if (piece == "white_bishop")
+            {
+                square.Image = Properties.Resources.white_bishop;
+            }
+            else if (piece == "black_bishop")
+            {
+                square.Image = Properties.Resources.black_bishop;
+            }
+            else if (piece == "white_queen")
+            {
+                square.Image = Properties.Resources.white_queen;
+            }
+            else if (piece == "black_queen")
+            {
+                square.Image = Properties.Resources.black_queen;
+            }
+            else if (piece == "white_king")
+            {
+                square.Image = Properties.Resources.white_king;
+            }
+            else if (piece == "black_king")
+            {
+                square.Image = Properties.Resources.black_king;
+            }
+
+
         }
 
         private void InvalidMove()
@@ -148,7 +211,7 @@ namespace Chess
 
         private void SquareClick(object sender, EventArgs e)
         {
-            PictureBox square = (PictureBox)sender;
+            square = (PictureBox)sender;
 
             //First click of move
             if (square.Image != null & square1Clicked == false & square2Clicked == false)
@@ -224,16 +287,7 @@ namespace Chess
                                 {
                                     if (square.Tag.ToString() == "empty") //If square is empty
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move1"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.white_pawn;
-                                        square.Tag = "white_pawn";
+                                        ValidMove("white_pawn");
                                     }
                                     else
                                     {
@@ -253,16 +307,7 @@ namespace Chess
                                     {
                                         if (square.Tag.ToString() != "empty") //If square is full
                                         {
-                                            //Valid move
-                                            //MessageBox.Show("valid move2"); //DEBUG
-                                            ResetColorOfSquare(square1);
-                                            square1.Image = null;
-                                            square1.Tag = "empty";
-                                            square1 = null;
-                                            square1Clicked = false;
-                                            selectedPiece = null;
-                                            square.Image = global::Chess.Properties.Resources.white_pawn;
-                                            square.Tag = "white_pawn";
+                                            ValidMove("white_pawn");
                                         }
                                         else
                                         {
@@ -288,16 +333,7 @@ namespace Chess
                                 {
                                     if (square.Tag.ToString() == "empty")
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move3"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.white_pawn;
-                                        square.Tag = "white_pawn";
+                                        ValidMove("white_pawn");
                                     }
                                     else
                                     {
@@ -317,16 +353,7 @@ namespace Chess
                                     {
                                         if (square.Tag.ToString() != "empty") //If square is full
                                         {
-                                            //Valid move
-                                            //MessageBox.Show("valid move4"); //DEBUG
-                                            ResetColorOfSquare(square1);
-                                            square1.Image = null;
-                                            square1.Tag = "empty";
-                                            square1 = null;
-                                            square1Clicked = false;
-                                            selectedPiece = null;
-                                            square.Image = global::Chess.Properties.Resources.white_pawn;
-                                            square.Tag = "white_pawn";
+                                            ValidMove("white_pawn");
                                         }
                                         else
                                         {
@@ -364,16 +391,7 @@ namespace Chess
                                 {
                                     if (square.Tag.ToString() == "empty") //If square is empty
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move1"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.black_pawn;
-                                        square.Tag = "black_pawn";
+                                        ValidMove("black_pawn");
                                     }
                                     else
                                     {
@@ -393,16 +411,7 @@ namespace Chess
                                     {
                                         if (square.Tag.ToString() != "empty") //If square is full
                                         {
-                                            //Valid move
-                                            //MessageBox.Show("valid move2"); //DEBUG
-                                            ResetColorOfSquare(square1);
-                                            square1.Image = null;
-                                            square1.Tag = "empty";
-                                            square1 = null;
-                                            square1Clicked = false;
-                                            selectedPiece = null;
-                                            square.Image = global::Chess.Properties.Resources.black_pawn;
-                                            square.Tag = "black_pawn";
+                                            ValidMove("black_pawn");
                                         }
                                         else
                                         {
@@ -428,16 +437,7 @@ namespace Chess
                                 {
                                     if (square.Tag.ToString() == "empty")
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move3"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.black_pawn;
-                                        square.Tag = "black_pawn";
+                                        ValidMove("black_pawn");
                                     }
                                     else
                                     {
@@ -457,16 +457,7 @@ namespace Chess
                                     {
                                         if (square.Tag.ToString() != "empty") //If square is full
                                         {
-                                            //Valid move
-                                            //MessageBox.Show("valid move4"); //DEBUG
-                                            ResetColorOfSquare(square1);
-                                            square1.Image = null;
-                                            square1.Tag = "empty";
-                                            square1 = null;
-                                            square1Clicked = false;
-                                            selectedPiece = null;
-                                            square.Image = global::Chess.Properties.Resources.black_pawn;
-                                            square.Tag = "black_pawn";
+                                            ValidMove("black_pawn");
                                         }
                                         else
                                         {
@@ -515,16 +506,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.white_rook;
-                                    square.Tag = "white_rook";
+                                    ValidMove("white_rook");
                                 }
                                 else
                                 {
@@ -544,16 +526,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.white_rook;
-                                    square.Tag = "white_rook";
+                                    ValidMove("white_rook");
                                 }
                                 else
                                 {
@@ -581,16 +554,7 @@ namespace Chess
                                 }
                                 if (squareInWay2 == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.white_rook;
-                                    square.Tag = "white_rook";
+                                    ValidMove("white_rook");
                                 }
                                 else
                                 {
@@ -610,16 +574,7 @@ namespace Chess
                                 }
                                 if (squareInWay2 == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move2"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.white_rook;
-                                    square.Tag = "white_rook";
+                                    ValidMove("white_rook");
                                 }
                                 else
                                 {
@@ -662,16 +617,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.black_rook;
-                                    square.Tag = "black_rook";
+                                    ValidMove("black_rook");
                                 }
                                 else
                                 {
@@ -691,16 +637,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.black_rook;
-                                    square.Tag = "black_rook";
+                                    ValidMove("black_rook");
                                 }
                                 else
                                 {
@@ -728,16 +665,7 @@ namespace Chess
                                 }
                                 if (squareInWay2 == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.black_rook;
-                                    square.Tag = "black_rook";
+                                    ValidMove("black_rook");
                                 }
                                 else
                                 {
@@ -757,16 +685,7 @@ namespace Chess
                                 }
                                 if (squareInWay2 == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move2"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.black_rook;
-                                    square.Tag = "black_rook";
+                                    ValidMove("black_rook");
                                 }
                                 else
                                 {
@@ -798,29 +717,11 @@ namespace Chess
                         {
                             if (endRow == startRow + 1) //Vertical move up/right
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.white_knight;
-                                square.Tag = "white_knight";
+                                ValidMove("white_knight");
                             }
                             else if (endRow == startRow - 1) //Vertical move up/left
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.white_knight;
-                                square.Tag = "white_knight";
+                                ValidMove("white_knight");
                             }
                             else
                             {
@@ -831,29 +732,11 @@ namespace Chess
                         {
                             if (endRow == startRow + 1) //Vertical move down/right
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.white_knight;
-                                square.Tag = "white_knight";
+                                ValidMove("white_knight");
                             }
                             else if (endRow == startRow - 1) //Vertical move down/left
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.white_knight;
-                                square.Tag = "white_knight";
+                                ValidMove("white_knight");
                             }
                             else
                             {
@@ -864,29 +747,11 @@ namespace Chess
                         {
                             if (endColumn == startColumn - 1) //Horizontal move left/up
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.white_knight;
-                                square.Tag = "white_knight";
+                                ValidMove("white_knight");
                             }
                             else if (endColumn == startColumn + 1) //Horizontal move left/down
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.white_knight;
-                                square.Tag = "white_knight";
+                                ValidMove("white_knight");
                             }
                             else
                             {
@@ -897,29 +762,11 @@ namespace Chess
                         {
                             if (endColumn == startColumn - 1) //Horizontal move right/up
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.white_knight;
-                                square.Tag = "white_knight";
+                                ValidMove("white_knight");
                             }
                             else if (endColumn == startColumn + 1) //Horizontal move right/down
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.white_knight;
-                                square.Tag = "white_knight";
+                                ValidMove("white_knight");
                             }
                             else
                             {
@@ -950,67 +797,26 @@ namespace Chess
                         {
                             if (endRow == startRow + 1) //Vertical move up/right
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.black_knight;
-                                square.Tag = "black_knight";
+                                ValidMove("black_knight");
                             }
                             else if (endRow == startRow - 1) //Vertical move up/left
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.black_knight;
-                                square.Tag = "black_knight";
+                                ValidMove("black_knight");
                             }
                             else
                             {
-                                //Invalid move
-                                ResetColorOfSquare(square1);
-                                square1 = null;
-                                square1Clicked = false;
-                                //MessageBox.Show("invalid move1"); //DEBUG
-                                selectedPiece = null;
+                                InvalidMove();
                             }
                         }
                         else if (endColumn == startColumn + 2) //Vertical move down
                         {
                             if (endRow == startRow + 1) //Vertical move down/right
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.black_knight;
-                                square.Tag = "black_knight";
+                                ValidMove("black_knight");
                             }
                             else if (endRow == startRow - 1) //Vertical move down/left
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.black_knight;
-                                square.Tag = "black_knight";
+                                ValidMove("black_knight");
                             }
                             else
                             {
@@ -1021,29 +827,11 @@ namespace Chess
                         {
                             if (endColumn == startColumn - 1) //Horizontal move left/up
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.black_knight;
-                                square.Tag = "black_knight";
+                                ValidMove("black_knight");
                             }
                             else if (endColumn == startColumn + 1) //Horizontal move left/down
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.black_knight;
-                                square.Tag = "black_knight";
+                                ValidMove("black_knight");
                             }
                             else
                             {
@@ -1054,29 +842,11 @@ namespace Chess
                         {
                             if (endColumn == startColumn - 1) //Horizontal move right/up
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.black_knight;
-                                square.Tag = "black_knight";
+                                ValidMove("black_knight");
                             }
                             else if (endColumn == startColumn + 1) //Horizontal move right/down
                             {
-                                //Valid move
-                                //MessageBox.Show("valid move1"); //DEBUG
-                                ResetColorOfSquare(square1);
-                                square1.Image = null;
-                                square1.Tag = "empty";
-                                square1 = null;
-                                square1Clicked = false;
-                                selectedPiece = null;
-                                square.Image = global::Chess.Properties.Resources.black_knight;
-                                square.Tag = "black_knight";
+                                ValidMove("black_knight");
                             }
                             else
                             {
@@ -1126,16 +896,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move1"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.white_bishop;
-                                        square.Tag = "white_bishop";
+                                        ValidMove("white_bishop");
                                     }
                                     else
                                     {
@@ -1162,16 +923,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        // MessageBox.Show("valid move2"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.white_bishop;
-                                        square.Tag = "white_bishop";
+                                        ValidMove("white_bishop");
                                     }
                                     else
                                     {
@@ -1205,16 +957,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move3"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.white_bishop;
-                                        square.Tag = "white_bishop";
+                                        ValidMove("white_bishop");
                                     }
                                     else
                                     {
@@ -1242,16 +985,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        // MessageBox.Show("valid move4"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.white_bishop;
-                                        square.Tag = "white_bishop";
+                                        ValidMove("white_bishop");
                                     }
                                     else
                                     {
@@ -1307,16 +1041,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move1"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.black_bishop;
-                                        square.Tag = "black_bishop";
+                                        ValidMove("black_bishop");
                                     }
                                     else
                                     {
@@ -1343,16 +1068,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        // MessageBox.Show("valid move2"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.black_bishop;
-                                        square.Tag = "black_bishop";
+                                        ValidMove("black_bishop");
                                     }
                                     else
                                     {
@@ -1387,16 +1103,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move3"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.black_bishop;
-                                        square.Tag = "black_bishop";
+                                        ValidMove("black_bishop");
                                     }
                                     else
                                     {
@@ -1424,16 +1131,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        // MessageBox.Show("valid move4"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.black_bishop;
-                                        square.Tag = "black_bishop";
+                                        ValidMove("black_bishop");
                                     }
                                     else
                                     {
@@ -1486,16 +1184,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.white_queen;
-                                    square.Tag = "white_queen";
+                                    ValidMove("white_queen");
                                 }
                                 else
                                 {
@@ -1518,16 +1207,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move1"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.white_queen;
-                                        square.Tag = "white_queen";
+                                        ValidMove("white_queen");
                                     }
                                     else
                                     {
@@ -1555,16 +1235,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        // MessageBox.Show("valid move2"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.white_queen;
-                                        square.Tag = "white_queen";
+                                        ValidMove("white_queen");
                                     }
                                     else
                                     {
@@ -1596,16 +1267,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.white_queen;
-                                    square.Tag = "white_queen";
+                                    ValidMove("white_queen");
                                 }
                                 else
                                 {
@@ -1625,16 +1287,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.white_queen;
-                                    square.Tag = "white_queen";
+                                    ValidMove("white_queen");
                                 }
                                 else
                                 {
@@ -1657,16 +1310,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move2"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.white_queen;
-                                    square.Tag = "white_queen";
+                                    ValidMove("white_queen");
                                 }
                                 else
                                 {
@@ -1688,16 +1332,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move3"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.white_queen;
-                                        square.Tag = "white_queen";
+                                        ValidMove("white_queen");
                                     }
                                     else
                                     {
@@ -1725,16 +1360,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        // MessageBox.Show("valid move4"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.white_queen;
-                                        square.Tag = "white_queen";
+                                        ValidMove("white_queen");
                                     }
                                     else
                                     {
@@ -1787,16 +1413,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.black_queen;
-                                    square.Tag = "black_queen";
+                                    ValidMove("black_queen");
                                 }
                                 else
                                 {
@@ -1819,16 +1436,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move1"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.black_queen;
-                                        square.Tag = "black_queen";
+                                        ValidMove("black_queen");
                                     }
                                     else
                                     {
@@ -1857,16 +1465,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        // MessageBox.Show("valid move2"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.black_queen;
-                                        square.Tag = "black_queen";
+                                        ValidMove("black_queen");
                                     }
                                     else
                                     {
@@ -1901,16 +1500,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.black_queen;
-                                    square.Tag = "black_queen";
+                                    ValidMove("black_queen");
                                 }
                                 else
                                 {
@@ -1930,16 +1520,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move1"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.black_queen;
-                                    square.Tag = "black_queen";
+                                    ValidMove("black_queen");
                                 }
                                 else
                                 {
@@ -1962,16 +1543,7 @@ namespace Chess
                                 }
                                 if (squareInWay == false)
                                 {
-                                    //Valid move
-                                    //MessageBox.Show("valid move2"); //DEBUG
-                                    ResetColorOfSquare(square1);
-                                    square1.Image = null;
-                                    square1.Tag = "empty";
-                                    square1 = null;
-                                    square1Clicked = false;
-                                    selectedPiece = null;
-                                    square.Image = global::Chess.Properties.Resources.black_queen;
-                                    square.Tag = "black_queen";
+                                    ValidMove("black_queen");
                                 }
                                 else
                                 {
@@ -1993,16 +1565,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        //MessageBox.Show("valid move3"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.black_queen;
-                                        square.Tag = "black_queen";
+                                        ValidMove("black_queen");
                                     }
                                     else
                                     {
@@ -2032,16 +1595,7 @@ namespace Chess
                                     }
                                     if (squareInWay == false)
                                     {
-                                        //Valid move
-                                        // MessageBox.Show("valid move4"); //DEBUG
-                                        ResetColorOfSquare(square1);
-                                        square1.Image = null;
-                                        square1.Tag = "empty";
-                                        square1 = null;
-                                        square1Clicked = false;
-                                        selectedPiece = null;
-                                        square.Image = global::Chess.Properties.Resources.black_queen;
-                                        square.Tag = "black_queen";
+                                        ValidMove("black_queen");
                                     }
                                     else
                                     {
@@ -2081,16 +1635,7 @@ namespace Chess
                         
                         if (Math.Abs(rowDifference) == 1 || Math.Abs(columnDifference) == 1)
                         {
-                            //Valid move
-                            //MessageBox.Show("valid move1"); //DEBUG
-                            ResetColorOfSquare(square1);
-                            square1.Image = null;
-                            square1.Tag = "empty";
-                            square1 = null;
-                            square1Clicked = false;
-                            selectedPiece = null;
-                            square.Image = global::Chess.Properties.Resources.white_king;
-                            square.Tag = "white_king";
+                            ValidMove("white_king");
                         }
                         else
                         {
@@ -2117,16 +1662,7 @@ namespace Chess
 
                         if (Math.Abs(rowDifference) == 1 || Math.Abs(columnDifference) == 1)
                         {
-                            //Valid move
-                            //MessageBox.Show("valid move1"); //DEBUG
-                            ResetColorOfSquare(square1);
-                            square1.Image = null;
-                            square1.Tag = "empty";
-                            square1 = null;
-                            square1Clicked = false;
-                            selectedPiece = null;
-                            square.Image = global::Chess.Properties.Resources.black_king;
-                            square.Tag = "black_king";
+                            ValidMove("black_king");
                         }
                         else
                         {
