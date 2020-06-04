@@ -20,6 +20,7 @@ namespace Chess
         PictureBox square2 = new PictureBox();
         PictureBox square = new PictureBox();
         string selectedPiece = null;
+        int turn = 0;
 
         public Form1()
         {
@@ -34,6 +35,7 @@ namespace Chess
             square1Clicked = false;
             selectedPiece = null;
             square.Tag = piece;
+            turn++;
 
             //I still need to find a way to simplify this
             if (piece == "white_pawn")
@@ -84,8 +86,6 @@ namespace Chess
             {
                 square.Image = Properties.Resources.black_king;
             }
-
-
         }
 
         private void InvalidMove()
@@ -216,58 +216,90 @@ namespace Chess
             //First click of move
             if (square.Image != null & square1Clicked == false & square2Clicked == false)
             {
-                square.BackColor = Color.DarkGray;
-                square1Clicked = true;
-                square1 = square;
-
                 //Detect which piece was clicked
-                if (square.Tag.ToString() == "white_pawn")
+                if (square.Tag.ToString() == "white_pawn" & turn % 2 == 0)
                 {
                     selectedPiece = "white_pawn";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "black_pawn")
+                else if (square.Tag.ToString() == "black_pawn" & turn % 2 != 0)
                 {
                     selectedPiece = "black_pawn";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "white_rook")
+                else if (square.Tag.ToString() == "white_rook" & turn % 2 == 0)
                 {
                     selectedPiece = "white_rook";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "black_rook")
+                else if (square.Tag.ToString() == "black_rook" & turn % 2 != 0)
                 {
                     selectedPiece = "black_rook";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "white_knight")
+                else if (square.Tag.ToString() == "white_knight" & turn % 2 == 0)
                 {
                     selectedPiece = "white_knight";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "black_knight")
+                else if (square.Tag.ToString() == "black_knight" & turn % 2 != 0)
                 {
                     selectedPiece = "black_knight";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "white_bishop")
+                else if (square.Tag.ToString() == "white_bishop" & turn % 2 == 0)
                 {
                     selectedPiece = "white_bishop";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "black_bishop")
+                else if (square.Tag.ToString() == "black_bishop" & turn % 2 != 0)
                 {
                     selectedPiece = "black_bishop";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "white_queen")
+                else if (square.Tag.ToString() == "white_queen" & turn % 2 == 0)
                 {
                     selectedPiece = "white_queen";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "black_queen")
+                else if (square.Tag.ToString() == "black_queen" & turn % 2 != 0)
                 {
                     selectedPiece = "black_queen";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "white_king")
+                else if (square.Tag.ToString() == "white_king" & turn % 2 == 0)
                 {
                     selectedPiece = "white_king";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
-                else if (square.Tag.ToString() == "black_king")
+                else if (square.Tag.ToString() == "black_king" & turn % 2 != 0)
                 {
                     selectedPiece = "black_king";
+                    square.BackColor = Color.DarkGray;
+                    square1Clicked = true;
+                    square1 = square;
                 }
             }
 
