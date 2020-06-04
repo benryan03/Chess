@@ -41,50 +41,62 @@ namespace Chess
             if (piece == "white_pawn")
             {
                 square.Image = Properties.Resources.white_pawn;
+                status.Text = "Black's move";
             }
             else if (piece == "black_pawn")
             {
                 square.Image = Properties.Resources.black_pawn;
+                status.Text = "White's move";
             }
             else if (piece == "white_rook")
             {
                 square.Image = Properties.Resources.white_rook;
+                status.Text = "Black's move";
             }
             else if (piece == "black_rook")
             {
                 square.Image = Properties.Resources.black_rook;
+                status.Text = "White's move";
             }
             else if (piece == "white_knight")
             {
                 square.Image = Properties.Resources.white_knight;
+                status.Text = "Black's move";
             }
             else if (piece == "black_knight")
             {
                 square.Image = Properties.Resources.black_knight;
+                status.Text = "White's move";
             }
             else if (piece == "white_bishop")
             {
                 square.Image = Properties.Resources.white_bishop;
+                status.Text = "Black's move";
             }
             else if (piece == "black_bishop")
             {
                 square.Image = Properties.Resources.black_bishop;
+                status.Text = "White's move";
             }
             else if (piece == "white_queen")
             {
                 square.Image = Properties.Resources.white_queen;
+                status.Text = "Black's move";
             }
             else if (piece == "black_queen")
             {
                 square.Image = Properties.Resources.black_queen;
+                status.Text = "White's move";
             }
             else if (piece == "white_king")
             {
                 square.Image = Properties.Resources.white_king;
+                status.Text = "Black's move";
             }
             else if (piece == "black_king")
             {
                 square.Image = Properties.Resources.black_king;
+                status.Text = "White's move";
             }
         }
 
