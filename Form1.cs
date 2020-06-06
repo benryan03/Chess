@@ -697,26 +697,54 @@ namespace Chess
                 }
 
                 //Check if check
-                if (blackRookCheck1 != null)
+                int y = tableLayoutPanel1.GetRow(blackRookCheck1);
+                for (int x = tableLayoutPanel1.GetColumn(blackRookCheck1); x >= 0; x--)
                 {
-                    if (blackRookCheck1.Tag.ToString() == "black_rook")
+                    if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                    //Square is off the board
                     {
-                        blackRookCheck1.BackColor = Color.Red;
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_rook")
+                    //Square is piece that is not black rook
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_rook")
+                    //Square is black rook
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                        return true;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                    //Square is empty
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                        continue;
+                    }
+                }
+
+                /*
+                if (blackRookCheck2 != null)
+                {
+                    if (blackRookCheck2.Tag.ToString() == "black_rook")
+                    {
+                        blackRookCheck2.BackColor = Color.Red;
                         return true;
                     }
                     else
                     {
-                        //int x = tableLayoutPanel1.GetRow(blackRookCheck1);
-                        int y = tableLayoutPanel1.GetRow(blackRookCheck1);
-                        for (int x = tableLayoutPanel1.GetColumn(blackRookCheck1); x >= 0; x--)
+                        int x = tableLayoutPanel1.GetColumn(blackRookCheck2);
+                        for (int y = tableLayoutPanel1.GetRow(blackRookCheck2); y >= 0; y--)
                         {
-                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow;
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                             if (tableLayoutPanel1.GetControlFromPosition(x, y) != null)
                             {
-                                tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Orange;
+                                tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Orange; //DEBUG
                                 if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
                                 {
-                                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Blue;
+                                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Blue; //DEBUG
                                     if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_rook")
                                     {
                                         tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
@@ -727,15 +755,7 @@ namespace Chess
                         }
                     }
                 }
-                else if (blackRookCheck2 != null)
-                {
-                    if (blackRookCheck2.Tag.ToString() == "black_rook")
-                    {
-                        blackRookCheck2.BackColor = Color.Red;
-                        return true;
-                    }
-                }
-                else if (blackRookCheck3 != null)
+                if (blackRookCheck3 != null)
                 {
                     if (blackRookCheck3.Tag.ToString() == "black_rook")
                     {
@@ -743,7 +763,7 @@ namespace Chess
                         return true;
                     }
                 }
-                else if (blackRookCheck4 != null)
+                if (blackRookCheck4 != null)
                 {
                     if (blackRookCheck4.Tag.ToString() == "black_rook")
                     {
@@ -751,6 +771,7 @@ namespace Chess
                         return true;
                     }
                 }
+                */
 
                 ///////////////////////////////////////
                 //Check if a knight can kill white king
