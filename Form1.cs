@@ -696,7 +696,7 @@ namespace Chess
                     blackRookCheck4 = null;
                 }
 
-                //Check if check
+                //Check if check - rook left
                 int y = tableLayoutPanel1.GetRow(blackRookCheck1);
                 for (int x = tableLayoutPanel1.GetColumn(blackRookCheck1); x >= 0; x--)
                 {
@@ -725,53 +725,35 @@ namespace Chess
                     }
                 }
 
-                /*
-                if (blackRookCheck2 != null)
+                //Check if check - rook right
+                y = tableLayoutPanel1.GetRow(blackRookCheck3);
+                for (int x = tableLayoutPanel1.GetColumn(blackRookCheck3); x <= 7; x++)
                 {
-                    if (blackRookCheck2.Tag.ToString() == "black_rook")
+                    if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                    //Square is off the board
                     {
-                        blackRookCheck2.BackColor = Color.Red;
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_rook")
+                    //Square is piece that is not black rook
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_rook")
+                    //Square is black rook
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
                         return true;
                     }
-                    else
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                    //Square is empty
                     {
-                        int x = tableLayoutPanel1.GetColumn(blackRookCheck2);
-                        for (int y = tableLayoutPanel1.GetRow(blackRookCheck2); y >= 0; y--)
-                        {
-                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
-                            if (tableLayoutPanel1.GetControlFromPosition(x, y) != null)
-                            {
-                                tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Orange; //DEBUG
-                                if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
-                                {
-                                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Blue; //DEBUG
-                                    if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_rook")
-                                    {
-                                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
-                                        return true;
-                                    }
-                                }
-                            }
-                        }
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                        continue;
                     }
                 }
-                if (blackRookCheck3 != null)
-                {
-                    if (blackRookCheck3.Tag.ToString() == "black_rook")
-                    {
-                        blackRookCheck3.BackColor = Color.Red;
-                        return true;
-                    }
-                }
-                if (blackRookCheck4 != null)
-                {
-                    if (blackRookCheck4.Tag.ToString() == "black_rook")
-                    {
-                        blackRookCheck4.BackColor = Color.Red;
-                        return true;
-                    }
-                }
-                */
+
 
                 ///////////////////////////////////////
                 //Check if a knight can kill white king
