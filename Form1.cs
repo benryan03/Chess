@@ -697,63 +697,113 @@ namespace Chess
                 }
 
                 //Check if check - rook left
-                int y = tableLayoutPanel1.GetRow(blackRookCheck1);
-                for (int x = tableLayoutPanel1.GetColumn(blackRookCheck1); x >= 0; x--)
+                if (blackRookCheck1 != null)
                 {
-                    if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
-                    //Square is off the board
+                    int y = tableLayoutPanel1.GetRow(blackRookCheck1);
+                    for (int x = tableLayoutPanel1.GetColumn(blackRookCheck1); x >= 0; x--)
                     {
-                        break;
-                    }
-                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_rook")
-                    //Square is piece that is not black rook
-                    {
-                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
-                        break;
-                    }
-                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_rook")
-                    //Square is black rook
-                    {
-                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
-                        return true;
-                    }
-                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
-                    //Square is empty
-                    {
-                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
-                        continue;
+                        if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_rook")
+                        //Square is piece that is not black rook
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                            break;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_rook")
+                        //Square is black rook
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                            return true;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                        //Square is empty
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                            continue;
+                        }
                     }
                 }
+
 
                 //Check if check - rook right
-                y = tableLayoutPanel1.GetRow(blackRookCheck3);
-                for (int x = tableLayoutPanel1.GetColumn(blackRookCheck3); x <= 7; x++)
+                if (blackRookCheck3 != null)
                 {
-                    if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
-                    //Square is off the board
+                    int y = tableLayoutPanel1.GetRow(blackRookCheck3);
+                    for (int x = tableLayoutPanel1.GetColumn(blackRookCheck3); x <= 7; x++)
                     {
-                        break;
-                    }
-                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_rook")
-                    //Square is piece that is not black rook
-                    {
-                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
-                        break;
-                    }
-                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_rook")
-                    //Square is black rook
-                    {
-                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
-                        return true;
-                    }
-                    else if (tableLayoutPanel1.GetControlFromPosition(x, y) != null & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
-                    //Square is empty
-                    {
-                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
-                        continue;
+                        if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_rook")
+                        //Square is piece that is not black rook
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                            break;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_rook")
+                        //Square is black rook
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                            return true;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                        //Square is empty
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                            continue;
+                        }
                     }
                 }
 
+                //Check if check - rook up
+                if (blackRookCheck2 != null)
+                {
+                    int y = tableLayoutPanel1.GetColumn(blackRookCheck2);
+                    for (int x = tableLayoutPanel1.GetRow(blackRookCheck2); x >= 0; x--)
+                    {
+                        if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "black_rook")
+                        //Square is piece that is not black rook
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Yellow; //DEBUG
+                            break;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "black_rook")
+                        //Square is black rook
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Red;
+                            return true;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
+                        //Square is empty
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green; //DEBUG
+                            continue;
+                        }
+                    }
+                }
+
+                //Check if check - rook down
+                if (blackRookCheck4 != null)
+                {
+                    int y = tableLayoutPanel1.GetColumn(blackRookCheck4);
+                    for (int x = tableLayoutPanel1.GetRow(blackRookCheck4); x <= 7; x++)
+                    {
+                        if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "black_rook")
+                        //Square is piece that is not black rook
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Yellow; //DEBUG
+                            break;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "black_rook")
+                        //Square is black rook
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Red;
+                            return true;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
+                        //Square is empty
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green; //DEBUG
+                            continue;
+                        }
+                    }
+                }
 
                 ///////////////////////////////////////
                 //Check if a knight can kill white king
