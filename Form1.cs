@@ -574,7 +574,7 @@ namespace Chess
                     blackRookCheck1 = null;
                     blackRookCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
                     blackRookCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
-                    blackRookCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1); 
+                    blackRookCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
                 }
                 else if (KingCol == 0 & KingRow == 6) //do not check col - 1 or col - 2 or row + 2
                 {
@@ -705,7 +705,7 @@ namespace Chess
                         if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_rook")
                         //Square is piece that is not black rook
                         {
-                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                             break;
                         }
                         else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_rook")
@@ -717,7 +717,7 @@ namespace Chess
                         else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
                         //Square is empty
                         {
-                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
                             continue;
                         }
                     }
@@ -733,7 +733,7 @@ namespace Chess
                         if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_rook")
                         //Square is piece that is not black rook
                         {
-                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                             break;
                         }
                         else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_rook")
@@ -745,7 +745,7 @@ namespace Chess
                         else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
                         //Square is empty
                         {
-                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
                             continue;
                         }
                     }
@@ -760,7 +760,7 @@ namespace Chess
                         if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "black_rook")
                         //Square is piece that is not black rook
                         {
-                            tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Yellow; //DEBUG
+                            //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Yellow; //DEBUG
                             break;
                         }
                         else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "black_rook")
@@ -772,7 +772,7 @@ namespace Chess
                         else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
                         //Square is empty
                         {
-                            tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green; //DEBUG
+                            //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green; //DEBUG
                             continue;
                         }
                     }
@@ -787,7 +787,7 @@ namespace Chess
                         if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "black_rook")
                         //Square is piece that is not black rook
                         {
-                            tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Yellow; //DEBUG
+                            //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Yellow; //DEBUG
                             break;
                         }
                         else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "black_rook")
@@ -799,7 +799,7 @@ namespace Chess
                         else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
                         //Square is empty
                         {
-                            tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green; //DEBUG
+                            //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green; //DEBUG
                             continue;
                         }
                     }
@@ -816,7 +816,7 @@ namespace Chess
                 Control blackKnightCheck7 = new Control();
                 Control blackKnightCheck8 = new Control();
 
-                Control[] blackKnightChecks = {blackKnightCheck1, blackKnightCheck2, blackKnightCheck3, blackKnightCheck4, blackKnightCheck5, blackKnightCheck6, blackKnightCheck7, blackKnightCheck8};
+                Control[] blackKnightChecks = { blackKnightCheck1, blackKnightCheck2, blackKnightCheck3, blackKnightCheck4, blackKnightCheck5, blackKnightCheck6, blackKnightCheck7, blackKnightCheck8 };
 
                 if (KingCol > 1 && KingCol < 6 && KingRow > 1 && KingRow < 6) //everything is fine
                 {
@@ -1076,37 +1076,296 @@ namespace Chess
                         }
                     }
                 }
+
+                ///////////////////////////////////////
+                //Check if a bishop can kill white king
+                Control blackBishopCheck1 = new Control();
+                Control blackBishopCheck2 = new Control();
+                Control blackBishopCheck3 = new Control();
+                Control blackBishopCheck4 = new Control();
+
+                //Check if the king is in an outside or outside-adjecent row or column
+                if (KingCol > 1 & KingCol < 6 & KingRow > 1 & KingRow < 6) //everything is fine
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 0 & KingRow > 1 & KingRow < 6) //do not check col - 1 or col - 2
+                {
+                    blackBishopCheck1 = null;
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = null;
+                }
+                else if (KingCol == 0 & KingRow == 0) //do not check col - 1 or col - 2 or row - 1 or row -2
+                {
+                    blackBishopCheck1 = null;
+                    blackBishopCheck2 = null;
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = null;
+                }
+                else if (KingCol == 0 & KingRow == 1) //do not check col - 1 or col - 2 or row - 2
+                {
+                    blackBishopCheck1 = null;
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = null;
+                }
+                else if (KingCol == 0 & KingRow == 6) //do not check col - 1 or col - 2 or row + 2
+                {
+                    blackBishopCheck1 = null;
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = null;
+                }
+                else if (KingCol == 0 & KingRow == 7) //do not check col - 1 or col - 2 or row + 1 or row + 2
+                {
+                    blackBishopCheck1 = null;
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = null;
+                }
+                else if (KingCol == 1 & KingRow > 1 && KingRow < 6) //do not check col - 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 1 & KingRow == 0) //do not check col - 2 or row - 1 or row -2
+                {
+                    blackBishopCheck1 = null;
+                    blackBishopCheck2 = null;
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 1 & KingRow == 1) //do not check col - 2 or row - 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 1 & KingRow == 6) //do not check col - 2 or row + 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 1 & KingRow == 7) //do not check col - 2 or row + 1 or row + 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = null;
+                    blackBishopCheck4 = null;
+                }
+                else if (KingCol == 6 & KingRow > 1 && KingRow < 6) //do not check col + 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 6 & KingRow == 0) //do not check col + 2 or row - 1 or row -2
+                {
+                    blackBishopCheck1 = null;
+                    blackBishopCheck2 = null;
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 6 & KingRow == 1) //do not check col + 2 or row - 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 6 & KingRow == 6) //do not check col + 2 or row + 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 6 & KingRow == 7) //do not check col + 2 or row + 1 or row + 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = null;
+                    blackBishopCheck4 = null;
+                }
+                else if (KingCol == 7 & KingRow > 1 && KingRow < 6) //do not check col + 1 or col + 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = null;
+                    blackBishopCheck4 = null;
+                }
+                else if (KingCol == 7 & KingRow == 0) //do not check col + 1 or col + 2 or row - 1 or row -2
+                {
+                    blackBishopCheck1 = null;
+                    blackBishopCheck2 = null;
+                    blackBishopCheck3 = null;
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 7 & KingRow == 1) //do not check col + 1 or col + 2 or row - 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = null;
+                    blackBishopCheck3 = null;
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 7 & KingRow == 6) //do not check col + 1 or col + 2 or row + 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = null;
+                    blackBishopCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                }
+                else if (KingCol == 7 & KingRow == 7) //do not check col + 1 or col + 2 or row + 1 or row + 2
+                {
+                    blackBishopCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                    blackBishopCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    blackBishopCheck3 = null;
+                    blackBishopCheck4 = null;
+                }
+
+                //Check if check - bishop up/left
+                if (blackBishopCheck1 != null)
+                {
+                    int y = tableLayoutPanel1.GetRow(blackBishopCheck1);
+                    for (int x = tableLayoutPanel1.GetColumn(blackBishopCheck1); x >= 0; x--, y--)
+                    {
+                        if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_bishop")
+                        //Square is piece that is not black bishop
+                        {
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                            break;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_bishop")
+                        //Square is black bishop
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                            return true;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                        //Square is empty
+                        {
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                            continue;
+                        }
+                    }
+                }
+
+
+                //Check if check - bishop up/right
+                if (blackBishopCheck2 != null)
+                {
+                    int y = tableLayoutPanel1.GetRow(blackBishopCheck2);
+                    for (int x = tableLayoutPanel1.GetColumn(blackBishopCheck2); x <= 7; x++, y--)
+                    {
+                        if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_bishop")
+                        //Square is piece that is not black bishop
+                        {
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                            break;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_bishop")
+                        //Square is black bishop
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                            return true;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                        //Square is empty
+                        {
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                            continue;
+                        }
+                    }
+                }
+
+
+                //Check if check - bishop down/right
+                if (blackBishopCheck3 != null)
+                {
+                    int y = tableLayoutPanel1.GetRow(blackBishopCheck3);
+                    for (int x = tableLayoutPanel1.GetColumn(blackBishopCheck3); x <= 7; x++, y++)
+                    {
+                        if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_bishop")
+                        //Square is piece that is not black bishop
+                        {
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                            break;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_bishop")
+                        //Square is black bishop
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                            return true;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                        //Square is empty
+                        {
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                            continue;
+                        }
+                    }
+                }
                 
-                //If no pieces are in cleck
+
+                //Check if check - bishop down/left
+                if (blackBishopCheck4 != null)
+                {
+                    int y = tableLayoutPanel1.GetRow(blackBishopCheck4);
+                    for (int x = tableLayoutPanel1.GetColumn(blackBishopCheck4); x >= 0; x--, y++)
+                    {
+                        if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_bishop")
+                        //Square is piece that is not black bishop
+                        {
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                            break;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_bishop")
+                        //Square is black bishop
+                        {
+                            tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                            return true;
+                        }
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                        //Square is empty
+                        {
+                            //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                            continue;
+                        }
+                    }
+                }
+
+                //Check if queen can kill white king
+
+                //Check if king can kill white king
+
+
+
+
+
+                //If no pieces are in check
                 return false;
+
             }
-            else
+
+            else //if piece does not contain "white"
             {
                 return false;
             }
 
 
-            /*
 
-            if (blackKnightCheck1.Tag.ToString() == ("black_knight" | null) |
-                blackKnightCheck2.Tag.ToString() == "black_knight" |
-                blackKnightCheck3.Tag.ToString() == "black_knight" |
-                blackKnightCheck4.Tag.ToString() == "black_knight" |
-                blackKnightCheck5.Tag.ToString() == "black_knight" |
-                blackKnightCheck6.Tag.ToString() == "black_knight" |
-                blackKnightCheck7.Tag.ToString() == "black_knight" |
-                blackKnightCheck8.Tag.ToString() == "black_knight")
-            {
-                return true;
-            }
 
-            */
 
-            //Check if a bishop can kill white king
-
-            //Check if queen can kill white king
-
-            //Check if king can kill white king
 
             //else if (piece.Contains("black"))
             //{
@@ -1116,7 +1375,7 @@ namespace Chess
             //    return false; //DEGUG
             //}
 
-            }
+        }
 
         
 
