@@ -34,159 +34,259 @@ namespace Chess
         }
         private void ValidMove(string piece)
         {
-            //I still need to find a way to simplify this
+            //I still need to find a way to simplify this method
+
+            //whiteKing = square;
+            //blackKing = square;
+            square.Tag = piece;
+            square1.Tag = "empty";
+            bool CheckStatus = DoesMoveResultInCheck(piece);
+
             if (piece == "white_pawn")
             {
-                square.Image = Properties.Resources.white_pawn;
-                status.Text = "Black's move";
-
-                ResetColorOfSquare(square1);
-                square1.Image = null;
-                square1.Tag = "empty";
-                square1 = null;
-                square1Clicked = false;
-                selectedPiece = null;
-                square.Tag = piece;
-                turn++;
+                if (CheckStatus == false)
+                {
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    selectedPiece = null;
+                    turn++;
+                    square1 = null;
+                    square.Image = Properties.Resources.white_pawn;
+                    status.Text = "Black's move";
+                }
+                else
+                {
+                    //whiteKing = square1;
+                    square.Tag = "empty";
+                    square1.Tag = piece;
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
             }
             else if (piece == "black_pawn")
             {
-                square.Image = Properties.Resources.black_pawn;
-                status.Text = "White's move";
-
-                ResetColorOfSquare(square1);
-                square1.Image = null;
-                square1.Tag = "empty";
-                square1 = null;
-                square1Clicked = false;
-                selectedPiece = null;
-                square.Tag = piece;
-                turn++;
+                if (CheckStatus == false)
+                {
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    selectedPiece = null;
+                    turn++;
+                    square1 = null;
+                    square.Image = Properties.Resources.black_pawn;
+                    status.Text = "White's move";
+                }
+                else
+                {
+                    //blackKing = square1;
+                    square.Tag = "empty";
+                    square1.Tag = piece;
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
             }
             else if (piece == "white_rook")
             {
-                square.Image = Properties.Resources.white_rook;
-                status.Text = "Black's move";
-
-                ResetColorOfSquare(square1);
-                square1.Image = null;
-                square1.Tag = "empty";
-                square1 = null;
-                square1Clicked = false;
-                selectedPiece = null;
-                square.Tag = piece;
-                turn++;
+                if (CheckStatus == false)
+                {
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    selectedPiece = null;
+                    turn++;
+                    square1 = null;
+                    square.Image = Properties.Resources.white_rook;
+                    status.Text = "Black's move";
+                }
+                else
+                {
+                    //whiteKing = square1;
+                    square.Tag = "empty";
+                    square1.Tag = piece;
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
             }
             else if (piece == "black_rook")
             {
-                square.Image = Properties.Resources.black_rook;
-                status.Text = "White's move";
-
-                ResetColorOfSquare(square1);
-                square1.Image = null;
-                square1.Tag = "empty";
-                square1 = null;
-                square1Clicked = false;
-                selectedPiece = null;
-                square.Tag = piece;
-                turn++;
+                if (CheckStatus == false)
+                {
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    selectedPiece = null;
+                    turn++;
+                    square1 = null;
+                    square.Image = Properties.Resources.black_rook;
+                    status.Text = "White's move";
+                }
+                else
+                {
+                    //blackKing = square1;
+                    square.Tag = "empty";
+                    square1.Tag = piece;
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
             }
             else if (piece == "white_knight")
             {
-                square.Image = Properties.Resources.white_knight;
-                status.Text = "Black's move";
-
-                ResetColorOfSquare(square1);
-                square1.Image = null;
-                square1.Tag = "empty";
-                square1 = null;
-                square1Clicked = false;
-                selectedPiece = null;
-                square.Tag = piece;
-                turn++;
+                if (CheckStatus == false)
+                {
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    selectedPiece = null;
+                    turn++;
+                    square1 = null;
+                    square.Image = Properties.Resources.white_knight;
+                    status.Text = "Black's move";
+                }
+                else
+                {
+                    //whiteKing = square1;
+                    square.Tag = "empty";
+                    square1.Tag = piece;
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
             }
             else if (piece == "black_knight")
             {
-                square.Image = Properties.Resources.black_knight;
-                status.Text = "White's move";
-
-                ResetColorOfSquare(square1);
-                square1.Image = null;
-                square1.Tag = "empty";
-                square1 = null;
-                square1Clicked = false;
-                selectedPiece = null;
-                square.Tag = piece;
-                turn++;
+                if (CheckStatus == false)
+                {
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    selectedPiece = null;
+                    turn++;
+                    square1 = null;
+                    square.Image = Properties.Resources.black_knight;
+                    status.Text = "White's move";
+                }
+                else
+                {
+                    //blackKing = square1;
+                    square.Tag = "empty";
+                    square1.Tag = piece;
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
             }
             else if (piece == "white_bishop")
             {
-                square.Image = Properties.Resources.white_bishop;
-                status.Text = "Black's move";
-
-                ResetColorOfSquare(square1);
-                square1.Image = null;
-                square1.Tag = "empty";
-                square1 = null;
-                square1Clicked = false;
-                selectedPiece = null;
-                square.Tag = piece;
-                turn++;
+                if (CheckStatus == false)
+                {
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    selectedPiece = null;
+                    turn++;
+                    square1 = null;
+                    square.Image = Properties.Resources.white_bishop;
+                    status.Text = "Black's move";
+                }
+                else
+                {
+                    //whiteKing = square1;
+                    square.Tag = "empty";
+                    square1.Tag = piece;
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
             }
             else if (piece == "black_bishop")
             {
-                square.Image = Properties.Resources.black_bishop;
-                status.Text = "White's move";
-
-                ResetColorOfSquare(square1);
-                square1.Image = null;
-                square1.Tag = "empty";
-                square1 = null;
-                square1Clicked = false;
-                selectedPiece = null;
-                square.Tag = piece;
-                turn++;
+                if (CheckStatus == false)
+                {
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    selectedPiece = null;
+                    turn++;
+                    square1 = null;
+                    square.Image = Properties.Resources.black_bishop;
+                    status.Text = "White's move";
+                }
+                else
+                {
+                    //blackKing = square1;
+                    square.Tag = "empty";
+                    square1.Tag = piece;
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
             }
             else if (piece == "white_queen")
             {
-                square.Image = Properties.Resources.white_queen;
-                status.Text = "Black's move";
-
-                ResetColorOfSquare(square1);
-                square1.Image = null;
-                square1.Tag = "empty";
-                square1 = null;
-                square1Clicked = false;
-                selectedPiece = null;
-                square.Tag = piece;
-                turn++;
+                if (CheckStatus == false)
+                {
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    selectedPiece = null;
+                    turn++;
+                    square1 = null;
+                    square.Image = Properties.Resources.white_queen;
+                    status.Text = "Black's move";
+                }
+                else
+                {
+                    //whiteKing = square1;
+                    square.Tag = "empty";
+                    square1.Tag = piece;
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
             }
             else if (piece == "black_queen")
             {
-                square.Image = Properties.Resources.black_queen;
-                status.Text = "White's move";
-
-                ResetColorOfSquare(square1);
-                square1.Image = null;
-                square1.Tag = "empty";
-                square1 = null;
-                square1Clicked = false;
-                selectedPiece = null;
-                square.Tag = piece;
-                turn++;
+                if (CheckStatus == false)
+                {
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    selectedPiece = null;
+                    turn++;
+                    square1 = null;
+                    square.Image = Properties.Resources.black_queen;
+                    status.Text = "White's move";
+                }
+                else
+                {
+                    //blackKing = square1;
+                    square.Tag = "empty";
+                    square1.Tag = piece;
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
             }
-
-
-
-
-
-
             else if (piece == "white_king")
             {
                 whiteKing = square;
-                square.Tag = piece;
-                square1.Tag = "empty";
-                bool CheckStatus = DoesMoveResultInCheck("white_king");
+                CheckStatus = DoesMoveResultInCheck(piece);
+
                 if (CheckStatus == false)
                 {
                     ResetColorOfSquare(square1);
@@ -213,9 +313,8 @@ namespace Chess
             else if (piece == "black_king")
             {
                 blackKing = square;
-                square.Tag = piece;
-                square1.Tag = "empty";
-                bool CheckStatus = DoesMoveResultInCheck("black_king");
+                CheckStatus = DoesMoveResultInCheck(piece);
+
                 if (CheckStatus == false)
                 {
                     ResetColorOfSquare(square1);
@@ -1970,12 +2069,33 @@ namespace Chess
                     whiteHorizontalCheck3 = null;
                     whiteHorizontalCheck4 = null;
                 }
-                else //Do not ignore any squares
+                else if (KingCol > 1 & KingCol < 6 & KingRow == 0) //Ignore row - 1 and row - 2
+                {
+                    whiteHorizontalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
+                    whiteHorizontalCheck2 = null;
+                    whiteHorizontalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
+                    whiteHorizontalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
+                }
+                else if (KingCol > 1 & KingCol < 6 & KingRow == 1) //Ignore row - 2
                 {
                     whiteHorizontalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
                     whiteHorizontalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
                     whiteHorizontalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
                     whiteHorizontalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
+                }
+                else if (KingCol > 1 & KingCol < 6 & KingRow == 6) //Ignore row + 2
+                {
+                    whiteHorizontalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
+                    whiteHorizontalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
+                    whiteHorizontalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
+                    whiteHorizontalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
+                }
+                else if (KingCol > 1 & KingCol < 6 & KingRow == 7) //Ignore row + 1 and row + 2
+                {
+                    whiteHorizontalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
+                    whiteHorizontalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
+                    whiteHorizontalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
+                    whiteHorizontalCheck4 = null;
                 }
 
                 //Determine if black king is in check - horizontal left (white rook or queen)
