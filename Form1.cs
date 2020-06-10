@@ -23,6 +23,9 @@ namespace Chess
         PictureBox whiteKing = new PictureBox();
         PictureBox blackKing = new PictureBox();
 
+        PictureBox whiteKing2 = new PictureBox();
+        PictureBox blackKing2 = new PictureBox();
+
         string selectedPiece = null;
         int turn = 0;
 
@@ -320,6 +323,7 @@ namespace Chess
             }
             else if (piece == "white_king")
             {
+                whiteKing2 = whiteKing;
                 whiteKing = square;
                 if (DoesMoveResultInCheck("white") == false) //Move is valid
                 {
@@ -339,6 +343,7 @@ namespace Chess
                 else //Move is invalid
                 {
                     //Reset and prepare for next move
+                    whiteKing = whiteKing2;
                     square.Tag = "empty";
                     status.Text = "White cannot move into Check.";
                     square1Clicked = false;
@@ -349,6 +354,7 @@ namespace Chess
             }
             else if (piece == "black_king")
             {
+                blackKing2 = blackKing;
                 blackKing = square;
                 if (DoesMoveResultInCheck("black") == false) //Move is valid
                 {
@@ -368,6 +374,7 @@ namespace Chess
                 else //Move is invalid
                 {
                     //Reset and prepare for next move
+                    blackKing = blackKing2;
                     square.Tag = "empty";
                     status.Text = "Black cannot move into Check.";
                     square1Clicked = false;
@@ -2691,9 +2698,9 @@ namespace Chess
                 else if (KingCol == 7 & KingRow > 1 && KingRow < 6) //Ignore col + 1 and col + 2
                 {
                     whiteDiagonalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
-                    whiteDiagonalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                    whiteDiagonalCheck2 = null;
                     whiteDiagonalCheck3 = null;
-                    whiteDiagonalCheck4 = null;
+                    whiteDiagonalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
                 }
                 else if (KingCol == 7 & KingRow == 0) //Ignore col + 1 and col + 2 and row - 1 and row -2
                 {
