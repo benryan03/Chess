@@ -2805,13 +2805,13 @@ namespace Chess
                         {
                             break;
                         }
-                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_bishop" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_queen")
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "white_bishop" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "white_queen")
                         //Square is piece that is not black bishop or black queen
                         {
                             //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                             break;
                         }
-                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_bishop" | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_queen")
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "white_bishop" | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "white_queen")
                         //Square is black bishop or black queen
                         {
                             tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
@@ -2842,13 +2842,13 @@ namespace Chess
                         {
                             break;
                         }
-                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_bishop" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_queen")
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "white_bishop" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "white_queen")
                         //Square is piece that is not black bishop or black queen
                         {
                             //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                             break;
                         }
-                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_bishop" | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_queen")
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "white_bishop" | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "white_queen")
                         //Square is black bishop or black queen
                         {
                             tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
@@ -2879,13 +2879,13 @@ namespace Chess
                         {
                             break;
                         }
-                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_bishop" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "black_queen")
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "white_bishop" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "white_queen")
                         //Square is piece that is not black bishop or black queen
                         {
                             //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                             break;
                         }
-                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_bishop" | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "black_queen")
+                        else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "white_bishop" | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "white_queen")
                         //Square is black bishop or black queen
                         {
                             tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
