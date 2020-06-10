@@ -57,6 +57,15 @@ namespace Chess
                     square.Image = Properties.Resources.white_pawn;
                     square.Tag = piece;
                     status.Text = "Black's move";
+
+                    if (DoesMoveResultInCheck("black") == true)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -85,6 +94,15 @@ namespace Chess
                     square.Image = Properties.Resources.black_pawn;
                     square.Tag = piece;
                     status.Text = "White's move";
+
+                    if (DoesMoveResultInCheck("white") == true)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -113,6 +131,15 @@ namespace Chess
                     square.Image = Properties.Resources.white_rook;
                     square.Tag = piece;
                     status.Text = "Black's move";
+
+                    if (DoesMoveResultInCheck("black") == true)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -141,6 +168,15 @@ namespace Chess
                     square.Image = Properties.Resources.black_rook;
                     square.Tag = piece;
                     status.Text = "White's move";
+
+                    if (DoesMoveResultInCheck("white") == true)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -169,6 +205,15 @@ namespace Chess
                     square.Image = Properties.Resources.white_knight;
                     square.Tag = piece;
                     status.Text = "Black's move";
+
+                    if (DoesMoveResultInCheck("black") == true)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -197,6 +242,15 @@ namespace Chess
                     square.Image = Properties.Resources.black_knight;
                     square.Tag = piece;
                     status.Text = "White's move";
+
+                    if (DoesMoveResultInCheck("white") == true)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -225,6 +279,15 @@ namespace Chess
                     square.Image = Properties.Resources.white_bishop;
                     square.Tag = piece;
                     status.Text = "Black's move";
+
+                    if (DoesMoveResultInCheck("black") == true)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -253,6 +316,15 @@ namespace Chess
                     square.Image = Properties.Resources.black_bishop;
                     square.Tag = piece;
                     status.Text = "White's move";
+
+                    if (DoesMoveResultInCheck("white") == true)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -281,6 +353,15 @@ namespace Chess
                     square.Image = Properties.Resources.white_queen;
                     square.Tag = piece;
                     status.Text = "Black's move";
+
+                    if (DoesMoveResultInCheck("black") == true)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -309,6 +390,15 @@ namespace Chess
                     square.Image = Properties.Resources.black_queen;
                     square.Tag = piece;
                     status.Text = "White's move";
+
+                    if (DoesMoveResultInCheck("white") == true)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -339,6 +429,15 @@ namespace Chess
                     square.Image = Properties.Resources.white_king;
                     square.Tag = piece;
                     status.Text = "Black's move";
+
+                    if (DoesMoveResultInCheck("black") == true)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {
@@ -370,6 +469,15 @@ namespace Chess
                     square.Image = Properties.Resources.black_king;
                     square.Tag = piece;
                     status.Text = "White's move";
+
+                    if (DoesMoveResultInCheck("white") == true)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
                 }
                 else //Move is invalid
                 {

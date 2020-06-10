@@ -95,6 +95,7 @@
             this.pictureBox63 = new System.Windows.Forms.PictureBox();
             this.pictureBox64 = new System.Windows.Forms.PictureBox();
             this.status = new System.Windows.Forms.Label();
+            this.checkStatusLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox02)).BeginInit();
@@ -239,7 +240,7 @@
             this.tableLayoutPanel1.Controls.Add(this.pictureBox63, 6, 7);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox64, 7, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 66);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 116);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -1322,12 +1323,24 @@
             this.status.TabIndex = 1;
             this.status.Text = "White\'s move";
             // 
+            // checkStatusLabel
+            // 
+            this.checkStatusLabel.AutoSize = true;
+            this.checkStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkStatusLabel.ForeColor = System.Drawing.Color.Red;
+            this.checkStatusLabel.Location = new System.Drawing.Point(12, 49);
+            this.checkStatusLabel.Name = "checkStatusLabel";
+            this.checkStatusLabel.Size = new System.Drawing.Size(27, 40);
+            this.checkStatusLabel.TabIndex = 2;
+            this.checkStatusLabel.Text = " ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(978, 1044);
+            this.ClientSize = new System.Drawing.Size(978, 1094);
+            this.Controls.Add(this.checkStatusLabel);
             this.Controls.Add(this.status);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1472,6 +1485,7 @@
         private System.Windows.Forms.PictureBox pictureBox63;
         private System.Windows.Forms.PictureBox pictureBox64;
         private System.Windows.Forms.Label status;
+        private System.Windows.Forms.Label checkStatusLabel;
     }
 }
 
