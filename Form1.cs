@@ -33,7 +33,7 @@ namespace Chess
         {
             InitializeComponent();
             whiteKing = pictureBox61;
-            blackKing = pictureBox05;
+            blackKing = pictureBox37; //Debug - normal 05
         }
         private void ValidMove(string piece)
         //I still need to find a way to simplify this method
@@ -61,6 +61,12 @@ namespace Chess
                     if (DoesMoveResultInCheck("black") == true)
                     {
                         checkStatusLabel.Text = "Black is in Check.";
+                        
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("black") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! White wins!";
+                        }
                     }
                     else
                     {
@@ -3376,6 +3382,359 @@ namespace Chess
 
             }
 
+            else //This should be unreachable
+            {
+                return false;
+            }
+        }
+
+        private bool DoesMoveResultInCheckmate(string piece)
+        //This method will be triggered after (white) moves
+        //Input will be the position of (black) king and the (white) piece that was moved
+        {
+            if (piece.Contains("black"))
+            {
+                //Get position of black king
+                int KingRowTemp = tableLayoutPanel1.GetRow(blackKing);
+                int KingColTemp = tableLayoutPanel1.GetColumn(blackKing);
+
+                Control KingPos0 = new Control();
+                Control KingPos1 = new Control();
+                Control KingPos2 = new Control();
+                Control KingPos3 = new Control();
+                Control KingPos4 = new Control();
+                Control KingPos5 = new Control();
+                Control KingPos6 = new Control();
+                Control KingPos7 = new Control();
+
+                Control[] KingPos = {KingPos0, KingPos1, KingPos2, KingPos3, KingPos4, KingPos5, KingPos6, KingPos7};
+
+                //If needed, set appropriate squares to null
+                //Check if the king is in an outside or outside-adjecent row or column, and set 
+                //appropriate squares to be ignored (because they are outside the board)
+                if (KingColTemp > 1 & KingColTemp < 6 & KingRowTemp > 1 & KingRowTemp < 6) //Do not ignore any squares
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 0 & KingRowTemp > 1 & KingRowTemp < 6) //ignore col - 1 and col - 2
+                {
+                    KingPos[0] = null;
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = null;
+                    KingPos[7] = null;
+                }
+                else if (KingColTemp == 0 & KingRowTemp == 0) //ignore col - 1 and col - 2 and row - 1 and row -2
+                {
+                    KingPos[0] = null;
+                    KingPos[1] = null;
+                    KingPos[2] = null;
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = null;
+                    KingPos[7] = null;
+                }
+                else if (KingColTemp == 0 & KingRowTemp == 1) //ignore col - 1 and col - 2 and row - 2
+                {
+                    KingPos[0] = null;
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = null;
+                    KingPos[7] = null;
+                }
+                else if (KingColTemp == 0 & KingRowTemp == 6) //ignore col - 1 and col - 2 and row + 2
+                {
+                    KingPos[0] = null;
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = null;
+                    KingPos[7] = null;
+                }
+                else if (KingColTemp == 0 & KingRowTemp == 7) //ignore col - 1 and col - 2 and row + 1 and row + 2
+                {
+                    KingPos[0] = null;
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = null;
+                    KingPos[5] = null;
+                    KingPos[6] = null;
+                    KingPos[7] = null;
+                }
+                else if (KingColTemp == 1 & KingRowTemp > 1 && KingRowTemp < 6) //ignore col - 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 1 & KingRowTemp == 0) //ignore col - 2 and row - 1 and row -2
+                {
+                    KingPos[0] = null;
+                    KingPos[1] = null;
+                    KingPos[2] = null;
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 1 & KingRowTemp == 1) //ignore col - 2 and row - 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 1 & KingRowTemp == 6) //ignore col - 2 and row + 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 1 & KingRowTemp == 7) //ignore col - 2 and row + 1 and row + 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = null;
+                    KingPos[5] = null;
+                    KingPos[6] = null;
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 6 & KingRowTemp > 1 && KingRowTemp < 6) //ignore col + 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 6 & KingRowTemp == 0) //ignore col + 2 and row - 1 and row -2
+                {
+                    KingPos[0] = null;
+                    KingPos[1] = null;
+                    KingPos[2] = null;
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 6 & KingRowTemp == 1) //ignore col + 2 and row - 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 6 & KingRowTemp == 6) //ignore col + 2 and row + 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 6 & KingRowTemp == 7) //ignore col + 2 and row + 1 and row + 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = null;
+                    KingPos[5] = null;
+                    KingPos[6] = null;
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 7 & KingRowTemp > 1 && KingRowTemp < 6) //ignore col + 1 and col + 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = null;
+                    KingPos[3] = null;
+                    KingPos[4] = null;
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 7 & KingRowTemp == 0) //ignore col + 1 and col + 2 and row - 1 and row -2
+                {
+                    KingPos[0] = null;
+                    KingPos[1] = null;
+                    KingPos[2] = null;
+                    KingPos[3] = null;
+                    KingPos[4] = null;
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 7 & KingRowTemp == 1) //ignore col + 1 and col + 2 and row - 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = null;
+                    KingPos[3] = null;
+                    KingPos[4] = null;
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 7 & KingRowTemp == 6) //ignore col + 1 and col + 2 and row + 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = null;
+                    KingPos[3] = null;
+                    KingPos[4] = null;
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp == 7 & KingRowTemp == 7) //ignore col + 1 and col + 2 and row + 1 and row + 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = null;
+                    KingPos[3] = null;
+                    KingPos[4] = null;
+                    KingPos[5] = null;
+                    KingPos[6] = null;
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp > 1 & KingColTemp < 6 & KingRowTemp == 0) //Ignore row - 1 and row - 2
+                {
+                    KingPos[0] = null;
+                    KingPos[1] = null;
+                    KingPos[2] = null;
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp > 1 & KingColTemp < 6 & KingRowTemp == 1) //Ignore row - 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp > 1 & KingColTemp < 6 & KingRowTemp == 6) //Ignore row + 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else if (KingColTemp > 1 & KingColTemp < 6 & KingRowTemp == 7) //Ignore row + 1 and row + 2
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = null;
+                    KingPos[5] = null;
+                    KingPos[6] = null;
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+                else //Do not ignore any squares
+                {
+                    KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                    KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                    KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                    KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                    KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                    KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                    KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                    KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+                }
+
+                //First, determine whether black king can move into a position that does not result in check
+                int piecesThatCanKillBlackKing = 0;
+                foreach (PictureBox x in KingPos)
+                {
+                    blackKing2 = blackKing;
+                    blackKing = x;
+
+                    if (x != null) //if square is on the board
+                    {
+                        //x.BackColor = Color.Green; //DEBUG                        
+                        if (DoesMoveResultInCheck("black") == false)
+                        {
+                            blackKing = blackKing2;
+                            return false;
+                        }
+                        
+                    }
+                }
+
+                //If not, determine how many pieces are currently in a position to kill black king
+                blackKing = blackKing2
+                
+                MessageBox.Show(piecesThatCanKillBlackKing.ToString());
+
+
+
+
+
+                //If only one, determine if that piece can be killed
+
+                return true; //Checkmate - White wins
+            }
+            else if (piece.Contains("black"))
+            {
+                return false;
+            }
             else //This should be unreachable
             {
                 return false;

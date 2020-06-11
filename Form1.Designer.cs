@@ -771,6 +771,8 @@
             // 
             this.pictureBox32.BackColor = System.Drawing.Color.Beige;
             this.pictureBox32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox32.Image = global::Chess.Properties.Resources.white_queen;
+            this.pictureBox32.InitialImage = null;
             this.pictureBox32.Location = new System.Drawing.Point(854, 366);
             this.pictureBox32.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox32.Name = "pictureBox32";
@@ -778,7 +780,7 @@
             this.pictureBox32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox32.TabIndex = 31;
             this.pictureBox32.TabStop = false;
-            this.pictureBox32.Tag = "empty";
+            this.pictureBox32.Tag = "white_queen";
             this.pictureBox32.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox32.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox32.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -851,6 +853,7 @@
             // 
             this.pictureBox37.BackColor = System.Drawing.Color.Beige;
             this.pictureBox37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox37.Image = global::Chess.Properties.Resources.black_king;
             this.pictureBox37.Location = new System.Drawing.Point(488, 488);
             this.pictureBox37.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox37.Name = "pictureBox37";
@@ -858,7 +861,7 @@
             this.pictureBox37.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox37.TabIndex = 36;
             this.pictureBox37.TabStop = false;
-            this.pictureBox37.Tag = "empty";
+            this.pictureBox37.Tag = "black_king";
             this.pictureBox37.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox37.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox37.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
@@ -1027,6 +1030,7 @@
             // 
             this.pictureBox48.BackColor = System.Drawing.Color.Beige;
             this.pictureBox48.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox48.Image = global::Chess.Properties.Resources.white_queen;
             this.pictureBox48.Location = new System.Drawing.Point(854, 610);
             this.pictureBox48.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox48.Name = "pictureBox48";
@@ -1034,7 +1038,7 @@
             this.pictureBox48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox48.TabIndex = 47;
             this.pictureBox48.TabStop = false;
-            this.pictureBox48.Tag = "empty";
+            this.pictureBox48.Tag = "white_queen";
             this.pictureBox48.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SquareClick);
             this.pictureBox48.MouseEnter += new System.EventHandler(this.MouseEnterSquare);
             this.pictureBox48.MouseLeave += new System.EventHandler(this.mouseLeaveSquare);
