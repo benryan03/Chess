@@ -35,1084 +35,26 @@ namespace Chess
             whiteKing = pictureBox61;
             blackKing = pictureBox37; //Debug - normal 05
         }
-        private void ValidMove(string piece)
-        //I still need to find a way to simplify this method
+
+        private void MouseEnterSquare(object sender, EventArgs e)
+        //Change background to white
         {
-            square1.Tag = "empty";
-            square.Tag = piece;
-
-            if (piece == "white_pawn")
+            PictureBox square = ((PictureBox)sender);
+            if (square1 != square && square2 != square)
             {
-                if (DoesMoveResultInCheck("white", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.white_pawn;
-                    square.Tag = piece;
-                    status.Text = "Black's move";
-
-                    if (DoesMoveResultInCheck("black", false) > 0)
-                    {
-                        checkStatusLabel.Text = "Black is in Check.";
-
-                        /*//Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("black") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! White wins!";
-                        }*/
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    square1.Tag = piece;
-                    square.Tag = "empty";
-                    status.Text = "White cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1 = null;
-                }
-            }
-            else if (piece == "black_pawn")
-            {
-                if (DoesMoveResultInCheck("black", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.black_pawn;
-                    square.Tag = piece;
-                    status.Text = "White's move";
-
-                    if (DoesMoveResultInCheck("white", false) > 0)
-                    {
-                        checkStatusLabel.Text = "White is in Check.";
-
-                        /*
-                        //Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("white") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! Black wins!";
-                        }
-                        */
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    square.Tag = "empty";
-                    status.Text = "Black cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
-            }
-            else if (piece == "white_rook")
-            {
-                if (DoesMoveResultInCheck("white", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.white_rook;
-                    square.Tag = piece;
-                    status.Text = "Black's move";
-
-                    if (DoesMoveResultInCheck("black", false) > 0)
-                    {
-                        checkStatusLabel.Text = "Black is in Check.";
-
-                        /*//Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("black") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! White wins!";
-                        }*/
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    square.Tag = "empty";
-                    status.Text = "White cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
-            }
-            else if (piece == "black_rook")
-            {
-                if (DoesMoveResultInCheck("black", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.black_rook;
-                    square.Tag = piece;
-                    status.Text = "White's move";
-
-                    if (DoesMoveResultInCheck("white", false) > 0)
-                    {
-                        checkStatusLabel.Text = "White is in Check.";
-
-                        /*
-                        //Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("white") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! Black wins!";
-                        }
-                        */
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    square.Tag = "empty";
-                    status.Text = "Black cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
-            }
-            else if (piece == "white_knight")
-            {
-                if (DoesMoveResultInCheck("white", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.white_knight;
-                    square.Tag = piece;
-                    status.Text = "Black's move";
-
-                    if (DoesMoveResultInCheck("black", false) > 0)
-                    {
-                        checkStatusLabel.Text = "Black is in Check.";
-
-                        /*//Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("black") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! White wins!";
-                        }*/
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    square.Tag = "empty";
-                    status.Text = "White cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
-            }
-            else if (piece == "black_knight")
-            {
-                if (DoesMoveResultInCheck("black", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.black_knight;
-                    square.Tag = piece;
-                    status.Text = "White's move";
-
-                    if (DoesMoveResultInCheck("white", false) > 0)
-                    {
-                        checkStatusLabel.Text = "White is in Check.";
-
-                        /*
-                        //Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("white") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! Black wins!";
-                        }
-                        */
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    square.Tag = "empty";
-                    status.Text = "Black cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
-            }
-            else if (piece == "white_bishop")
-            {
-                if (DoesMoveResultInCheck("white", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.white_bishop;
-                    square.Tag = piece;
-                    status.Text = "Black's move";
-
-                    if (DoesMoveResultInCheck("black", false) > 0)
-                    {
-                        checkStatusLabel.Text = "Black is in Check.";
-
-                        /*//Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("black") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! White wins!";
-                        }*/
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    square.Tag = "empty";
-                    status.Text = "White cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
-            }
-            else if (piece == "black_bishop")
-            {
-                if (DoesMoveResultInCheck("black", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.black_bishop;
-                    square.Tag = piece;
-                    status.Text = "White's move";
-
-                    if (DoesMoveResultInCheck("white", false) > 0)
-                    {
-                        checkStatusLabel.Text = "White is in Check.";
-
-                        /*
-                        //Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("white") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! Black wins!";
-                        }
-                        */
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    square.Tag = "empty";
-                    status.Text = "Black cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
-            }
-            else if (piece == "white_queen")
-            {
-                if (DoesMoveResultInCheck("white", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.white_queen;
-                    square.Tag = piece;
-                    status.Text = "Black's move";
-
-                    if (DoesMoveResultInCheck("black", false) > 0)
-                    {
-                        checkStatusLabel.Text = "Black is in Check.";
-
-                        /*//Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("black") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! White wins!";
-                        }*/
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    square.Tag = "empty";
-                    status.Text = "White cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
-            }
-            else if (piece == "black_queen")
-            {
-                if (DoesMoveResultInCheck("black", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.black_queen;
-                    square.Tag = piece;
-                    status.Text = "White's move";
-
-                    if (DoesMoveResultInCheck("white", false) > 0)
-                    {
-                        checkStatusLabel.Text = "White is in Check.";
-
-                        /*
-                        //Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("white") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! Black wins!";
-                        }
-                        */
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    square.Tag = "empty";
-                    status.Text = "Black cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
-            }
-            else if (piece == "white_king")
-            {
-                whiteKing2 = whiteKing;
-                whiteKing = square;
-                if (DoesMoveResultInCheck("white", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.white_king;
-                    square.Tag = piece;
-                    status.Text = "Black's move";
-
-                    if (DoesMoveResultInCheck("black", false) > 0)
-                    {
-                        checkStatusLabel.Text = "Black is in Check.";
-
-                        /*//Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("black") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! White wins!";
-                        }*/
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    whiteKing = whiteKing2;
-                    square.Tag = "empty";
-                    status.Text = "White cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
-            }
-            else if (piece == "black_king")
-            {
-                blackKing2 = blackKing;
-                blackKing = square;
-                if (DoesMoveResultInCheck("black", false) == 0) //Move is valid
-                {
-                    //Reset properties of square1
-                    ResetColorOfSquare(square1);
-                    square1.Image = null;
-                    square1Clicked = false;
-                    square1 = null;
-
-                    //Prepare for next move
-                    selectedPiece = null;
-                    turn++;
-                    square.Image = Properties.Resources.black_king;
-                    square.Tag = piece;
-                    status.Text = "White's move";
-
-                    if (DoesMoveResultInCheck("white", false) > 0)
-                    {
-                        checkStatusLabel.Text = "White is in Check.";
-
-                        /*
-                        //Does move result in Checkmate?
-                        if (DoesMoveResultInCheckmate("white") == true)
-                        {
-                            checkStatusLabel.Text = "Checkmate! Black wins!";
-                        }
-                        */
-                    }
-                    else
-                    {
-                        checkStatusLabel.Text = "";
-                    }
-                }
-                else //Move is invalid
-                {
-                    //Reset and prepare for next move
-                    blackKing = blackKing2;
-                    square.Tag = "empty";
-                    status.Text = "Black cannot move into Check.";
-                    square1Clicked = false;
-                    ResetColorOfSquare(square1);
-                    square1.Tag = piece;
-                    square1 = null;
-                }
+                square.BackColor = Color.White;
             }
         }
 
-        private void InvalidMove()
+        private void MouseLeaveSquare(object sender, EventArgs e)
+        //Remove white background
         {
-            ResetColorOfSquare(square1);
-            square1 = null;
-            square1Clicked = false;
-            selectedPiece = null;
+            PictureBox square = ((PictureBox)sender);
+            if (square1 != square && square2 != square)
+            {
+                ResetColorOfSquare(square);
+            }
         }
-
-        private int DoesMoveResultInCheck(string piece, bool test)
-        {
-            int piecesThatCanKillKing = 0;
-
-            int KingRow = 0;
-            int KingCol = 0;
-
-            string enemy_pawn = "";
-            string enemy_rook = "";
-            string enemy_knight = "";
-            string enemy_bishop = "";
-            string enemy_queen = "";
-            string enemy_king = "";
-
-
-            Control PawnCheck1 = new Control();
-            Control PawnCheck2 = new Control();
-
-            if (piece == "white")
-            {
-                //Get position of white king
-                KingRow = tableLayoutPanel1.GetRow(whiteKing);
-                KingCol = tableLayoutPanel1.GetColumn(whiteKing);
-
-                tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow).BackColor = Color.Green; //DEBUG
-
-                PawnCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
-                PawnCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
-
-                enemy_pawn = "black_pawn";
-                enemy_rook = "black_rook";
-                enemy_knight = "black_knight";
-                enemy_bishop = "black_bishop";
-                enemy_queen = "black_queen";
-                enemy_king = "black_king";
-            }
-
-            else if (piece == "black")
-            {
-                //Get position of white king
-                KingRow = tableLayoutPanel1.GetRow(whiteKing);
-                KingCol = tableLayoutPanel1.GetColumn(whiteKing);
-
-                PawnCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
-                PawnCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
-
-                enemy_pawn = "white_pawn";
-                enemy_rook = "white_rook";
-                enemy_knight = "white_knight";
-                enemy_bishop = "white_bishop";
-                enemy_queen = "white_queen";
-                enemy_king = "white_king";
-            }
-
-            /////////////////////////////////////
-            //CHECK IF A PAWN CAN KILL KING
-
-            if (PawnCheck1.Tag.ToString() == enemy_pawn)
-            {
-                PawnCheck1.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-
-            if (PawnCheck2.Tag.ToString() == enemy_pawn)
-            {
-                PawnCheck2.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-
-            if (PawnCheck1.Tag.ToString() == enemy_pawn)
-            {
-                PawnCheck1.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-
-            }
-            if (PawnCheck2.Tag.ToString() == enemy_pawn)
-            {
-                PawnCheck2.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-            
-            /*
-            //////////////////////////////////////////////
-            //CHECK IF A ROOK OR QUEEN CAN KILL KING
-
-            Control HorizontalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
-            Control HorizontalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
-            Control HorizontalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
-            Control HorizontalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
-
-            //Determine if king is in check - horizontal left (black rook or queen)
-            int y = tableLayoutPanel1.GetRow(HorizontalCheck1);
-            for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck1); x >= 2; x--)
-            {
-                if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
-                //Square is piece that is not black rook or black queen
-                {
-                    MessageBox.Show("break");
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
-                //Square is black rook or black queen
-                {
-                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
-                    piecesThatCanKillKing++;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
-                //Square is empty
-                {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow;
-                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Orange;
-                    continue;
-                }
-            }
-
-            //Determine if white king is in check - horizontal right (enemy rook or queen)
-            y = tableLayoutPanel1.GetRow(HorizontalCheck3);
-            for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck3); x <= 9; x++)
-            {
-                if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
-                //Square is piece that is not enemy rook or enemy queen
-                {
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
-                //Square is enemy rook or enemy queen
-                {
-
-                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow;
-                    piecesThatCanKillKing++;
-                    //return true;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
-                //Square is empty
-                {
-                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Orange;
-                    continue;
-                }
-            }
-
-            //Determine if white king is in check - vertical up (enemy rook or queen)
-            y = tableLayoutPanel1.GetColumn(HorizontalCheck2);
-            for (int x = tableLayoutPanel1.GetRow(HorizontalCheck2); x >= 2; x--)
-            {
-                if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
-                //Square is piece that is not enemy rook or enemy queen
-                {
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_queen)
-                //Square is enemy rook or enemy queen
-                {
-                    tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Yellow;
-                    piecesThatCanKillKing++;
-                    //return true;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
-                //Square is empty
-                {
-                    tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Orange;
-                    continue;
-                }
-            }
-
-
-            //Determine if white king is in check - vertical down (enemy rook or queen)
-            y = tableLayoutPanel1.GetColumn(HorizontalCheck4);
-            for (int x = tableLayoutPanel1.GetRow(HorizontalCheck4); x <= 9; x++)
-            {
-                if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
-                //Square is piece that is not enemy rook or enemy queen
-                {
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_queen)
-                //Square is enemy rook or enemy queen
-                {
-                    tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Yellow;
-                    piecesThatCanKillKing++;
-                    //return true;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
-                //Square is empty
-                {
-                    tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Orange;
-                    continue;
-                }
-            }
-
-            ///////////////////////////////////////
-            //CHECK IF A KNIGHT CAN KILL KING
-
-            Control KnightCheck1 = new Control();
-            Control KnightCheck2 = new Control();
-            Control KnightCheck3 = new Control();
-            Control KnightCheck4 = new Control();
-            Control KnightCheck5 = new Control();
-            Control KnightCheck6 = new Control();
-            Control KnightCheck7 = new Control();
-            Control KnightCheck8 = new Control();
-
-            Control[] KnightChecks = { KnightCheck1, KnightCheck2, KnightCheck3, KnightCheck4, KnightCheck5, KnightCheck6, KnightCheck7, KnightCheck8 };
-
-            KnightChecks[0] = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 2);
-            KnightChecks[1] = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 2);
-            KnightChecks[2] = tableLayoutPanel1.GetControlFromPosition(KingCol + 2, KingRow - 1);
-            KnightChecks[3] = tableLayoutPanel1.GetControlFromPosition(KingCol + 2, KingRow + 1);
-            KnightChecks[4] = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 2);
-            KnightChecks[5] = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 2);
-            KnightChecks[6] = tableLayoutPanel1.GetControlFromPosition(KingCol - 2, KingRow - 1);
-            KnightChecks[7] = tableLayoutPanel1.GetControlFromPosition(KingCol - 2, KingRow + 1);
-
-            foreach (Control x in KnightChecks)
-            {
-                if (x.Tag.ToString() == enemy_knight)
-                {
-                        x.BackColor = Color.Red;
-                    piecesThatCanKillKing++;
-                    //return true;
-                }
-            }
-
-            ////////////////////////////////////////////////
-            //CHECK IF A BISHOP OR QUEEN CAN KILL KING
-
-            Control DiagonalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
-            Control DiagonalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
-            Control DiagonalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
-            Control DiagonalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
-
-            y = tableLayoutPanel1.GetRow(DiagonalCheck1);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck1); x >= 2; x--, y--)
-            {
-                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
-                //Square is outside board
-                {
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
-                //Square is piece that is not  bishop or  queen
-                {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
-                //Square is  bishop or  queen
-                {
-                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
-                    piecesThatCanKillKing++;
-                    //return true;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
-                //Square is empty
-                {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
-                    continue;
-                }
-            }
-
-            //Determine if  king is in check - diagonal up/right ( bishop or queen)
-            y = tableLayoutPanel1.GetRow(DiagonalCheck2);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck2); x <= 9; x++, y--)
-            {
-                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
-                //Square is outside board
-                {
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
-                //Square is piece that is not  bishop or  queen
-                {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
-                //Square is  bishop or  queen
-                {
-                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
-                    piecesThatCanKillKing++;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
-                //Square is empty
-                {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
-                    continue;
-                }
-            }
-            
-            //Determine if  king is in check - diagonal down/right ( bishop or queen)
-            y = tableLayoutPanel1.GetRow(DiagonalCheck3);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x <= 9; x++, y++)
-            {
-                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
-                //Square is outside board
-                {
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
-                //Square is piece that is not  bishop or  queen
-                {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
-                //Square is  bishop or  queen
-                {
-                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
-                    piecesThatCanKillKing++;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
-                //Square is empty
-                {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
-                    continue;
-                }
-            }
-            
-            //Determine if  king is in check - diagonal down/left ( bishop or queen)
-            y = tableLayoutPanel1.GetRow(DiagonalCheck4);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck4); x >= 2; x--, y++)
-            {
-                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
-                //Square is outside board
-                {
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
-                //Square is piece that is not  bishop or  queen
-                {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
-                    break;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
-                //Square is  bishop or  queen
-                {
-                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
-                    piecesThatCanKillKing++;
-                }
-                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
-                //Square is empty
-                {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
-                    continue;
-                }
-            }
-          
-            /////////////////////////////////////////
-            //CHECK IF KING CAN KILL KING
-
-            Control KingCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
-            Control KingCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
-            Control KingCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
-            Control KingCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
-            Control KingCheck5 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
-            Control KingCheck6 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
-            Control KingCheck7 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
-            Control KingCheck8 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
-
-            //Determine if  king is in check by  king
-
-            if (KingCheck1.Tag.ToString() == enemy_king)
-            {
-                KingCheck1.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-
-            if (KingCheck2.Tag.ToString() == enemy_king)
-            {
-                KingCheck2.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-
-            if (KingCheck3.Tag.ToString() == enemy_king)
-            {
-                KingCheck3.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-
-            if (KingCheck4.Tag.ToString() == enemy_king)
-            {
-                KingCheck4.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-
-            if (KingCheck5.Tag.ToString() == enemy_king)
-            {
-                KingCheck5.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-
-            if (KingCheck6.Tag.ToString() == enemy_king)
-            {
-                KingCheck6.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-
-            if (KingCheck7.Tag.ToString() == enemy_king)
-            {
-                KingCheck7.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-
-            if (KingCheck8.Tag.ToString() == enemy_king)
-            {
-                KingCheck8.BackColor = Color.Red;
-                piecesThatCanKillKing++;
-            }
-            */
-
-            return piecesThatCanKillKing;
-        }
- 
-        /*
-        private bool DoesMoveResultInCheckmate(string piece)
-        //This method will be triggered after (white) moves
-        //Input will be the position of (black) king
-        {
-            if (piece.Contains("black"))
-            {
-                //Get position of black king
-                int KingRowTemp = tableLayoutPanel1.GetRow(blackKing);
-                int KingColTemp = tableLayoutPanel1.GetColumn(blackKing);
-
-                Control KingPos0 = new Control();
-                Control KingPos1 = new Control();
-                Control KingPos2 = new Control();
-                Control KingPos3 = new Control();
-                Control KingPos4 = new Control();
-                Control KingPos5 = new Control();
-                Control KingPos6 = new Control();
-                Control KingPos7 = new Control();
-
-                Control[] KingPos = { KingPos0, KingPos1, KingPos2, KingPos3, KingPos4, KingPos5, KingPos6, KingPos7 };
-
-                KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
-                KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
-                KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
-                KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
-                KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
-                KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
-                KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
-                KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
-
-
-
-                
-                //First, determine whether black king can move into a position that does not result in check
-                MessageBox.Show("Checking whether king can move out of check..."); //DEBUG
-                foreach (PictureBox x in KingPos)
-                {
-                    System.Threading.Thread.Sleep(500); //DEBUG
-                    Application.DoEvents(); //DEBUG
-
-                    if (x != null) //if square is on the board - not sure why the !=kingpos[7] needs to be there
-                    {
-                        blackKing2 = blackKing;
-                        blackKing = x;
-                        x.BackColor = Color.Green; //DEBUG            
-
-                        if (DoesMoveResultInCheck("black", true) == 0) //Black king does have a possible move
-                        {
-                            MessageBox.Show("Black king can move"); //DEBUG
-                            blackKing = blackKing2;
-                            return false;
-                        }
-                        blackKing = blackKing2;
-                    }
-                }
-                
-
-
-
-
-
-                //MessageBox.Show("King has no possible moves"); //DEBUG
-                //return false; //DEBUG 
-
-                
-
-                //If not, determine how many pieces are currently in a position to kill black king
-                int CheckPieceQuantity = DoesMoveResultInCheck("black", false);
-                MessageBox.Show(CheckPieceQuantity.ToString() + " piece can kill king"); //DEBUG
-
-                //If only 1, determine if that piece can be killed
-                if (CheckPieceQuantity == 1)
-                {
-                    MessageBox.Show("Checking whether that piece can be killed"); //DEBUG
-
-                    //Get position of piece causing Check
-                    whiteKing2 = whiteKing;
-                    GetPositionOfPieceThatIsCausingCheck("black");
-                    whiteKing = blackKing;
-
-                    if (DoesMoveResultInCheck("white", false) > 0)
-                    {
-                        //Yes, that piece can be killed 
-                        MessageBox.Show("That piece can be killed"); //DEBUG
-                        whiteKing = whiteKing2;
-                        return false;
-                    }
-                    else
-                    {
-                        whiteKing = whiteKing2;
-                        return true;
-                    }
-                    
-                }
-                 else if (CheckPieceQuantity > 1) //Checkmate - White wins
-                {
-                    return true;
-                }
-                
-                else //This should be unreachable
-                {
-                    return false;
-                }
-                
-
-            }
-            else if (piece.Contains("black"))
-            {
-                return false;
-            }
-            else //This should be unreachable
-            {
-                return false;
-            }
-        }*/
 
         private void ResetColorOfSquare(PictureBox square)
         {
@@ -1206,24 +148,6 @@ namespace Chess
                 {
                     square.BackColor = Color.Goldenrod;
                 }
-            }
-        }
-
-        private void MouseEnterSquare(object sender, EventArgs e)
-        {
-            PictureBox square = ((PictureBox)sender);
-            if (square1 != square && square2 != square)
-            {
-                square.BackColor = Color.White;
-            }
-        }
-
-        private void mouseLeaveSquare(object sender, EventArgs e)
-        {
-            PictureBox square = ((PictureBox)sender);
-            if (square1 != square && square2 != square)
-            {
-                ResetColorOfSquare(square);
             }
         }
 
@@ -1326,9 +250,9 @@ namespace Chess
             {
                 if (selectedPiece == "white_pawn")
                 {
-                    if (square.Tag.ToString().Contains("white") == false || square.Tag.ToString().Contains("empty") == true)
+                    if (square.Tag.ToString().Contains("white") == false)
                     {
-                        if (this.tableLayoutPanel1.GetRow(square1) == 6) //Original row
+                        if (this.tableLayoutPanel1.GetRow(square1) == 8) //Original row
                         {
                             if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Original row and same column
                             {
@@ -1429,10 +353,10 @@ namespace Chess
 
                 else if (selectedPiece == "black_pawn")
                 {
-                    if (square.Tag.ToString().Contains("black") == false || square.Tag.ToString().Contains("empty") == true)
+                    if (square.Tag.ToString().Contains("black") == false)
                     {
 
-                        if (this.tableLayoutPanel1.GetRow(square1) == 1) //Original row
+                        if (this.tableLayoutPanel1.GetRow(square1) == 3) //Original row
                         {
                             if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Original row and same column
                             {
@@ -1533,7 +457,7 @@ namespace Chess
 
                 else if (selectedPiece == "white_rook")
                 {
-                    if (square.Tag.ToString().Contains("white") == false || square.Tag.ToString().Contains("empty") == true)
+                    if (square.Tag.ToString().Contains("white") == false)
                     {
                         int column = this.tableLayoutPanel1.GetColumn(square1);
                         int startRow = this.tableLayoutPanel1.GetRow(square1);
@@ -1644,7 +568,7 @@ namespace Chess
 
                 else if (selectedPiece == "black_rook")
                 {
-                    if (square.Tag.ToString().Contains("black") == false || square.Tag.ToString().Contains("empty") == true)
+                    if (square.Tag.ToString().Contains("black") == false)
                     {
                         int column = this.tableLayoutPanel1.GetColumn(square1);
                         int startRow = this.tableLayoutPanel1.GetRow(square1);
@@ -1755,7 +679,7 @@ namespace Chess
 
                 else if (selectedPiece == "white_knight")
                 {
-                    if (square.Tag.ToString().Contains("white") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    if (square.Tag.ToString().Contains("white") == false) //Makes sure target square is not occupied by own piece
                     {
                         int startColumn = this.tableLayoutPanel1.GetColumn(square1);
                         int startRow = this.tableLayoutPanel1.GetRow(square1);
@@ -1835,7 +759,7 @@ namespace Chess
 
                 else if (selectedPiece == "black_knight")
                 {
-                    if (square.Tag.ToString().Contains("black") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    if (square.Tag.ToString().Contains("black") == false) //Makes sure target square is not occupied by own piece
                     {
                         int startColumn = this.tableLayoutPanel1.GetColumn(square1);
                         int startRow = this.tableLayoutPanel1.GetRow(square1);
@@ -1915,7 +839,7 @@ namespace Chess
 
                 else if (selectedPiece == "white_bishop")
                 {
-                    if (square.Tag.ToString().Contains("white") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    if (square.Tag.ToString().Contains("white") == false) //Makes sure target square is not occupied by own piece
                     {
                         int startColumn = this.tableLayoutPanel1.GetColumn(square1);
                         int startRow = this.tableLayoutPanel1.GetRow(square1);
@@ -2060,7 +984,7 @@ namespace Chess
 
                 else if (selectedPiece == "black_bishop")
                 {
-                    if (square.Tag.ToString().Contains("black") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    if (square.Tag.ToString().Contains("black") == false) //Makes sure target square is not occupied by own piece
                     {
                         int startColumn = this.tableLayoutPanel1.GetColumn(square1);
                         int startRow = this.tableLayoutPanel1.GetRow(square1);
@@ -2206,7 +1130,7 @@ namespace Chess
 
                 else if (selectedPiece == "white_queen")
                 {
-                    if (square.Tag.ToString().Contains("white") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    if (square.Tag.ToString().Contains("white") == false) //Makes sure target square is not occupied by own piece
                     {
                         int startColumn = this.tableLayoutPanel1.GetColumn(square1);
                         int startRow = this.tableLayoutPanel1.GetRow(square1);
@@ -2435,7 +1359,7 @@ namespace Chess
 
                 else if (selectedPiece == "black_queen")
                 {
-                    if (square.Tag.ToString().Contains("black") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    if (square.Tag.ToString().Contains("black") == false) //Makes sure target square is not occupied by own piece
                     {
                         int startColumn = this.tableLayoutPanel1.GetColumn(square1);
                         int startRow = this.tableLayoutPanel1.GetRow(square1);
@@ -2672,7 +1596,7 @@ namespace Chess
 
                 else if (selectedPiece == "white_king")
                 {
-                    if (square.Tag.ToString().Contains("white") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    if (square.Tag.ToString().Contains("white") == false) //Makes sure target square is not occupied by own piece
                     {
                         int startColumn = this.tableLayoutPanel1.GetColumn(square1);
                         int startRow = this.tableLayoutPanel1.GetRow(square1);
@@ -2682,7 +1606,7 @@ namespace Chess
                         int rowDifference = endRow - startRow;
                         int columnDifference = endColumn - startColumn;
 
-                        if (Math.Abs(rowDifference) == 1 || Math.Abs(columnDifference) == 1)
+                        if ((Math.Abs(rowDifference) == 0 | Math.Abs(rowDifference) == 1) & (Math.Abs(columnDifference) == 0 | Math.Abs(columnDifference) == 1))
                         {
                             ValidMove("white_king");
                         }
@@ -2699,7 +1623,7 @@ namespace Chess
 
                 else if (selectedPiece == "black_king")
                 {
-                    if (square.Tag.ToString().Contains("black") == false || square.Tag.ToString().Contains("empty") == true) //Makes sure target square is not occupied by own piece
+                    if (square.Tag.ToString().Contains("black") == false) //Makes sure target square is not occupied by own piece
                     {
                         int startColumn = this.tableLayoutPanel1.GetColumn(square1);
                         int startRow = this.tableLayoutPanel1.GetRow(square1);
@@ -2709,7 +1633,7 @@ namespace Chess
                         int rowDifference = endRow - startRow;
                         int columnDifference = endColumn - startColumn;
 
-                        if (Math.Abs(rowDifference) == 1 || Math.Abs(columnDifference) == 1)
+                        if ((Math.Abs(rowDifference) == 0 | Math.Abs(rowDifference) == 1) & (Math.Abs(columnDifference) == 0 | Math.Abs(columnDifference) == 1))
                         {
                             ValidMove("black_king");
                         }
@@ -2724,6 +1648,1570 @@ namespace Chess
                     }
                 }
             }
+        }
+
+        private void ValidMove(string piece)
+        //Move is valid - does it result in Check or Checkmate?
+        //I still need to find a way to simplify this method
+        {
+            square1.Tag = "empty";
+            square.Tag = piece;
+
+            if (piece == "white_pawn")
+            {
+                if (DoesMoveResultInCheck("white", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.white_pawn;
+                    square.Tag = piece;
+                    status.Text = "Black's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("black", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("black") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! White wins!";
+                        }
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    square1.Tag = piece;
+                    square.Tag = "empty";
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1 = null;
+                }
+            }
+            else if (piece == "black_pawn")
+            {
+                if (DoesMoveResultInCheck("black", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.black_pawn;
+                    square.Tag = piece;
+                    status.Text = "White's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("white", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+
+                        
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("white") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! Black wins!";
+                        }
+                        
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    square.Tag = "empty";
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+            else if (piece == "white_rook")
+            {
+                if (DoesMoveResultInCheck("white", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.white_rook;
+                    square.Tag = piece;
+                    status.Text = "Black's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("black", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("black") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! White wins!";
+                        }
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    square.Tag = "empty";
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+            else if (piece == "black_rook")
+            {
+                if (DoesMoveResultInCheck("black", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.black_rook;
+                    square.Tag = piece;
+                    status.Text = "White's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("white", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+
+                        
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("white") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! Black wins!";
+                        }
+                        
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    square.Tag = "empty";
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+            else if (piece == "white_knight")
+            {
+                if (DoesMoveResultInCheck("white", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.white_knight;
+                    square.Tag = piece;
+                    status.Text = "Black's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("black", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("black") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! White wins!";
+                        }
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    square.Tag = "empty";
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+            else if (piece == "black_knight")
+            {
+                if (DoesMoveResultInCheck("black", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.black_knight;
+                    square.Tag = piece;
+                    status.Text = "White's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("white", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+
+                        
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("white") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! Black wins!";
+                        }
+                        
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    square.Tag = "empty";
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+            else if (piece == "white_bishop")
+            {
+                if (DoesMoveResultInCheck("white", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.white_bishop;
+                    square.Tag = piece;
+                    status.Text = "Black's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("black", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("black") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! White wins!";
+                        }
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    square.Tag = "empty";
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+            else if (piece == "black_bishop")
+            {
+                if (DoesMoveResultInCheck("black", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.black_bishop;
+                    square.Tag = piece;
+                    status.Text = "White's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("white", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+
+                        
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("white") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! Black wins!";
+                        }
+                        
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    square.Tag = "empty";
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+            else if (piece == "white_queen")
+            {
+                if (DoesMoveResultInCheck("white", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.white_queen;
+                    square.Tag = piece;
+                    status.Text = "Black's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("black", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("black") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! White wins!";
+                        }
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    square.Tag = "empty";
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+            else if (piece == "black_queen")
+            {
+                if (DoesMoveResultInCheck("black", true, false) == 0) //Move is valid
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.black_queen;
+                    square.Tag = piece;
+                    status.Text = "White's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("white", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+
+                        
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("white") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! Black wins!";
+                        }
+                        
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    square.Tag = "empty";
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+            else if (piece == "white_king")
+            {
+                whiteKing2 = whiteKing;
+                whiteKing = square;
+                if (DoesMoveResultInCheck("white", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.white_king;
+                    square.Tag = piece;
+                    status.Text = "Black's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("black", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "Black is in Check.";
+
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("black") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! White wins!";
+                        }
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    whiteKing = whiteKing2;
+                    square.Tag = "empty";
+                    status.Text = "White cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+            else if (piece == "black_king")
+            {
+                blackKing2 = blackKing;
+                blackKing = square;
+                if (DoesMoveResultInCheck("black", true, false) == 0) //Move does not put self in check
+                {
+                    //Reset properties of square1
+                    ResetColorOfSquare(square1);
+                    square1.Image = null;
+                    square1Clicked = false;
+                    square1 = null;
+
+                    //Prepare for next move
+                    selectedPiece = null;
+                    turn++;
+                    square.Image = Properties.Resources.black_king;
+                    square.Tag = piece;
+                    status.Text = "White's move";
+
+                    //Does move put opponent in Check?
+                    if (DoesMoveResultInCheck("white", true, false) > 0)
+                    {
+                        checkStatusLabel.Text = "White is in Check.";
+
+                        
+                        //Does move result in Checkmate?
+                        if (DoesMoveResultInCheckmate("white") == true)
+                        {
+                            checkStatusLabel.Text = "Checkmate! Black wins!";
+                        }
+                        
+                    }
+                    else
+                    {
+                        checkStatusLabel.Text = "";
+                    }
+                    
+                }
+                else //Move is invalid
+                {
+                    //Reset and prepare for next move
+                    blackKing = blackKing2;
+                    square.Tag = "empty";
+                    status.Text = "Black cannot move into Check.";
+                    square1Clicked = false;
+                    ResetColorOfSquare(square1);
+                    square1.Tag = piece;
+                    square1 = null;
+                }
+            }
+        }
+        
+        private void InvalidMove()
+        {
+            ResetColorOfSquare(square1);
+            square1 = null;
+            square1Clicked = false;
+            selectedPiece = null;
+        }
+
+        private int DoesMoveResultInCheck(string piece, bool ShowRedSquares, bool DetermineIfCheckmate)
+        {
+            int piecesThatCanKillKing = 0;
+
+            int KingRow = 0;
+            int KingCol = 0;
+
+            string enemy_pawn = "";
+            string enemy_rook = "";
+            string enemy_knight = "";
+            string enemy_bishop = "";
+            string enemy_queen = "";
+            string enemy_king = "";
+
+
+            Control PawnCheck1 = new Control();
+            Control PawnCheck2 = new Control();
+
+            if (piece == "white")
+            {
+                //Get position of white king
+                KingRow = tableLayoutPanel1.GetRow(whiteKing);
+                KingCol = tableLayoutPanel1.GetColumn(whiteKing);
+
+                //tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow).BackColor = Color.Green; //DEBUG
+
+                PawnCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                PawnCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+
+                enemy_pawn = "black_pawn";
+                enemy_rook = "black_rook";
+                enemy_knight = "black_knight";
+                enemy_bishop = "black_bishop";
+                enemy_queen = "black_queen";
+                enemy_king = "black_king";
+            }
+
+            else if (piece == "black")
+            {
+                //Get position of black king
+                KingRow = tableLayoutPanel1.GetRow(blackKing);
+                KingCol = tableLayoutPanel1.GetColumn(blackKing);
+
+                //tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow).BackColor = Color.Green; //DEBUG
+
+                PawnCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                PawnCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+
+                enemy_pawn = "white_pawn";
+                enemy_rook = "white_rook";
+                enemy_knight = "white_knight";
+                enemy_bishop = "white_bishop";
+                enemy_queen = "white_queen";
+                enemy_king = "white_king";
+            }
+
+            /////////////////////////////////////
+            //CHECK IF A PAWN CAN KILL KING
+
+            if (PawnCheck1.Tag.ToString() == enemy_pawn & PawnCheck2.Tag.ToString() != enemy_pawn)
+            {
+                piecesThatCanKillKing++;
+                if (ShowRedSquares == true)
+                {
+                    PawnCheck1.BackColor = Color.Red;
+                }
+            }
+            else if (PawnCheck1.Tag.ToString() != enemy_pawn & PawnCheck2.Tag.ToString() == enemy_pawn)
+            {
+                piecesThatCanKillKing++;
+                if (ShowRedSquares == true)
+                {
+                    PawnCheck2.BackColor = Color.Red;
+                }
+            }
+            if (PawnCheck1.Tag.ToString() == enemy_pawn & PawnCheck2.Tag.ToString() == enemy_pawn)
+            {
+                piecesThatCanKillKing++;
+                piecesThatCanKillKing++;
+                if (ShowRedSquares == true)
+                {
+                    PawnCheck1.BackColor = Color.Red;
+                    PawnCheck2.BackColor = Color.Red;
+                }
+            }
+
+            //////////////////////////////////////////////
+            //CHECK IF A ROOK OR QUEEN CAN KILL KING
+
+            Control HorizontalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
+            Control HorizontalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
+            Control HorizontalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
+            Control HorizontalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
+
+            
+            //Determine if king is in check - horizontal left (enemy rook or queen)
+            int y = tableLayoutPanel1.GetRow(HorizontalCheck1);
+            for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck1); x >= 1; x--)
+            {
+
+
+                //Application.DoEvents();
+                //System.Threading.Thread.Sleep(500);
+                //MessageBox.Show(x + " " + y);
+
+                if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not enemy rook or enemy queen
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is enemy rook or enemy queen
+                {
+
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                    }
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Orange;
+                    continue;
+                }
+            }
+
+            //Determine if king is in check - horizontal right (enemy rook or queen)
+            y = tableLayoutPanel1.GetRow(HorizontalCheck3);
+            for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck3); x <= 9; x++)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not enemy rook or enemy queen
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is enemy rook or enemy queen
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true) 
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                    }
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    continue;
+                }
+            }
+
+            //Determine if white king is in check - vertical up (enemy rook or queen)
+            y = tableLayoutPanel1.GetColumn(HorizontalCheck2);
+            for (int x = tableLayoutPanel1.GetRow(HorizontalCheck2); x >= 2; x--)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
+                //Square is piece that is not enemy rook or enemy queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green;
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_queen)
+                //Square is enemy rook or enemy queen
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Red;
+                    }
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Orange;
+                    continue;
+                }
+            }
+
+
+            //Determine if king is in check - vertical down (enemy rook or queen)
+            y = tableLayoutPanel1.GetColumn(HorizontalCheck4);
+            for (int x = tableLayoutPanel1.GetRow(HorizontalCheck4); x <= 9; x++)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
+                //Square is piece that is not enemy rook or enemy queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green;
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_queen)
+                //Square is enemy rook or enemy queen
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Red;
+                    }
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Orange;
+                    continue;
+                }
+            }
+
+            ///////////////////////////////////////
+            //CHECK IF A KNIGHT CAN KILL KING
+
+            Control KnightCheck1 = new Control();
+            Control KnightCheck2 = new Control();
+            Control KnightCheck3 = new Control();
+            Control KnightCheck4 = new Control();
+            Control KnightCheck5 = new Control();
+            Control KnightCheck6 = new Control();
+            Control KnightCheck7 = new Control();
+            Control KnightCheck8 = new Control();
+
+            Control[] KnightChecks = { KnightCheck1, KnightCheck2, KnightCheck3, KnightCheck4, KnightCheck5, KnightCheck6, KnightCheck7, KnightCheck8 };
+
+            KnightChecks[0] = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 2);
+            KnightChecks[1] = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 2);
+            KnightChecks[2] = tableLayoutPanel1.GetControlFromPosition(KingCol + 2, KingRow - 1);
+            KnightChecks[3] = tableLayoutPanel1.GetControlFromPosition(KingCol + 2, KingRow + 1);
+            KnightChecks[4] = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 2);
+            KnightChecks[5] = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 2);
+            KnightChecks[6] = tableLayoutPanel1.GetControlFromPosition(KingCol - 2, KingRow - 1);
+            KnightChecks[7] = tableLayoutPanel1.GetControlFromPosition(KingCol - 2, KingRow + 1);
+
+            foreach (Control x in KnightChecks)
+            {
+                if (x.Tag.ToString() == enemy_knight)
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        x.BackColor = Color.Red;
+                    }
+                }
+            }
+
+            ////////////////////////////////////////////////
+            //CHECK IF A BISHOP OR QUEEN CAN KILL KING
+
+            Control DiagonalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+            Control DiagonalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+            Control DiagonalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+            Control DiagonalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+
+            y = tableLayoutPanel1.GetRow(DiagonalCheck1);
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck1); x >= 0; x--, y--)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                //Square is outside board
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not  bishop or  queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is  bishop or  queen
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                    }
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                    continue;
+                }
+            }
+
+            //Determine if  king is in check - diagonal up/right (bishop or queen)
+            y = tableLayoutPanel1.GetRow(DiagonalCheck2);
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck2); x <= 9; x++, y--)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                //Square is outside board
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not  bishop or  queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is  bishop or  queen
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                    }
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                    continue;
+                }
+            }
+            
+            //Determine if  king is in check - diagonal down/right (bishop or queen)
+            y = tableLayoutPanel1.GetRow(DiagonalCheck3);
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x <= 9; x++, y++)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                //Square is outside board
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not  bishop or  queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is  bishop or  queen
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                    }
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                    continue;
+                }
+            }
+            
+            //Determine if  king is in check - diagonal down/left (bishop or queen)
+            y = tableLayoutPanel1.GetRow(DiagonalCheck4);
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck4); x >= 2; x--, y++)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                //Square is outside board
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not  bishop or  queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is  bishop or  queen
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
+                    }
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                    continue;
+                }
+            }
+          
+            if (DetermineIfCheckmate == false)
+            {
+                /////////////////////////////////////////
+                //CHECK IF KING CAN KILL KING
+
+                Control KingCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                Control KingCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
+                Control KingCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                Control KingCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
+                Control KingCheck5 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                Control KingCheck6 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
+                Control KingCheck7 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+                Control KingCheck8 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
+
+                //Determine if  king is in check by  king
+
+                if (KingCheck1.Tag.ToString() == enemy_king)
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        KingCheck1.BackColor = Color.Red;
+                    }
+                }
+
+                if (KingCheck2.Tag.ToString() == enemy_king)
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        KingCheck2.BackColor = Color.Red;
+                    }
+                }
+
+                if (KingCheck3.Tag.ToString() == enemy_king)
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        KingCheck3.BackColor = Color.Red;
+                    }
+                }
+
+                if (KingCheck4.Tag.ToString() == enemy_king)
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        KingCheck4.BackColor = Color.Red;
+                    }
+                }
+
+                if (KingCheck5.Tag.ToString() == enemy_king)
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        KingCheck5.BackColor = Color.Red;
+                    }
+                }
+
+                if (KingCheck6.Tag.ToString() == enemy_king)
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        KingCheck6.BackColor = Color.Red;
+                    }
+                }
+
+                if (KingCheck7.Tag.ToString() == enemy_king)
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        KingCheck7.BackColor = Color.Red;
+                    }
+                }
+
+                if (KingCheck8.Tag.ToString() == enemy_king)
+                {
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
+                    {
+                        KingCheck8.BackColor = Color.Red;
+                    }
+                }
+            }
+
+            return piecesThatCanKillKing;
+        }
+ 
+        private bool DoesMoveResultInCheckmate(string piece)
+        //This first part will be triggered after (white) moves
+        //Input will be the position of (black) king
+        {
+            if (piece.Contains("black")) //Is Black in Checkmate?
+            {
+                //Get position of black king
+                int KingRowTemp = tableLayoutPanel1.GetRow(blackKing);
+                int KingColTemp = tableLayoutPanel1.GetColumn(blackKing);
+
+                Control KingPos0 = new Control();
+                Control KingPos1 = new Control();
+                Control KingPos2 = new Control();
+                Control KingPos3 = new Control();
+                Control KingPos4 = new Control();
+                Control KingPos5 = new Control();
+                Control KingPos6 = new Control();
+                Control KingPos7 = new Control();
+
+                Control[] KingPos = { KingPos0, KingPos1, KingPos2, KingPos3, KingPos4, KingPos5, KingPos6, KingPos7 };
+
+                KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+
+                //First, determine whether black king can move into a position that does not result in check
+                //MessageBox.Show("Checking whether king can move out of check..."); //DEBUG]
+                blackKing.Tag = "empty";
+                blackKing2 = blackKing; //Keep track of original position of black king
+                foreach (PictureBox x in KingPos)
+                {
+                    blackKing = x;
+                    //x.BackColor = Color.Green; //DEBUG
+
+                    if (DoesMoveResultInCheck("black", false, false) == 0) //Black king does have a possible move
+                    {
+                        //MessageBox.Show("Black king can move - row " + tableLayoutPanel1.GetRow(blackKing) + ", col " + tableLayoutPanel1.GetColumn(blackKing)); //DEBUG
+                        blackKing = blackKing2;
+                        blackKing.Tag = "black_king";
+                        return false;
+                    }
+                }
+
+                blackKing = blackKing2;
+                blackKing.Tag = "black_king";
+
+                MessageBox.Show("King has no possible moves"); //DEBUG
+
+                //If not, determine how many pieces are currently in a position to kill black king
+                int CheckPieceQuantity = DoesMoveResultInCheck("black", true, false);
+                MessageBox.Show(CheckPieceQuantity.ToString() + " piece(s) can kill king"); //DEBUG
+
+                //If only 1, determine if that piece can be killed by a piece other than the king
+                if (CheckPieceQuantity == 1)
+                {
+                    //Get position of piece causing Check
+                    string position = GetPositionOfPieceThatIsCausingCheck("black");
+                    int pieceColumn = Int32.Parse(position.Substring(0,1));
+                    int pieceRow = Int32.Parse(position.Substring(1, 1));
+                    MessageBox.Show("Checking whether that piece can be killed. Row: " + pieceRow + " Column: " + pieceColumn); //DEBUG
+                    whiteKing2 = whiteKing; //Save position of white king, which will be borrowed here
+
+                    whiteKing = pictureBox61;
+                    whiteKing = tableLayoutPanel1.GetControlFromPosition(pieceColumn, pieceRow) as PictureBox;
+
+                    if (DoesMoveResultInCheck("white", true, true) > 0)
+                    {
+                        //Yes, that piece can be killed 
+                        MessageBox.Show("That piece can be killed"); //DEBUG
+                        whiteKing = whiteKing2;
+                        return false;
+                    }
+                    else //Checkmate - White wins
+                    {
+                        MessageBox.Show("That piece cannot be killed"); //DEBUG
+                        //whiteKing = whiteKing2;
+                        return true;
+                    }   
+                }
+                 else if (CheckPieceQuantity > 1) //Checkmate - White wins
+                {
+                    return true;
+                }
+                else //This should be unreachable
+                {
+                    return false;
+                }
+            }
+            else if (piece.Contains("black"))
+            {
+                return false;
+            }
+            else //This should be unreachable
+            {
+                return false;
+            }
+        }
+
+        private string GetPositionOfPieceThatIsCausingCheck(string piece)
+        //Similar to DoesMoveResultInCheck()
+        //but only position of 1 piece can be returned
+        {
+            int KingRow = 0;
+            int KingCol = 0;
+
+            string enemy_pawn = "";
+            string enemy_rook = "";
+            string enemy_knight = "";
+            string enemy_bishop = "";
+            string enemy_queen = "";
+            string enemy_king = "";
+
+            string returnColumn = "";
+            string returnRow = "";
+            //string returnString = "";
+
+
+            Control PawnCheck1 = new Control();
+            Control PawnCheck2 = new Control();
+
+            if (piece == "white")
+            {
+                //Get position of white king
+                KingRow = tableLayoutPanel1.GetRow(whiteKing);
+                KingCol = tableLayoutPanel1.GetColumn(whiteKing);
+
+                //tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow).BackColor = Color.Green; //DEBUG
+
+                PawnCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                PawnCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+
+                enemy_pawn = "black_pawn";
+                enemy_rook = "black_rook";
+                enemy_knight = "black_knight";
+                enemy_bishop = "black_bishop";
+                enemy_queen = "black_queen";
+                enemy_king = "black_king";
+            }
+
+            else if (piece == "black")
+            {
+                //Get position of black king
+                KingRow = tableLayoutPanel1.GetRow(blackKing);
+                KingCol = tableLayoutPanel1.GetColumn(blackKing);
+
+                //tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow).BackColor = Color.Green; //DEBUG
+
+                PawnCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                PawnCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+
+                enemy_pawn = "white_pawn";
+                enemy_rook = "white_rook";
+                enemy_knight = "white_knight";
+                enemy_bishop = "white_bishop";
+                enemy_queen = "white_queen";
+                enemy_king = "white_king";
+            }
+
+            /////////////////////////////////////
+            //CHECK IF A PAWN CAN KILL KING
+
+            if (PawnCheck1.Tag.ToString() == enemy_pawn & PawnCheck2.Tag.ToString() != enemy_pawn)
+            {
+                returnColumn = tableLayoutPanel1.GetColumn(PawnCheck1).ToString();
+                returnRow = tableLayoutPanel1.GetRow(PawnCheck1).ToString();
+                return returnColumn + returnRow;
+            }
+            else if (PawnCheck1.Tag.ToString() != enemy_pawn & PawnCheck2.Tag.ToString() == enemy_pawn)
+            {
+                returnColumn = tableLayoutPanel1.GetColumn(PawnCheck2).ToString();
+                returnRow = tableLayoutPanel1.GetRow(PawnCheck2).ToString();
+                return returnColumn + returnRow;
+            }
+
+            //////////////////////////////////////////////
+            //CHECK IF A ROOK OR QUEEN CAN KILL KING
+
+            Control HorizontalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
+            Control HorizontalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
+            Control HorizontalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
+            Control HorizontalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
+
+
+            //Determine if king is in check - horizontal left (enemy rook or queen)
+            int y = tableLayoutPanel1.GetRow(HorizontalCheck1);
+            for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck1); x >= 1; x--)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not enemy rook or enemy queen
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is enemy rook or enemy queen
+                {
+                    returnColumn = x.ToString();
+                    returnRow = y.ToString();
+                    return returnColumn + returnRow;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Orange;
+                    continue;
+                }
+            }
+
+            //Determine if king is in check - horizontal right (enemy rook or queen)
+            y = tableLayoutPanel1.GetRow(HorizontalCheck3);
+            for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck3); x <= 9; x++)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not enemy rook or enemy queen
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is enemy rook or enemy queen
+                {
+                    returnColumn = x.ToString();
+                    returnRow = y.ToString();
+                    return returnColumn + returnRow;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    continue;
+                }
+            }
+
+            //Determine if white king is in check - vertical up (enemy rook or queen)
+            y = tableLayoutPanel1.GetColumn(HorizontalCheck2);
+            for (int x = tableLayoutPanel1.GetRow(HorizontalCheck2); x >= 2; x--)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
+                //Square is piece that is not enemy rook or enemy queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green;
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_queen)
+                //Square is enemy rook or enemy queen
+                {
+                    returnColumn = y.ToString();
+                    returnRow = x.ToString();
+                    return returnColumn + returnRow;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Orange;
+                    continue;
+                }
+            }
+
+
+            //Determine if king is in check - vertical down (enemy rook or queen)
+            y = tableLayoutPanel1.GetColumn(HorizontalCheck4);
+            for (int x = tableLayoutPanel1.GetRow(HorizontalCheck4); x <= 9; x++)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
+                //Square is piece that is not enemy rook or enemy queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green;
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_queen)
+                //Square is enemy rook or enemy queen
+                {
+                    returnColumn = y.ToString();
+                    returnRow = x.ToString();
+                    return returnColumn + returnRow;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Orange;
+                    continue;
+                }
+            }
+
+            ///////////////////////////////////////
+            //CHECK IF A KNIGHT CAN KILL KING
+
+            Control KnightCheck1 = new Control();
+            Control KnightCheck2 = new Control();
+            Control KnightCheck3 = new Control();
+            Control KnightCheck4 = new Control();
+            Control KnightCheck5 = new Control();
+            Control KnightCheck6 = new Control();
+            Control KnightCheck7 = new Control();
+            Control KnightCheck8 = new Control();
+
+            Control[] KnightChecks = { KnightCheck1, KnightCheck2, KnightCheck3, KnightCheck4, KnightCheck5, KnightCheck6, KnightCheck7, KnightCheck8 };
+
+            KnightChecks[0] = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 2);
+            KnightChecks[1] = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 2);
+            KnightChecks[2] = tableLayoutPanel1.GetControlFromPosition(KingCol + 2, KingRow - 1);
+            KnightChecks[3] = tableLayoutPanel1.GetControlFromPosition(KingCol + 2, KingRow + 1);
+            KnightChecks[4] = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 2);
+            KnightChecks[5] = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 2);
+            KnightChecks[6] = tableLayoutPanel1.GetControlFromPosition(KingCol - 2, KingRow - 1);
+            KnightChecks[7] = tableLayoutPanel1.GetControlFromPosition(KingCol - 2, KingRow + 1);
+
+            foreach (Control x in KnightChecks)
+            {
+                if (x.Tag.ToString() == enemy_knight)
+                {
+                    returnColumn = tableLayoutPanel1.GetColumn(x).ToString();
+                    returnRow = tableLayoutPanel1.GetRow(x).ToString();
+                    return returnColumn + returnRow;
+                }
+            }
+
+            ////////////////////////////////////////////////
+            //CHECK IF A BISHOP OR QUEEN CAN KILL KING
+
+            Control DiagonalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+            Control DiagonalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+            Control DiagonalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+            Control DiagonalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+
+            y = tableLayoutPanel1.GetRow(DiagonalCheck1);
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck1); x >= 0; x--, y--)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                //Square is outside board
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not  bishop or  queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is  bishop or  queen
+                {
+                    returnColumn = x.ToString();
+                    returnRow = y.ToString();
+                    return returnColumn + returnRow;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                    continue;
+                }
+            }
+
+            //Determine if  king is in check - diagonal up/right (bishop or queen)
+            y = tableLayoutPanel1.GetRow(DiagonalCheck2);
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck2); x <= 9; x++, y--)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                //Square is outside board
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not  bishop or  queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is  bishop or  queen
+                {
+                    returnColumn = x.ToString();
+                    returnRow = y.ToString();
+                    return returnColumn + returnRow;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                    continue;
+                }
+            }
+
+            //Determine if  king is in check - diagonal down/right (bishop or queen)
+            y = tableLayoutPanel1.GetRow(DiagonalCheck3);
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x <= 9; x++, y++)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                //Square is outside board
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not  bishop or  queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is  bishop or  queen
+                {
+                    returnColumn = x.ToString();
+                    returnRow = y.ToString();
+                    return returnColumn + returnRow;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                    continue;
+                }
+            }
+
+            //Determine if  king is in check - diagonal down/left (bishop or queen)
+            y = tableLayoutPanel1.GetRow(DiagonalCheck4);
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck4); x >= 2; x--, y++)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                //Square is outside board
+                {
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                //Square is piece that is not  bishop or  queen
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                    break;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                //Square is  bishop or  queen
+                {
+                    returnColumn = x.ToString();
+                    returnRow = y.ToString();
+                    return returnColumn + returnRow;
+                }
+                else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                //Square is empty
+                {
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                    continue;
+                }
+            }
+
+            /////////////////////////////////////////
+            //CHECK IF KING CAN KILL KING
+
+            Control KingCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+            Control KingCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
+            Control KingCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+            Control KingCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
+            Control KingCheck5 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+            Control KingCheck6 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
+            Control KingCheck7 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+            Control KingCheck8 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
+
+            //Determine if  king is in check by  king
+
+            if (KingCheck1.Tag.ToString() == enemy_king)
+            {
+                returnColumn = KingCheck1.ToString();
+                returnRow = KingCheck1.ToString();
+                return returnColumn + returnRow;
+            }
+
+            if (KingCheck2.Tag.ToString() == enemy_king)
+            {
+                returnColumn = KingCheck2.ToString();
+                returnRow = KingCheck2.ToString();
+                return returnColumn + returnRow;
+            }
+
+            if (KingCheck3.Tag.ToString() == enemy_king)
+            {
+                returnColumn = KingCheck3.ToString();
+                returnRow = KingCheck3.ToString();
+                return returnColumn + returnRow;
+            }
+
+            if (KingCheck4.Tag.ToString() == enemy_king)
+            {
+                returnColumn = KingCheck4.ToString();
+                returnRow = KingCheck4.ToString();
+                return returnColumn + returnRow;
+            }
+
+            if (KingCheck5.Tag.ToString() == enemy_king)
+            {
+                returnColumn = KingCheck5.ToString();
+                returnRow = KingCheck5.ToString();
+                return returnColumn + returnRow;
+            }
+
+            if (KingCheck6.Tag.ToString() == enemy_king)
+            {
+                returnColumn = KingCheck6.ToString();
+                returnRow = KingCheck6.ToString();
+                return returnColumn + returnRow;
+            }
+
+            if (KingCheck7.Tag.ToString() == enemy_king)
+            {
+                returnColumn = KingCheck7.ToString();
+                returnRow = KingCheck6.ToString();
+                return returnColumn + returnRow;
+            }
+
+            if (KingCheck8.Tag.ToString() == enemy_king)
+            {
+                returnColumn = KingCheck8.ToString();
+                returnRow = KingCheck8.ToString();
+                return returnColumn + returnRow;
+            }
+
+            return null;
         }
 
     }
