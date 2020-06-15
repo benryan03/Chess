@@ -33,7 +33,7 @@ namespace Chess
         {
             InitializeComponent();
             whiteKing = pictureBox61;
-            blackKing = pictureBox37; //Debug - normal 05
+            blackKing = pictureBox05;
         }
 
         private void MouseEnterSquare(object sender, EventArgs e)
@@ -2476,18 +2476,20 @@ namespace Chess
             Control DiagonalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
             Control DiagonalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
 
+            //Determine if  king is in check - diagonal up/left (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck1);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck1); x >= 0; x--, y--)
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck1); x > 1 & y > 1; x--, y--)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
                 //Square is outside board
                 {
+                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Orange; //DEBUG
                     break;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
                 //Square is piece that is not  bishop or  queen
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
                     break;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
@@ -2502,14 +2504,14 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
                 //Square is empty
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                     continue;
                 }
             }
 
             //Determine if  king is in check - diagonal up/right (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck2);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck2); x <= 9; x++, y--)
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck2); x < 10 & y > 1; x++, y--)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
                 //Square is outside board
@@ -2541,7 +2543,7 @@ namespace Chess
             
             //Determine if  king is in check - diagonal down/right (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck3);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x <= 9; x++, y++)
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x < 10 & y < 10; x++, y++)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
                 //Square is outside board
@@ -2573,7 +2575,7 @@ namespace Chess
             
             //Determine if  king is in check - diagonal down/left (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck4);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck4); x >= 2; x--, y++)
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck4); x > 1 & y < 11; x--, y++)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
                 //Square is outside board
@@ -2762,7 +2764,6 @@ namespace Chess
                     MessageBox.Show("Checking whether that piece can be killed. Row: " + pieceRow + " Column: " + pieceColumn); //DEBUG
                     whiteKing2 = whiteKing; //Save position of white king, which will be borrowed here
 
-                    whiteKing = pictureBox61;
                     whiteKing = tableLayoutPanel1.GetControlFromPosition(pieceColumn, pieceRow) as PictureBox;
 
                     if (DoesMoveResultInCheck("white", true, true) > 0)
@@ -2788,9 +2789,91 @@ namespace Chess
                     return false;
                 }
             }
-            else if (piece.Contains("black"))
+            else if (piece.Contains("white"))
             {
-                return false;
+                //Get position of white king
+                int KingRowTemp = tableLayoutPanel1.GetRow(whiteKing);
+                int KingColTemp = tableLayoutPanel1.GetColumn(whiteKing);
+
+                Control KingPos0 = new Control();
+                Control KingPos1 = new Control();
+                Control KingPos2 = new Control();
+                Control KingPos3 = new Control();
+                Control KingPos4 = new Control();
+                Control KingPos5 = new Control();
+                Control KingPos6 = new Control();
+                Control KingPos7 = new Control();
+
+                Control[] KingPos = { KingPos0, KingPos1, KingPos2, KingPos3, KingPos4, KingPos5, KingPos6, KingPos7 };
+
+                KingPos[0] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp - 1);
+                KingPos[1] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp - 1);
+                KingPos[2] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp - 1);
+                KingPos[3] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp);
+                KingPos[4] = tableLayoutPanel1.GetControlFromPosition(KingColTemp + 1, KingRowTemp + 1);
+                KingPos[5] = tableLayoutPanel1.GetControlFromPosition(KingColTemp, KingRowTemp + 1);
+                KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
+                KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
+
+                //First, determine whether white king can move into a position that does not result in check
+                whiteKing.Tag = "empty";
+                whiteKing2 = whiteKing; //Keep track of original position of white king
+                foreach (PictureBox x in KingPos)
+                {
+                    whiteKing = x;
+                    //x.BackColor = Color.Green; //DEBUG
+
+                    if (DoesMoveResultInCheck("white", false, false) == 0) //white king does have a possible move
+                    {
+                        //MessageBox.Show("Black king can move - row " + tableLayoutPanel1.GetRow(blackKing) + ", col " + tableLayoutPanel1.GetColumn(blackKing)); //DEBUG
+                        whiteKing = whiteKing2;
+                        whiteKing.Tag = "white_king";
+                        return false;
+                    }
+                }
+
+                whiteKing = whiteKing2;
+                whiteKing.Tag = "white_king";
+
+                MessageBox.Show("King has no possible moves"); //DEBUG
+
+                //If not, determine how many pieces are currently in a position to kill black king
+                int CheckPieceQuantity = DoesMoveResultInCheck("white", true, false);
+                MessageBox.Show(CheckPieceQuantity.ToString() + " piece(s) can kill king"); //DEBUG
+
+                //If only 1, determine if that piece can be killed by a piece other than the king
+                if (CheckPieceQuantity == 1)
+                {
+                    //Get position of piece causing Check
+                    string position = GetPositionOfPieceThatIsCausingCheck("white");
+                    int pieceColumn = Int32.Parse(position.Substring(0, 1));
+                    int pieceRow = Int32.Parse(position.Substring(1, 1));
+                    MessageBox.Show("Checking whether that piece can be killed. Row: " + pieceRow + " Column: " + pieceColumn); //DEBUG
+                    blackKing2 = blackKing; //Save position of black king, which will be borrowed here
+
+                    blackKing = tableLayoutPanel1.GetControlFromPosition(pieceColumn, pieceRow) as PictureBox;
+
+                    if (DoesMoveResultInCheck("black", true, true) > 0)
+                    {
+                        //Yes, that piece can be killed 
+                        MessageBox.Show("That piece can be killed"); //DEBUG
+                        blackKing = blackKing2;
+                        return false;
+                    }
+                    else //Checkmate - Black wins
+                    {
+                        MessageBox.Show("That piece cannot be killed"); //DEBUG
+                        return true;
+                    }
+                }
+                else if (CheckPieceQuantity > 1) //Checkmate - Black wins
+                {
+                    return true;
+                }
+                else //This should be unreachable
+                {
+                    return false;
+                }
             }
             else //This should be unreachable
             {
