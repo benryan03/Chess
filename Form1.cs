@@ -29,6 +29,11 @@ namespace Chess
         string selectedPiece = null;
         int turn = 0;
 
+        bool IsCastle1Possible = true;
+        bool IsCastle2Possible = true;
+        bool IsCastle3Possible = true;
+        bool IsCastle4Possible = true;
+
         public Form1()
         {
             InitializeComponent();
@@ -1610,6 +1615,20 @@ namespace Chess
                         {
                             ValidMove("white_king");
                         }
+                        else if (rowDifference == 0 & columnDifference == 2) //Castle right
+                        {
+                            if (IsCastlePossible("4") == true)
+                            {
+                                ValidMove("white_king");
+                            }
+                        }
+                        else if (rowDifference == 0 & columnDifference == -2) //Castle left
+                        {
+                            if (IsCastlePossible("3") == true)
+                            {
+                                ValidMove("white_king");
+                            }
+                        }
                         else
                         {
                             InvalidMove();
@@ -1689,7 +1708,7 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -1724,19 +1743,19 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "White is in Check.";
 
-                        
+
                         //Does move result in Checkmate?
                         if (DoesMoveResultInCheckmate("white") == true)
                         {
                             checkStatusLabel.Text = "Checkmate! Black wins!";
                         }
-                        
+
                     }
                     else
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -1781,7 +1800,7 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -1816,19 +1835,19 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "White is in Check.";
 
-                        
+
                         //Does move result in Checkmate?
                         if (DoesMoveResultInCheckmate("white") == true)
                         {
                             checkStatusLabel.Text = "Checkmate! Black wins!";
                         }
-                        
+
                     }
                     else
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -1873,7 +1892,7 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -1908,19 +1927,19 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "White is in Check.";
 
-                        
+
                         //Does move result in Checkmate?
                         if (DoesMoveResultInCheckmate("white") == true)
                         {
                             checkStatusLabel.Text = "Checkmate! Black wins!";
                         }
-                        
+
                     }
                     else
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -1965,7 +1984,7 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -2000,19 +2019,19 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "White is in Check.";
 
-                        
+
                         //Does move result in Checkmate?
                         if (DoesMoveResultInCheckmate("white") == true)
                         {
                             checkStatusLabel.Text = "Checkmate! Black wins!";
                         }
-                        
+
                     }
                     else
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -2057,7 +2076,7 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -2092,19 +2111,19 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "White is in Check.";
 
-                        
+
                         //Does move result in Checkmate?
                         if (DoesMoveResultInCheckmate("white") == true)
                         {
                             checkStatusLabel.Text = "Checkmate! Black wins!";
                         }
-                        
+
                     }
                     else
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -2151,7 +2170,7 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -2189,19 +2208,19 @@ namespace Chess
                     {
                         checkStatusLabel.Text = "White is in Check.";
 
-                        
+
                         //Does move result in Checkmate?
                         if (DoesMoveResultInCheckmate("white") == true)
                         {
                             checkStatusLabel.Text = "Checkmate! Black wins!";
                         }
-                        
+
                     }
                     else
                     {
                         checkStatusLabel.Text = "";
                     }
-                    
+
                 }
                 else //Move is invalid
                 {
@@ -2216,7 +2235,7 @@ namespace Chess
                 }
             }
         }
-        
+
         private void InvalidMove()
         {
             ResetColorOfSquare(square1);
@@ -2319,7 +2338,7 @@ namespace Chess
             Control HorizontalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
             Control HorizontalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
 
-            
+
             //Determine if king is in check - horizontal left (enemy rook or queen)
             int y = tableLayoutPanel1.GetRow(HorizontalCheck1);
             for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck1); x >= 1; x--)
@@ -2366,7 +2385,7 @@ namespace Chess
                 //Square is enemy rook or enemy queen
                 {
                     piecesThatCanKillKing++;
-                    if (ShowRedSquares == true) 
+                    if (ShowRedSquares == true)
                     {
                         tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Red;
                     }
@@ -2458,12 +2477,15 @@ namespace Chess
 
             foreach (Control x in KnightChecks)
             {
-                if (x.Tag.ToString() == enemy_knight)
+                if (x != null) //Not sure why this is needed.
                 {
-                    piecesThatCanKillKing++;
-                    if (ShowRedSquares == true)
+                    if (x.Tag.ToString() == enemy_knight)
                     {
-                        x.BackColor = Color.Red;
+                        piecesThatCanKillKing++;
+                        if (ShowRedSquares == true)
+                        {
+                            x.BackColor = Color.Red;
+                        }
                     }
                 }
             }
@@ -2489,7 +2511,7 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
                 //Square is piece that is not  bishop or  queen
                 {
-                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
                     break;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
@@ -2504,7 +2526,7 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
                 //Square is empty
                 {
-                    tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                     continue;
                 }
             }
@@ -2540,7 +2562,7 @@ namespace Chess
                     continue;
                 }
             }
-            
+
             //Determine if  king is in check - diagonal down/right (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck3);
             for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x < 10 & y < 10; x++, y++)
@@ -2572,7 +2594,7 @@ namespace Chess
                     continue;
                 }
             }
-            
+
             //Determine if  king is in check - diagonal down/left (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck4);
             for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck4); x > 1 & y < 11; x--, y++)
@@ -2604,7 +2626,7 @@ namespace Chess
                     continue;
                 }
             }
-          
+
             if (DetermineIfCheckmate == false)
             {
                 /////////////////////////////////////////
@@ -2696,10 +2718,8 @@ namespace Chess
 
             return piecesThatCanKillKing;
         }
- 
+
         private bool DoesMoveResultInCheckmate(string piece)
-        //This first part will be triggered after (white) moves
-        //Input will be the position of (black) king
         {
             if (piece.Contains("black")) //Is Black in Checkmate?
             {
@@ -2759,7 +2779,7 @@ namespace Chess
                 {
                     //Get position of piece causing Check
                     string position = GetPositionOfPieceThatIsCausingCheck("black");
-                    int pieceColumn = Int32.Parse(position.Substring(0,1));
+                    int pieceColumn = Int32.Parse(position.Substring(0, 1));
                     int pieceRow = Int32.Parse(position.Substring(1, 1));
                     MessageBox.Show("Checking whether that piece can be killed. Row: " + pieceRow + " Column: " + pieceColumn); //DEBUG
                     whiteKing2 = whiteKing; //Save position of white king, which will be borrowed here
@@ -2778,9 +2798,9 @@ namespace Chess
                         MessageBox.Show("That piece cannot be killed"); //DEBUG
                         //whiteKing = whiteKing2;
                         return true;
-                    }   
+                    }
                 }
-                 else if (CheckPieceQuantity > 1) //Checkmate - White wins
+                else if (CheckPieceQuantity > 1) //Checkmate - White wins
                 {
                     return true;
                 }
@@ -3297,5 +3317,86 @@ namespace Chess
             return null;
         }
 
+
+        private bool IsCastlePossible(string position)
+        {
+            if (position == "1") //Black castle left
+            {
+                if (IsCastle1Possible == true)
+                {
+                    return true; //DEBUG
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (position == "2") //Black castle right
+            {
+                if (IsCastle2Possible == true)
+                {
+                    return true; //DEBUG
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (position == "3") //White castle right
+            {
+                if (IsCastle3Possible == true)
+                {
+                    //Check whether king is in check in current position
+                    if (DoesMoveResultInCheck("white_king", false, false) > 0)
+                    {
+                        return false;
+                    }
+
+                    //Check whether path is clear
+                    if (tableLayoutPanel1.GetControlFromPosition(9, 7) != null)
+                    {
+                        return false;
+                    }
+                    if (tableLayoutPanel1.GetControlFromPosition(9, 8) != null)
+                    {
+                        return false;
+                    }
+
+                    //Check whether any square in path would result in check, including target square
+                    whiteKing2 = whiteKing;
+                    whiteKing = tableLayoutPanel1.GetControlFromPosition(9, 7) as PictureBox;
+                    if (DoesMoveResultInCheck("white_king", false, false) > 0)
+                    {
+                        return false;
+                    }
+                    whiteKing = tableLayoutPanel1.GetControlFromPosition(9, 8) as PictureBox;
+                    if (DoesMoveResultInCheck("white_king", false, false) > 0)
+                    {
+                        return false;
+                    }
+
+                    return true; //Castle is possible
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (position == "4") //White castle left
+            {
+                if (IsCastle4Possible == true)
+                {
+                    return true; //DEBUG
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else //Should be unreachable
+            {
+                return false;
+            }
+        }
     }
 }
