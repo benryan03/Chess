@@ -1619,14 +1619,34 @@ namespace Chess
                         {
                             if (IsCastlePossible("4") == true)
                             {
+                                IsCastle4Possible = false;
+                                IsCastle3Possible = false;
+                                pictureBox62.Tag = "white_rook";
+                                pictureBox62.Image = Properties.Resources.white_rook;
+                                pictureBox64.Tag = "empty";
+                                pictureBox64.Image = null;
                                 ValidMove("white_king");
+                            }
+                            else
+                            {
+                                InvalidMove();
                             }
                         }
                         else if (rowDifference == 0 & columnDifference == -2) //Castle left
                         {
                             if (IsCastlePossible("3") == true)
                             {
+                                IsCastle4Possible = false;
+                                IsCastle3Possible = false;
+                                pictureBox60.Tag = "white_rook";
+                                pictureBox60.Image = Properties.Resources.white_rook;
+                                pictureBox57.Tag = "empty";
+                                pictureBox57.Image = null;
                                 ValidMove("white_king");
+                            }
+                            else
+                            {
+                                InvalidMove();
                             }
                         }
                         else
@@ -1655,6 +1675,40 @@ namespace Chess
                         if ((Math.Abs(rowDifference) == 0 | Math.Abs(rowDifference) == 1) & (Math.Abs(columnDifference) == 0 | Math.Abs(columnDifference) == 1))
                         {
                             ValidMove("black_king");
+                        }
+                        else if (rowDifference == 0 & columnDifference == 2) //Castle right
+                        {
+                            if (IsCastlePossible("2") == true)
+                            {
+                                IsCastle1Possible = false;
+                                IsCastle2Possible = false;
+                                pictureBox06.Tag = "black_rook";
+                                pictureBox06.Image = Properties.Resources.black_rook;
+                                pictureBox08.Tag = "empty";
+                                pictureBox08.Image = null;
+                                ValidMove("black_king");
+                            }
+                            else
+                            {
+                                InvalidMove();
+                            }
+                        }
+                        else if (rowDifference == 0 & columnDifference == -2) //Castle left
+                        {
+                            if (IsCastlePossible("1") == true)
+                            {
+                                IsCastle1Possible = false;
+                                IsCastle2Possible = false;
+                                pictureBox04.Tag = "black_rook";
+                                pictureBox04.Image = Properties.Resources.black_rook;
+                                pictureBox01.Tag = "empty";
+                                pictureBox01.Image = null;
+                                ValidMove("black_king");
+                            }
+                            else
+                            {
+                                InvalidMove();
+                            }
                         }
                         else
                         {
@@ -1725,6 +1779,15 @@ namespace Chess
             {
                 if (DoesMoveResultInCheck("black", true, false) == 0) //Move does not put self in check
                 {
+                    if (square1 == pictureBox01)
+                    {
+                        IsCastle3Possible = false;
+                    }
+                    else if (square1 == pictureBox08)
+                    {
+                        IsCastle4Possible = false;
+                    }
+
                     //Reset properties of square1
                     ResetColorOfSquare(square1);
                     square1.Image = null;
@@ -1772,6 +1835,15 @@ namespace Chess
             {
                 if (DoesMoveResultInCheck("white", true, false) == 0) //Move does not put self in check
                 {
+                    if (square1 == pictureBox57)
+                    {
+                        IsCastle3Possible = false;
+                    }
+                    else if (square1 == pictureBox64)
+                    {
+                        IsCastle4Possible = false;
+                    }
+
                     //Reset properties of square1
                     ResetColorOfSquare(square1);
                     square1.Image = null;
@@ -2155,6 +2227,8 @@ namespace Chess
                     square.Tag = piece;
                     status.Text = "Black's move";
 
+
+
                     //Does move put opponent in Check?
                     if (DoesMoveResultInCheck("black", true, false) > 0)
                     {
@@ -2423,7 +2497,6 @@ namespace Chess
                     continue;
                 }
             }
-
 
             //Determine if king is in check - vertical down (enemy rook or queen)
             y = tableLayoutPanel1.GetColumn(HorizontalCheck4);
@@ -2903,7 +2976,8 @@ namespace Chess
 
         private string GetPositionOfPieceThatIsCausingCheck(string piece)
         //Similar to DoesMoveResultInCheck()
-        //but only position of 1 piece can be returned
+        //but returns position of first piece causing check
+        //instead if the total number of pieces causing check
         {
             int KingRow = 0;
             int KingCol = 0;
@@ -3317,7 +3391,6 @@ namespace Chess
             return null;
         }
 
-
         private bool IsCastlePossible(string position)
         {
             if (position == "1") //Black castle left
@@ -3342,39 +3415,39 @@ namespace Chess
                     return false;
                 }
             }
-            else if (position == "3") //White castle right
+            else if (position == "3") //White castle left
             {
                 if (IsCastle3Possible == true)
                 {
                     //Check whether king is in check in current position
-                    if (DoesMoveResultInCheck("white_king", false, false) > 0)
+                    if (DoesMoveResultInCheck("white", false, false) > 0)
                     {
                         return false;
                     }
-
                     //Check whether path is clear
-                    if (tableLayoutPanel1.GetControlFromPosition(9, 7) != null)
+                    if (pictureBox60.Tag.ToString() != "empty")
                     {
                         return false;
                     }
-                    if (tableLayoutPanel1.GetControlFromPosition(9, 8) != null)
+                    if (pictureBox59.Tag.ToString() != "empty")
                     {
                         return false;
                     }
-
                     //Check whether any square in path would result in check, including target square
                     whiteKing2 = whiteKing;
-                    whiteKing = tableLayoutPanel1.GetControlFromPosition(9, 7) as PictureBox;
-                    if (DoesMoveResultInCheck("white_king", false, false) > 0)
+                    whiteKing = pictureBox60;
+                    if (DoesMoveResultInCheck("white", false, false) > 0)
                     {
+                        whiteKing = whiteKing2;
                         return false;
                     }
-                    whiteKing = tableLayoutPanel1.GetControlFromPosition(9, 8) as PictureBox;
-                    if (DoesMoveResultInCheck("white_king", false, false) > 0)
+                    whiteKing = pictureBox59;
+                    if (DoesMoveResultInCheck("white", false, false) > 0)
                     {
+                        whiteKing = whiteKing2;
                         return false;
                     }
-
+                    whiteKing = whiteKing2;
                     return true; //Castle is possible
                 }
                 else
@@ -3382,11 +3455,40 @@ namespace Chess
                     return false;
                 }
             }
-            else if (position == "4") //White castle left
+            else if (position == "4") //White castle right
             {
                 if (IsCastle4Possible == true)
                 {
-                    return true; //DEBUG
+                    //Check whether king is in check in current position
+                    if (DoesMoveResultInCheck("white", false, false) > 0)
+                    {
+                        return false;
+                    }
+                    //Check whether path is clear
+                    if (pictureBox62.Tag.ToString() != "empty")
+                    {
+                        return false;
+                    }
+                    if (pictureBox63.Tag.ToString() != "empty")
+                    {
+                        return false;
+                    }
+                    //Check whether any square in path would result in check, including target square
+                    whiteKing2 = whiteKing;
+                    whiteKing = pictureBox62;
+                    if (DoesMoveResultInCheck("white", false, false) > 0)
+                    {
+                        whiteKing = whiteKing2;
+                        return false;
+                    }
+                    whiteKing = pictureBox63;
+                    if (DoesMoveResultInCheck("white", false, false) > 0)
+                    {
+                        whiteKing = whiteKing2;
+                        return false;
+                    }
+                    whiteKing = whiteKing2;
+                    return true; //Castle is possible
                 }
                 else
                 {
