@@ -116,5 +116,8 @@
   <ItemGroup>
     <None Include="icons\white_rook.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_queen_small.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

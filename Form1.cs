@@ -34,6 +34,13 @@ namespace Chess
         bool IsCastle3Possible = true;
         bool IsCastle4Possible = true;
 
+        Image[] CapturedWhitePieces = {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null};
+        Image[] CapturedBlackPieces = {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null};
+
+        int CapturedWhitePiecesQuantity = 0;
+        int CapturedBlackPiecesQuantity = 0;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -1728,7 +1735,10 @@ namespace Chess
         //I still need to find a way to simplify this method
         {
             square1.Tag = "empty";
-            square.Tag = piece;
+
+            string targetSquareTag = square.Tag.ToString();
+            Image targetSquareImage = square.Image;
+
 
             if (piece == "white_pawn")
             {
@@ -1779,14 +1789,7 @@ namespace Chess
             {
                 if (DoesMoveResultInCheck("black", true, false) == 0) //Move does not put self in check
                 {
-                    if (square1 == pictureBox01)
-                    {
-                        IsCastle3Possible = false;
-                    }
-                    else if (square1 == pictureBox08)
-                    {
-                        IsCastle4Possible = false;
-                    }
+
 
                     //Reset properties of square1
                     ResetColorOfSquare(square1);
@@ -1844,6 +1847,8 @@ namespace Chess
                         IsCastle4Possible = false;
                     }
 
+
+
                     //Reset properties of square1
                     ResetColorOfSquare(square1);
                     square1.Image = null;
@@ -1887,6 +1892,15 @@ namespace Chess
             }
             else if (piece == "black_rook")
             {
+                if (square1 == pictureBox01)
+                {
+                    IsCastle3Possible = false;
+                }
+                else if (square1 == pictureBox08)
+                {
+                    IsCastle4Possible = false;
+                }
+
                 if (DoesMoveResultInCheck("black", true, false) == 0) //Move does not put self in check
                 {
                     //Reset properties of square1
@@ -2308,6 +2322,63 @@ namespace Chess
                     square1 = null;
                 }
             }
+
+            if (targetSquareTag != "empty")
+            {
+                if (targetSquareTag.Contains("white"))
+                {
+                    //Add to list of captured pieces
+                    CapturedWhitePieces[CapturedWhitePiecesQuantity] = targetSquareImage;
+                    CapturedWhitePiecesQuantity++;
+
+                    //Refresh captured pieces display
+                    CapturedWhitePiece0.BackgroundImage = CapturedWhitePieces[0];
+                    CapturedWhitePiece1.BackgroundImage = CapturedWhitePieces[1];
+                    CapturedWhitePiece2.BackgroundImage = CapturedWhitePieces[2];
+                    CapturedWhitePiece3.BackgroundImage = CapturedWhitePieces[3];
+                    CapturedWhitePiece4.BackgroundImage = CapturedWhitePieces[4];
+                    CapturedWhitePiece5.BackgroundImage = CapturedWhitePieces[5];
+                    CapturedWhitePiece6.BackgroundImage = CapturedWhitePieces[6];
+                    CapturedWhitePiece7.BackgroundImage = CapturedWhitePieces[7];
+                    CapturedWhitePiece8.BackgroundImage = CapturedWhitePieces[8];
+                    CapturedWhitePiece9.BackgroundImage = CapturedWhitePieces[9];
+                    CapturedWhitePiece10.BackgroundImage = CapturedWhitePieces[10];
+                    CapturedWhitePiece11.BackgroundImage = CapturedWhitePieces[11];
+                    CapturedWhitePiece12.BackgroundImage = CapturedWhitePieces[12];
+                    CapturedWhitePiece13.BackgroundImage = CapturedWhitePieces[13];
+                    CapturedWhitePiece14.BackgroundImage = CapturedWhitePieces[14];
+                }
+                else if (targetSquareTag.Contains("black"))
+                {
+                    //Add to list of captured pieces
+                    CapturedBlackPieces[CapturedBlackPiecesQuantity] = targetSquareImage;
+                    CapturedBlackPiecesQuantity++;
+
+                    //Refresh captured pieces display
+                    CapturedBlackPiece0.BackgroundImage = CapturedBlackPieces[0];
+                    CapturedBlackPiece1.BackgroundImage = CapturedBlackPieces[1];
+                    CapturedBlackPiece2.BackgroundImage = CapturedBlackPieces[2];
+                    CapturedBlackPiece3.BackgroundImage = CapturedBlackPieces[3];
+                    CapturedBlackPiece4.BackgroundImage = CapturedBlackPieces[4];
+                    CapturedBlackPiece5.BackgroundImage = CapturedBlackPieces[5];
+                    CapturedBlackPiece6.BackgroundImage = CapturedBlackPieces[6];
+                    CapturedBlackPiece7.BackgroundImage = CapturedBlackPieces[7];
+                    CapturedBlackPiece8.BackgroundImage = CapturedBlackPieces[8];
+                    CapturedBlackPiece9.BackgroundImage = CapturedBlackPieces[9];
+                    CapturedBlackPiece10.BackgroundImage = CapturedBlackPieces[10];
+                    CapturedBlackPiece11.BackgroundImage = CapturedBlackPieces[11];
+                    CapturedBlackPiece12.BackgroundImage = CapturedBlackPieces[12];
+                    CapturedBlackPiece13.BackgroundImage = CapturedBlackPieces[13];
+                    CapturedBlackPiece14.BackgroundImage = CapturedBlackPieces[14];
+                }
+            }
+
+
+
+
+
+            square.Tag = piece;
+
         }
 
         private void InvalidMove()
