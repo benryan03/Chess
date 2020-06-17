@@ -1,0 +1,2 @@
+Known bug:
+If a King is put in Check, and that King has no possible moves, and the piece causing Check cannot be captured, but there are blank spaces between the King and that piece - a piece cannot be moved into the blank space(s) without the game thinking that the King is still in Check.
