@@ -173,16 +173,6 @@ namespace Chess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap white_queen_small {
-            get {
-                object obj = ResourceManager.GetObject("white_queen_small", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap white_rook {
             get {
                 object obj = ResourceManager.GetObject("white_rook", resourceCulture);

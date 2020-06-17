@@ -264,7 +264,7 @@ namespace Chess
                 {
                     if (square.Tag.ToString().Contains("white") == false)
                     {
-                        if (this.tableLayoutPanel1.GetRow(square1) == 8) //Original row
+                        if (this.tableLayoutPanel1.GetRow(square1) == 9) //Original row
                         {
                             if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Original row and same column
                             {
@@ -368,7 +368,7 @@ namespace Chess
                     if (square.Tag.ToString().Contains("black") == false)
                     {
 
-                        if (this.tableLayoutPanel1.GetRow(square1) == 3) //Original row
+                        if (this.tableLayoutPanel1.GetRow(square1) == 4) //Original row
                         {
                             if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Original row and same column
                             {
@@ -1736,6 +1736,7 @@ namespace Chess
         {
             square1.Tag = "empty";
 
+            //These are saved in case they need to be added to captured pieces
             string targetSquareTag = square.Tag.ToString();
             Image targetSquareImage = square.Image;
 
@@ -2488,12 +2489,6 @@ namespace Chess
             int y = tableLayoutPanel1.GetRow(HorizontalCheck1);
             for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck1); x >= 1; x--)
             {
-
-
-                //Application.DoEvents();
-                //System.Threading.Thread.Sleep(500);
-                //MessageBox.Show(x + " " + y);
-
                 if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
                 //Square is piece that is not enemy rook or enemy queen
                 {
@@ -2519,7 +2514,7 @@ namespace Chess
 
             //Determine if king is in check - horizontal right (enemy rook or queen)
             y = tableLayoutPanel1.GetRow(HorizontalCheck3);
-            for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck3); x <= 9; x++)
+            for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck3); x <= 10; x++)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
                 //Square is piece that is not enemy rook or enemy queen
@@ -2571,7 +2566,7 @@ namespace Chess
 
             //Determine if king is in check - vertical down (enemy rook or queen)
             y = tableLayoutPanel1.GetColumn(HorizontalCheck4);
-            for (int x = tableLayoutPanel1.GetRow(HorizontalCheck4); x <= 9; x++)
+            for (int x = tableLayoutPanel1.GetRow(HorizontalCheck4); x <= 10; x++)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
                 //Square is piece that is not enemy rook or enemy queen
@@ -2621,15 +2616,12 @@ namespace Chess
 
             foreach (Control x in KnightChecks)
             {
-                if (x != null) //Not sure why this is needed.
+                if (x.Tag.ToString() == enemy_knight)
                 {
-                    if (x.Tag.ToString() == enemy_knight)
+                    piecesThatCanKillKing++;
+                    if (ShowRedSquares == true)
                     {
-                        piecesThatCanKillKing++;
-                        if (ShowRedSquares == true)
-                        {
-                            x.BackColor = Color.Red;
-                        }
+                        x.BackColor = Color.Red;
                     }
                 }
             }
@@ -2677,7 +2669,7 @@ namespace Chess
 
             //Determine if  king is in check - diagonal up/right (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck2);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck2); x < 10 & y > 1; x++, y--)
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck2); x < 11 & y > 1; x++, y--)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
                 //Square is outside board
@@ -2709,7 +2701,7 @@ namespace Chess
 
             //Determine if  king is in check - diagonal down/right (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck3);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x < 10 & y < 10; x++, y++)
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x < 11 & y < 11; x++, y++)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
                 //Square is outside board
@@ -3157,7 +3149,7 @@ namespace Chess
 
             //Determine if king is in check - horizontal right (enemy rook or queen)
             y = tableLayoutPanel1.GetRow(HorizontalCheck3);
-            for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck3); x <= 9; x++)
+            for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck3); x <= 10; x++)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
                 //Square is piece that is not enemy rook or enemy queen
@@ -3206,7 +3198,7 @@ namespace Chess
 
             //Determine if king is in check - vertical down (enemy rook or queen)
             y = tableLayoutPanel1.GetColumn(HorizontalCheck4);
-            for (int x = tableLayoutPanel1.GetRow(HorizontalCheck4); x <= 9; x++)
+            for (int x = tableLayoutPanel1.GetRow(HorizontalCheck4); x <= 10; x++)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
                 //Square is piece that is not enemy rook or enemy queen
@@ -3301,7 +3293,7 @@ namespace Chess
 
             //Determine if  king is in check - diagonal up/right (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck2);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck2); x <= 9; x++, y--)
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck2); x <= 10; x++, y--)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
                 //Square is outside board
@@ -3331,7 +3323,7 @@ namespace Chess
 
             //Determine if  king is in check - diagonal down/right (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck3);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x <= 9; x++, y++)
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x <= 10; x++, y++)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
                 //Square is outside board
