@@ -2414,8 +2414,6 @@ namespace Chess
                 KingRow = tableLayoutPanel1.GetRow(whiteKing);
                 KingCol = tableLayoutPanel1.GetColumn(whiteKing);
 
-                //tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow).BackColor = Color.Green; //DEBUG
-
                 PawnCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
                 PawnCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
 
@@ -2432,8 +2430,6 @@ namespace Chess
                 //Get position of black king
                 KingRow = tableLayoutPanel1.GetRow(blackKing);
                 KingCol = tableLayoutPanel1.GetColumn(blackKing);
-
-                //tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow).BackColor = Color.Green; //DEBUG
 
                 PawnCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
                 PawnCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
@@ -2484,7 +2480,6 @@ namespace Chess
             Control HorizontalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
             Control HorizontalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
 
-
             //Determine if king is in check - horizontal left (enemy rook or queen)
             int y = tableLayoutPanel1.GetRow(HorizontalCheck1);
             for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck1); x >= 1; x--)
@@ -2507,7 +2502,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
                 //Square is empty
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Orange;
                     continue;
                 }
             }
@@ -2544,7 +2538,6 @@ namespace Chess
                 if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
                 //Square is piece that is not enemy rook or enemy queen
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green;
                     break;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_queen)
@@ -2559,7 +2552,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
                 //Square is empty
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Orange;
                     continue;
                 }
             }
@@ -2571,7 +2563,6 @@ namespace Chess
                 if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
                 //Square is piece that is not enemy rook or enemy queen
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green;
                     break;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_queen)
@@ -2586,7 +2577,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
                 //Square is empty
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Orange;
                     continue;
                 }
             }
@@ -2647,7 +2637,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
                 //Square is piece that is not  bishop or  queen
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
                     break;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
@@ -2662,7 +2651,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
                 //Square is empty
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                     continue;
                 }
             }
@@ -2679,7 +2667,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
                 //Square is piece that is not  bishop or  queen
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                     break;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
@@ -2694,7 +2681,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
                 //Square is empty
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
                     continue;
                 }
             }
@@ -2711,7 +2697,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
                 //Square is piece that is not  bishop or  queen
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                     break;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
@@ -2726,7 +2711,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
                 //Square is empty
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
                     continue;
                 }
             }
@@ -2743,7 +2727,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
                 //Square is piece that is not  bishop or  queen
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
                     break;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
@@ -2758,7 +2741,6 @@ namespace Chess
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
                 //Square is empty
                 {
-                    //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
                     continue;
                 }
             }
@@ -2777,7 +2759,7 @@ namespace Chess
                 Control KingCheck7 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
                 Control KingCheck8 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
 
-                //Determine if  king is in check by  king
+                //Determine if king is in check by king
 
                 if (KingCheck1.Tag.ToString() == enemy_king)
                 {
@@ -2909,25 +2891,100 @@ namespace Chess
                 //If only 1, determine if that piece can be killed by a piece other than the king
                 if (CheckPieceQuantity == 1)
                 {
+
                     //Get position of piece causing Check
                     string position = GetPositionOfPieceThatIsCausingCheck("black");
+
                     int pieceColumn = Int32.Parse(position.Substring(0, 2));
                     int pieceRow = Int32.Parse(position.Substring(2, 2));
 
                     whiteKing2 = whiteKing; //Save position of white king, which will be borrowed here
                     whiteKing = tableLayoutPanel1.GetControlFromPosition(pieceColumn, pieceRow) as PictureBox;
 
-                    if (DoesMoveResultInCheck("white", true, true) > 0)
+                    if (DoesMoveResultInCheck("black", true, true) > 0)
                     {
                         //Yes, that piece can be killed 
                         whiteKing = whiteKing2;
                         return false;
                     }
-                    else
+                    else //Checkmate - White wins
                     {
                         return true;
                     }
                 }
+
+                /*
+                //Check if there are any empty pieces between black king and attacker
+                if (pieceColumn == KingColTemp & pieceRow < KingRowTemp - 1)
+                {
+                    //Vertical up
+                    whiteKing = whiteKing2; return false; //DEBUG
+                }
+                else if (pieceColumn == KingColTemp & pieceRow > KingRowTemp + 1)
+                {
+                    //Vertical down
+
+                    MessageBox.Show("test"); //DEBUG
+
+                    for (int x = KingRowTemp + 1; x < pieceRow; x++)
+                    {
+                        Control y = this.tableLayoutPanel1.GetControlFromPosition(KingColTemp, x) as PictureBox;
+                        if (IsBlankSquareVulnerable("black", y) == true)
+                        {
+                            //Not checkmate
+                            return false;
+                        }
+                    }
+
+                    whiteKing = whiteKing2; return false; //DEBUG
+                }
+                else if (pieceRow == KingRowTemp & pieceColumn < KingColTemp - 1)
+                {
+                    //Horizontal left
+                    whiteKing = whiteKing2; return false; //DEBUG
+                }
+                else if (pieceRow == KingRowTemp & pieceColumn > KingColTemp + 1)
+                {
+                    //Horizontal right
+                    whiteKing = whiteKing2; return false; //DEBUG
+                }
+                else if (pieceColumn != KingColTemp & pieceRow != KingRowTemp)
+                {
+                    if (pieceRow < KingRowTemp - 1 & pieceColumn < KingColTemp - 1)
+                    {
+                        //Diagnonal up/left
+                        whiteKing = whiteKing2; return false; //DEBUG
+                    }
+                    else if (pieceRow < KingRowTemp - 1 & pieceColumn > KingColTemp + 1)
+                    {
+                        //Diagnonal up/right
+                        whiteKing = whiteKing2; return false; //DEBUG
+                    }
+                    else if (pieceRow > KingRowTemp + 1 & pieceColumn < KingColTemp - 1)
+                    {
+                        //Diagnonal down/left
+                        whiteKing = whiteKing2; return false; //DEBUG
+                    }
+                    else if (pieceRow > KingRowTemp + 1 & pieceColumn > KingColTemp + 1)
+                    {
+                        //Diagnonal down/right
+                        whiteKing = whiteKing2; return false; //DEBUG
+                    }
+                    return false; //Unreachable
+                }
+
+                */
+
+
+
+
+                /*
+                else
+                {
+                    return true;
+                }
+                */
+            
                 else if (CheckPieceQuantity > 1) //Checkmate - White wins
                 {
                     return true;
@@ -3697,6 +3754,306 @@ namespace Chess
                 return false;
             }
         }
+
+        /*
+        private bool IsBlankSquareVulnerable(string piece, Control SquareToCheck)
+        {
+            {
+                string enemy_pawn = "";
+                string enemy_rook = "";
+                string enemy_knight = "";
+                string enemy_bishop = "";
+                string enemy_queen = "";
+
+                Control PawnCheck = new Control();
+
+                int KingRow = tableLayoutPanel1.GetRow(SquareToCheck);
+                int KingCol = tableLayoutPanel1.GetColumn(SquareToCheck);
+
+                if (piece == "white")
+                {
+                    PawnCheck = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
+
+                    enemy_pawn = "black_pawn";
+                    enemy_rook = "black_rook";
+                    enemy_knight = "black_knight";
+                    enemy_bishop = "black_bishop";
+                    enemy_queen = "black_queen";
+                }
+
+                else if (piece == "black")
+                {
+                    PawnCheck = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
+
+                    enemy_pawn = "white_pawn";
+                    enemy_rook = "white_rook";
+                    enemy_knight = "white_knight";
+                    enemy_bishop = "white_bishop";
+                    enemy_queen = "white_queen";
+                }
+
+                /////////////////////////////////////
+                //CHECK IF A PAWN CAN KILL KING
+
+                if (PawnCheck.Tag.ToString() == enemy_pawn)
+                {
+                    return true;
+                }
+
+                //////////////////////////////////////////////
+                //CHECK IF A ROOK OR QUEEN CAN KILL KING
+
+                Control HorizontalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow);
+                Control HorizontalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow - 1);
+                Control HorizontalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow);
+                Control HorizontalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol, KingRow + 1);
+
+
+                //Determine if king is in check - horizontal left (enemy rook or queen)
+                int y = tableLayoutPanel1.GetRow(HorizontalCheck1);
+                for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck1); x >= 1; x--)
+                {
+                    if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                    //Square is piece that is not enemy rook or enemy queen
+                    {
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                    //Square is enemy rook or enemy queen
+                    {
+                        return true;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                    //Square is empty
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Orange;
+                        continue;
+                    }
+                }
+
+                //Determine if king is in check - horizontal right (enemy rook or queen)
+                y = tableLayoutPanel1.GetRow(HorizontalCheck3);
+                for (int x = tableLayoutPanel1.GetColumn(HorizontalCheck3); x <= 10; x++)
+                {
+                    if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                    //Square is piece that is not enemy rook or enemy queen
+                    {
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                    //Square is enemy rook or enemy queen
+                    {
+                        return true;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                    //Square is empty
+                    {
+                        continue;
+                    }
+                }
+
+                //Determine if white king is in check - vertical up (enemy rook or queen)
+                y = tableLayoutPanel1.GetColumn(HorizontalCheck2);
+                for (int x = tableLayoutPanel1.GetRow(HorizontalCheck2); x >= 2; x--)
+                {
+                    if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
+                    //Square is piece that is not enemy rook or enemy queen
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green;
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_queen)
+                    //Square is enemy rook or enemy queen
+                    {
+                        return true;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
+                    //Square is empty
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Orange;
+                        continue;
+                    }
+                }
+
+
+                //Determine if king is in check - vertical down (enemy rook or queen)
+                y = tableLayoutPanel1.GetColumn(HorizontalCheck4);
+                for (int x = tableLayoutPanel1.GetRow(HorizontalCheck4); x <= 10; x++)
+                {
+                    if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_rook & tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() != enemy_queen)
+                    //Square is piece that is not enemy rook or enemy queen
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Green;
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_rook | tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == enemy_queen)
+                    //Square is enemy rook or enemy queen
+                    {
+                        return true;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
+                    //Square is empty
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(y, x).BackColor = Color.Orange;
+                        continue;
+                    }
+                }
+
+                ///////////////////////////////////////
+                //CHECK IF A KNIGHT CAN KILL KING
+
+                Control KnightCheck1 = new Control();
+                Control KnightCheck2 = new Control();
+                Control KnightCheck3 = new Control();
+                Control KnightCheck4 = new Control();
+                Control KnightCheck5 = new Control();
+                Control KnightCheck6 = new Control();
+                Control KnightCheck7 = new Control();
+                Control KnightCheck8 = new Control();
+
+                Control[] KnightChecks = { KnightCheck1, KnightCheck2, KnightCheck3, KnightCheck4, KnightCheck5, KnightCheck6, KnightCheck7, KnightCheck8 };
+
+                KnightChecks[0] = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 2);
+                KnightChecks[1] = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 2);
+                KnightChecks[2] = tableLayoutPanel1.GetControlFromPosition(KingCol + 2, KingRow - 1);
+                KnightChecks[3] = tableLayoutPanel1.GetControlFromPosition(KingCol + 2, KingRow + 1);
+                KnightChecks[4] = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 2);
+                KnightChecks[5] = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 2);
+                KnightChecks[6] = tableLayoutPanel1.GetControlFromPosition(KingCol - 2, KingRow - 1);
+                KnightChecks[7] = tableLayoutPanel1.GetControlFromPosition(KingCol - 2, KingRow + 1);
+
+                foreach (Control x in KnightChecks)
+                {
+                    if (x.Tag.ToString() == enemy_knight)
+                    {
+                        return true;
+                    }
+                }
+
+                ////////////////////////////////////////////////
+                //CHECK IF A BISHOP OR QUEEN CAN KILL KING
+
+                Control DiagonalCheck1 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow - 1);
+                Control DiagonalCheck2 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow - 1);
+                Control DiagonalCheck3 = tableLayoutPanel1.GetControlFromPosition(KingCol + 1, KingRow + 1);
+                Control DiagonalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
+
+                y = tableLayoutPanel1.GetRow(DiagonalCheck1);
+                for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck1); x >= 0 & y >= 0; x--, y--)
+                {
+                    if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                    //Square is outside board
+                    {
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                    //Square is piece that is not  bishop or  queen
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                    //Square is  bishop or  queen
+                    {
+                        return true;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                    //Square is empty
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                        continue;
+                    }
+                }
+
+                //Determine if  king is in check - diagonal up/right (bishop or queen)
+                y = tableLayoutPanel1.GetRow(DiagonalCheck2);
+                for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck2); x <= 10; x++, y--)
+                {
+                    if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                    //Square is outside board
+                    {
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                    //Square is piece that is not  bishop or  queen
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                    //Square is  bishop or  queen
+                    {
+                        return true;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                    //Square is empty
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                        continue;
+                    }
+                }
+
+                //Determine if  king is in check - diagonal down/right (bishop or queen)
+                y = tableLayoutPanel1.GetRow(DiagonalCheck3);
+                for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x <= 12; x++, y++)
+                {
+                    if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                    //Square is outside board
+                    {
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                    //Square is piece that is not  bishop or  queen
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                    //Square is  bishop or  queen
+                    {
+                        return true;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                    //Square is empty
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                        continue;
+                    }
+                }
+
+                //Determine if  king is in check - diagonal down/left (bishop or queen)
+                y = tableLayoutPanel1.GetRow(DiagonalCheck4);
+                for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck4); x >= 2; x--, y++)
+                {
+                    if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
+                    //Square is outside board
+                    {
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != "empty" & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_bishop & tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() != enemy_queen)
+                    //Square is piece that is not  bishop or  queen
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Yellow; //DEBUG
+                        break;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_bishop | tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == enemy_queen)
+                    //Square is  bishop or  queen
+                    {
+                        return true;
+                    }
+                    else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
+                    //Square is empty
+                    {
+                        //tableLayoutPanel1.GetControlFromPosition(x, y).BackColor = Color.Green; //DEBUG
+                        continue;
+                    }
+                }
+
+
+                return true; //unreachable
+            }
+        }
+        */
     }
 }
  
