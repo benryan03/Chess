@@ -2884,55 +2884,47 @@ namespace Chess
                 KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
 
                 //First, determine whether black king can move into a position that does not result in check
-                //MessageBox.Show("Checking whether king can move out of check..."); //DEBUG]
                 blackKing.Tag = "empty";
                 blackKing2 = blackKing; //Keep track of original position of black king
                 foreach (PictureBox x in KingPos)
                 {
-                    blackKing = x;
-                    //x.BackColor = Color.Green; //DEBUG
-
-                    if (DoesMoveResultInCheck("black", false, false) == 0) //Black king does have a possible move
+                    if (x.Tag.ToString() == "empty")
                     {
-                        //MessageBox.Show("Black king can move - row " + tableLayoutPanel1.GetRow(blackKing) + ", col " + tableLayoutPanel1.GetColumn(blackKing)); //DEBUG
-                        blackKing = blackKing2;
-                        blackKing.Tag = "black_king";
-                        return false;
+                        blackKing = x;
+                        if (DoesMoveResultInCheck("black", true, true) == 0 & tableLayoutPanel1.GetRow(blackKing) >= 3 & tableLayoutPanel1.GetRow(blackKing) <= 10 & tableLayoutPanel1.GetColumn(blackKing) >= 3 & tableLayoutPanel1.GetColumn(blackKing) <= 10) //Black king does have a possible move
+                        {
+                            //Black king can move out of Check
+                            blackKing = blackKing2;
+                            blackKing.Tag = "black_king";
+                            return false;
+                        }
                     }
                 }
-
                 blackKing = blackKing2;
                 blackKing.Tag = "black_king";
 
-                MessageBox.Show("King has no possible moves"); //DEBUG
-
-                //If not, determine how many pieces are currently in a position to kill black king
+                //If king cannot move, determine how many pieces are currently in a position to kill black king
                 int CheckPieceQuantity = DoesMoveResultInCheck("black", true, false);
-                MessageBox.Show(CheckPieceQuantity.ToString() + " piece(s) can kill king"); //DEBUG
 
                 //If only 1, determine if that piece can be killed by a piece other than the king
                 if (CheckPieceQuantity == 1)
                 {
                     //Get position of piece causing Check
                     string position = GetPositionOfPieceThatIsCausingCheck("black");
-                    int pieceColumn = Int32.Parse(position.Substring(0, 1));
-                    int pieceRow = Int32.Parse(position.Substring(1, 1));
-                    MessageBox.Show("Checking whether that piece can be killed. Row: " + pieceRow + " Column: " + pieceColumn); //DEBUG
-                    whiteKing2 = whiteKing; //Save position of white king, which will be borrowed here
+                    int pieceColumn = Int32.Parse(position.Substring(0, 2));
+                    int pieceRow = Int32.Parse(position.Substring(2, 2));
 
+                    whiteKing2 = whiteKing; //Save position of white king, which will be borrowed here
                     whiteKing = tableLayoutPanel1.GetControlFromPosition(pieceColumn, pieceRow) as PictureBox;
 
                     if (DoesMoveResultInCheck("white", true, true) > 0)
                     {
                         //Yes, that piece can be killed 
-                        MessageBox.Show("That piece can be killed"); //DEBUG
                         whiteKing = whiteKing2;
                         return false;
                     }
-                    else //Checkmate - White wins
+                    else
                     {
-                        MessageBox.Show("That piece cannot be killed"); //DEBUG
-                        //whiteKing = whiteKing2;
                         return true;
                     }
                 }
@@ -2947,7 +2939,7 @@ namespace Chess
             }
             else if (piece.Contains("white"))
             {
-                //Get position of white king
+                //Get position of black king
                 int KingRowTemp = tableLayoutPanel1.GetRow(whiteKing);
                 int KingColTemp = tableLayoutPanel1.GetColumn(whiteKing);
 
@@ -2971,54 +2963,52 @@ namespace Chess
                 KingPos[6] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp + 1);
                 KingPos[7] = tableLayoutPanel1.GetControlFromPosition(KingColTemp - 1, KingRowTemp);
 
-                //First, determine whether white king can move into a position that does not result in check
+                //First, determine whether black king can move into a position that does not result in check
                 whiteKing.Tag = "empty";
-                whiteKing2 = whiteKing; //Keep track of original position of white king
+                whiteKing2 = whiteKing; //Keep track of original position of black king
                 foreach (PictureBox x in KingPos)
                 {
-                    whiteKing = x;
-                    //x.BackColor = Color.Green; //DEBUG
-
-                    if (DoesMoveResultInCheck("white", false, false) == 0) //white king does have a possible move
+                    if (x.Tag.ToString() == "empty")
                     {
-                        //MessageBox.Show("Black king can move - row " + tableLayoutPanel1.GetRow(blackKing) + ", col " + tableLayoutPanel1.GetColumn(blackKing)); //DEBUG
-                        whiteKing = whiteKing2;
-                        whiteKing.Tag = "white_king";
-                        return false;
+                        whiteKing = x;
+                        if (DoesMoveResultInCheck("white", true, true) == 0 & tableLayoutPanel1.GetRow(whiteKing) >= 3 & tableLayoutPanel1.GetRow(whiteKing) <= 10 & tableLayoutPanel1.GetColumn(whiteKing) >= 3 & tableLayoutPanel1.GetColumn(whiteKing) <= 10) //White king does have a possible move
+                        {
+                            //White king can move out of check
+                            whiteKing = whiteKing2;
+                            whiteKing.Tag = "white_king";
+                            return false;
+                        }
                     }
                 }
 
                 whiteKing = whiteKing2;
                 whiteKing.Tag = "white_king";
 
-                MessageBox.Show("King has no possible moves"); //DEBUG
-
-                //If not, determine how many pieces are currently in a position to kill black king
+                //If king cannot move, determine how many pieces are currently in a position to kill black king
                 int CheckPieceQuantity = DoesMoveResultInCheck("white", true, false);
                 MessageBox.Show(CheckPieceQuantity.ToString() + " piece(s) can kill king"); //DEBUG
 
                 //If only 1, determine if that piece can be killed by a piece other than the king
                 if (CheckPieceQuantity == 1)
                 {
+
                     //Get position of piece causing Check
                     string position = GetPositionOfPieceThatIsCausingCheck("white");
-                    int pieceColumn = Int32.Parse(position.Substring(0, 1));
-                    int pieceRow = Int32.Parse(position.Substring(1, 1));
-                    MessageBox.Show("Checking whether that piece can be killed. Row: " + pieceRow + " Column: " + pieceColumn); //DEBUG
-                    blackKing2 = blackKing; //Save position of black king, which will be borrowed here
 
-                    blackKing = tableLayoutPanel1.GetControlFromPosition(pieceColumn, pieceRow) as PictureBox;
+                    int pieceColumn = Int32.Parse(position.Substring(0, 2));
+                    int pieceRow = Int32.Parse(position.Substring(2, 2));
 
-                    if (DoesMoveResultInCheck("black", true, true) > 0)
+                    blackKing2 = blackKing; //Save position of white king, which will be borrowed here
+                    blackKing= tableLayoutPanel1.GetControlFromPosition(pieceColumn, pieceRow) as PictureBox;
+
+                    if (DoesMoveResultInCheck("white", true, true) > 0)
                     {
                         //Yes, that piece can be killed 
-                        MessageBox.Show("That piece can be killed"); //DEBUG
                         blackKing = blackKing2;
                         return false;
                     }
                     else //Checkmate - Black wins
                     {
-                        MessageBox.Show("That piece cannot be killed"); //DEBUG
                         return true;
                     }
                 }
@@ -3105,6 +3095,14 @@ namespace Chess
             {
                 returnColumn = tableLayoutPanel1.GetColumn(PawnCheck1).ToString();
                 returnRow = tableLayoutPanel1.GetRow(PawnCheck1).ToString();
+                if (returnColumn.Length == 1)
+                {
+                    returnColumn = 0 + returnColumn;
+                }
+                if (returnRow.Length == 1)
+                {
+                    returnRow = 0 + returnRow;
+                }
                 return returnColumn + returnRow;
             }
             else if (PawnCheck1.Tag.ToString() != enemy_pawn & PawnCheck2.Tag.ToString() == enemy_pawn)
@@ -3136,7 +3134,15 @@ namespace Chess
                 //Square is enemy rook or enemy queen
                 {
                     returnColumn = x.ToString();
+                    if (returnColumn.Length == 1)
+                    {
+                        returnColumn = 0 + returnColumn;
+                    }
                     returnRow = y.ToString();
+                    if (returnRow.Length == 1)
+                    {
+                        returnRow = 0 + returnRow;
+                    }
                     return returnColumn + returnRow;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
@@ -3161,6 +3167,14 @@ namespace Chess
                 {
                     returnColumn = x.ToString();
                     returnRow = y.ToString();
+                    if (returnColumn.Length == 1)
+                    {
+                        returnColumn = 0 + returnColumn;
+                    }
+                    if (returnRow.Length == 1)
+                    {
+                        returnRow = 0 + returnRow;
+                    }
                     return returnColumn + returnRow;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
@@ -3185,6 +3199,14 @@ namespace Chess
                 {
                     returnColumn = y.ToString();
                     returnRow = x.ToString();
+                    if (returnColumn.Length == 1)
+                    {
+                        returnColumn = 0 + returnColumn;
+                    }
+                    if (returnRow.Length == 1)
+                    {
+                        returnRow = 0 + returnRow;
+                    }
                     return returnColumn + returnRow;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
@@ -3211,6 +3233,14 @@ namespace Chess
                 {
                     returnColumn = y.ToString();
                     returnRow = x.ToString();
+                    if (returnColumn.Length == 1)
+                    {
+                        returnColumn = 0 + returnColumn;
+                    }
+                    if (returnRow.Length == 1)
+                    {
+                        returnRow = 0 + returnRow;
+                    }
                     return returnColumn + returnRow;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(y, x).Tag.ToString() == "empty")
@@ -3250,6 +3280,14 @@ namespace Chess
                 {
                     returnColumn = tableLayoutPanel1.GetColumn(x).ToString();
                     returnRow = tableLayoutPanel1.GetRow(x).ToString();
+                    if (returnColumn.Length == 1)
+                    {
+                        returnColumn = 0 + returnColumn;
+                    }
+                    if (returnRow.Length == 1)
+                    {
+                        returnRow = 0 + returnRow;
+                    }
                     return returnColumn + returnRow;
                 }
             }
@@ -3263,7 +3301,7 @@ namespace Chess
             Control DiagonalCheck4 = tableLayoutPanel1.GetControlFromPosition(KingCol - 1, KingRow + 1);
 
             y = tableLayoutPanel1.GetRow(DiagonalCheck1);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck1); x >= 0; x--, y--)
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck1); x >= 0 & y >= 0; x--, y--)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
                 //Square is outside board
@@ -3281,6 +3319,14 @@ namespace Chess
                 {
                     returnColumn = x.ToString();
                     returnRow = y.ToString();
+                    if (returnColumn.Length == 1)
+                    {
+                        returnColumn = 0 + returnColumn;
+                    }
+                    if (returnRow.Length == 1)
+                    {
+                        returnRow = 0 + returnRow;
+                    }
                     return returnColumn + returnRow;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
@@ -3311,6 +3357,14 @@ namespace Chess
                 {
                     returnColumn = x.ToString();
                     returnRow = y.ToString();
+                    if (returnColumn.Length == 1)
+                    {
+                        returnColumn = 0 + returnColumn;
+                    }
+                    if (returnRow.Length == 1)
+                    {
+                        returnRow = 0 + returnRow;
+                    }
                     return returnColumn + returnRow;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
@@ -3323,7 +3377,7 @@ namespace Chess
 
             //Determine if  king is in check - diagonal down/right (bishop or queen)
             y = tableLayoutPanel1.GetRow(DiagonalCheck3);
-            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x <= 10; x++, y++)
+            for (int x = tableLayoutPanel1.GetColumn(DiagonalCheck3); x <= 12; x++, y++)
             {
                 if (tableLayoutPanel1.GetControlFromPosition(x, y) == null)
                 //Square is outside board
@@ -3341,6 +3395,14 @@ namespace Chess
                 {
                     returnColumn = x.ToString();
                     returnRow = y.ToString();
+                    if (returnColumn.Length == 1)
+                    {
+                        returnColumn = 0 + returnColumn;
+                    }
+                    if (returnRow.Length == 1)
+                    {
+                        returnRow = 0 + returnRow;
+                    }
                     return returnColumn + returnRow;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
@@ -3371,6 +3433,14 @@ namespace Chess
                 {
                     returnColumn = x.ToString();
                     returnRow = y.ToString();
+                    if (returnColumn.Length == 1)
+                    {
+                        returnColumn = 0 + returnColumn;
+                    }
+                    if (returnRow.Length == 1)
+                    {
+                        returnRow = 0 + returnRow;
+                    }
                     return returnColumn + returnRow;
                 }
                 else if (tableLayoutPanel1.GetControlFromPosition(x, y).Tag.ToString() == "empty")
@@ -3399,6 +3469,14 @@ namespace Chess
             {
                 returnColumn = KingCheck1.ToString();
                 returnRow = KingCheck1.ToString();
+                if (returnColumn.Length == 1)
+                {
+                    returnColumn = 0 + returnColumn;
+                }
+                if (returnRow.Length == 1)
+                {
+                    returnRow = 0 + returnRow;
+                }
                 return returnColumn + returnRow;
             }
 
@@ -3406,6 +3484,14 @@ namespace Chess
             {
                 returnColumn = KingCheck2.ToString();
                 returnRow = KingCheck2.ToString();
+                if (returnColumn.Length == 1)
+                {
+                    returnColumn = 0 + returnColumn;
+                }
+                if (returnRow.Length == 1)
+                {
+                    returnRow = 0 + returnRow;
+                }
                 return returnColumn + returnRow;
             }
 
@@ -3413,6 +3499,14 @@ namespace Chess
             {
                 returnColumn = KingCheck3.ToString();
                 returnRow = KingCheck3.ToString();
+                if (returnColumn.Length == 1)
+                {
+                    returnColumn = 0 + returnColumn;
+                }
+                if (returnRow.Length == 1)
+                {
+                    returnRow = 0 + returnRow;
+                }
                 return returnColumn + returnRow;
             }
 
@@ -3420,6 +3514,14 @@ namespace Chess
             {
                 returnColumn = KingCheck4.ToString();
                 returnRow = KingCheck4.ToString();
+                if (returnColumn.Length == 1)
+                {
+                    returnColumn = 0 + returnColumn;
+                }
+                if (returnRow.Length == 1)
+                {
+                    returnRow = 0 + returnRow;
+                }
                 return returnColumn + returnRow;
             }
 
@@ -3427,6 +3529,14 @@ namespace Chess
             {
                 returnColumn = KingCheck5.ToString();
                 returnRow = KingCheck5.ToString();
+                if (returnColumn.Length == 1)
+                {
+                    returnColumn = 0 + returnColumn;
+                }
+                if (returnRow.Length == 1)
+                {
+                    returnRow = 0 + returnRow;
+                }
                 return returnColumn + returnRow;
             }
 
@@ -3434,6 +3544,14 @@ namespace Chess
             {
                 returnColumn = KingCheck6.ToString();
                 returnRow = KingCheck6.ToString();
+                if (returnColumn.Length == 1)
+                {
+                    returnColumn = 0 + returnColumn;
+                }
+                if (returnRow.Length == 1)
+                {
+                    returnRow = 0 + returnRow;
+                }
                 return returnColumn + returnRow;
             }
 
@@ -3441,6 +3559,14 @@ namespace Chess
             {
                 returnColumn = KingCheck7.ToString();
                 returnRow = KingCheck6.ToString();
+                if (returnColumn.Length == 1)
+                {
+                    returnColumn = 0 + returnColumn;
+                }
+                if (returnRow.Length == 1)
+                {
+                    returnRow = 0 + returnRow;
+                }
                 return returnColumn + returnRow;
             }
 
@@ -3448,6 +3574,14 @@ namespace Chess
             {
                 returnColumn = KingCheck8.ToString();
                 returnRow = KingCheck8.ToString();
+                if (returnColumn.Length == 1)
+                {
+                    returnColumn = 0 + returnColumn;
+                }
+                if (returnRow.Length == 1)
+                {
+                    returnRow = 0 + returnRow;
+                }
                 return returnColumn + returnRow;
             }
 
@@ -3565,3 +3699,4 @@ namespace Chess
         }
     }
 }
+ 
