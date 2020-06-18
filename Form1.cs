@@ -37,9 +37,13 @@ namespace Chess
         Image[] CapturedWhitePieces = {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null};
         Image[] CapturedBlackPieces = {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null};
 
+        string[] CapturedWhitePiecesTags = { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
+        string[] CapturedBlackPiecesTags = { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
+
         int CapturedWhitePiecesQuantity = 0;
         int CapturedBlackPiecesQuantity = 0;
 
+        bool RevivePieceStatus = false;
 
         public Form1()
         {
@@ -310,6 +314,66 @@ namespace Chess
                                 }
                             }
                         }
+
+                        else if (this.tableLayoutPanel1.GetRow(square) == 3) //Pawn reached end
+                        {
+                            if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Not original row, and same column
+                            {
+                                if ((this.tableLayoutPanel1.GetRow(square1) - 1) == this.tableLayoutPanel1.GetRow(square))  //Not original row, and same column, and "1 up"
+                                {
+                                    if (square.Tag.ToString() == "empty")
+                                    {
+                                        //Revive captured piece
+                                        RevivePieceStatus = true;
+                                        ValidMove("white_pawn");
+                                        status.Text = "White - choose a piece to bring back";
+                                    }
+                                    else
+                                    {
+                                        InvalidMove();
+                                    }
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                }
+                            }
+                            else //Not original row, and different column
+                            {
+                                if ((this.tableLayoutPanel1.GetRow(square1) - 1) == this.tableLayoutPanel1.GetRow(square))  //Not original row, and not same column, and "1 up"
+                                {
+                                    if ((this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square) + 1) || (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square) - 1)) //Not original row, and not same column, and column is 1 over
+                                    {
+                                        if (square.Tag.ToString() != "empty") //If square is full
+                                        {
+                                            //Revive captured piece
+                                            RevivePieceStatus = true;
+                                            ValidMove("white_pawn");
+                                            status.Text = "White - choose a piece to bring back";
+
+                                        }
+                                        else
+                                        {
+                                            InvalidMove();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        InvalidMove();
+                                    }
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                }
+                            }
+                        }
+
+
+
+
+
+
                         else //Not original row
                         {
                             if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Not original row, and same column
@@ -414,6 +478,68 @@ namespace Chess
                                 }
                             }
                         }
+
+
+
+
+                        else if (this.tableLayoutPanel1.GetRow(square) == 10) //Pawn reached end
+                        {
+                            if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Not original row, and same column
+                            {
+                                if ((this.tableLayoutPanel1.GetRow(square1) + 1) == this.tableLayoutPanel1.GetRow(square))  //Not original row, and same column, and "1 up"
+                                {
+                                    if (square.Tag.ToString() == "empty")
+                                    {
+                                        //Revive captured piece
+                                        RevivePieceStatus = true;
+                                        ValidMove("black_pawn");
+                                        status.Text = "Black - choose a piece to bring back";
+                                    }
+                                    else
+                                    {
+                                        InvalidMove();
+                                    }
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                }
+                            }
+                            else //Not original row, and different column
+                            {
+                                if ((this.tableLayoutPanel1.GetRow(square1) + 1) == this.tableLayoutPanel1.GetRow(square))  //Not original row, and not same column, and "1 up"
+                                {
+                                    if ((this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square) + 1) || (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square) - 1)) //Not original row, and not same column, and column is 1 over
+                                    {
+                                        if (square.Tag.ToString() != "empty") //If square is full
+                                        {
+                                            //Revive captured piece
+                                            RevivePieceStatus = true;
+                                            ValidMove("black_pawn");
+                                            status.Text = "Black - choose a piece to bring back";
+
+                                        }
+                                        else
+                                        {
+                                            InvalidMove();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        InvalidMove();
+                                    }
+                                }
+                                else
+                                {
+                                    InvalidMove();
+                                }
+                            }
+                        }
+
+
+
+
+
                         else //Not original row
                         {
                             if (this.tableLayoutPanel1.GetColumn(square1) == this.tableLayoutPanel1.GetColumn(square)) //Not original row, and same column
@@ -2330,6 +2456,7 @@ namespace Chess
                 {
                     //Add to list of captured pieces
                     CapturedWhitePieces[CapturedWhitePiecesQuantity] = targetSquareImage;
+                    CapturedWhitePiecesTags[CapturedWhitePiecesQuantity] = targetSquareTag;
                     CapturedWhitePiecesQuantity++;
 
                     //Refresh captured pieces display
@@ -2348,11 +2475,28 @@ namespace Chess
                     CapturedWhitePiece12.BackgroundImage = CapturedWhitePieces[12];
                     CapturedWhitePiece13.BackgroundImage = CapturedWhitePieces[13];
                     CapturedWhitePiece14.BackgroundImage = CapturedWhitePieces[14];
+
+                    CapturedWhitePiece0.Tag = CapturedWhitePiecesTags[0];
+                    CapturedWhitePiece1.Tag = CapturedWhitePiecesTags[1];
+                    CapturedWhitePiece2.Tag = CapturedWhitePiecesTags[2];
+                    CapturedWhitePiece3.Tag = CapturedWhitePiecesTags[3];
+                    CapturedWhitePiece4.Tag = CapturedWhitePiecesTags[4];
+                    CapturedWhitePiece5.Tag = CapturedWhitePiecesTags[5];
+                    CapturedWhitePiece6.Tag = CapturedWhitePiecesTags[6];
+                    CapturedWhitePiece7.Tag = CapturedWhitePiecesTags[7];
+                    CapturedWhitePiece8.Tag = CapturedWhitePiecesTags[8];
+                    CapturedWhitePiece9.Tag = CapturedWhitePiecesTags[9];
+                    CapturedWhitePiece10.Tag = CapturedWhitePiecesTags[10];
+                    CapturedWhitePiece11.Tag = CapturedWhitePiecesTags[11];
+                    CapturedWhitePiece12.Tag = CapturedWhitePiecesTags[12];
+                    CapturedWhitePiece13.Tag = CapturedWhitePiecesTags[13];
+                    CapturedWhitePiece14.Tag = CapturedWhitePiecesTags[14];
                 }
                 else if (targetSquareTag.Contains("black"))
                 {
                     //Add to list of captured pieces
                     CapturedBlackPieces[CapturedBlackPiecesQuantity] = targetSquareImage;
+                    CapturedBlackPiecesTags[CapturedBlackPiecesQuantity] = targetSquareTag;
                     CapturedBlackPiecesQuantity++;
 
                     //Refresh captured pieces display
@@ -2371,6 +2515,23 @@ namespace Chess
                     CapturedBlackPiece12.BackgroundImage = CapturedBlackPieces[12];
                     CapturedBlackPiece13.BackgroundImage = CapturedBlackPieces[13];
                     CapturedBlackPiece14.BackgroundImage = CapturedBlackPieces[14];
+
+
+                    CapturedBlackPiece0.Tag = CapturedBlackPiecesTags[0];
+                    CapturedBlackPiece1.Tag = CapturedBlackPiecesTags[1];
+                    CapturedBlackPiece2.Tag = CapturedBlackPiecesTags[2];
+                    CapturedBlackPiece3.Tag = CapturedBlackPiecesTags[3];
+                    CapturedBlackPiece4.Tag = CapturedBlackPiecesTags[4];
+                    CapturedBlackPiece5.Tag = CapturedBlackPiecesTags[5];
+                    CapturedBlackPiece6.Tag = CapturedBlackPiecesTags[6];
+                    CapturedBlackPiece7.Tag = CapturedBlackPiecesTags[7];
+                    CapturedBlackPiece8.Tag = CapturedBlackPiecesTags[8];
+                    CapturedBlackPiece9.Tag = CapturedBlackPiecesTags[9];
+                    CapturedBlackPiece10.Tag = CapturedBlackPiecesTags[10];
+                    CapturedBlackPiece11.Tag = CapturedBlackPiecesTags[11];
+                    CapturedBlackPiece12.Tag = CapturedBlackPiecesTags[12];
+                    CapturedBlackPiece13.Tag = CapturedBlackPiecesTags[13];
+                    CapturedBlackPiece14.Tag = CapturedBlackPiecesTags[14];
                 }
             }
 
@@ -3752,6 +3913,30 @@ namespace Chess
             else //Should be unreachable
             {
                 return false;
+            }
+        }
+
+        private void ReviveWhitePiece(object sender, EventArgs e)
+        {
+            PictureBox RevivedPiece = (PictureBox)sender;
+            if (RevivePieceStatus == true & RevivedPiece.Tag != null)
+            {
+                square.Tag = RevivedPiece.Tag.ToString();
+                square.Image = RevivedPiece.BackgroundImage;
+                status.Text = "Black's move";
+                RevivePieceStatus = false;
+            }
+        }
+
+        private void ReviveBlackPiece(object sender, EventArgs e)
+        {
+            PictureBox RevivedPiece = (PictureBox)sender;
+            if (RevivePieceStatus == true & RevivedPiece.Tag != null)
+            {
+                square.Tag = RevivedPiece.Tag.ToString();
+                square.Image = RevivedPiece.BackgroundImage;
+                status.Text = "White's move";
+                RevivePieceStatus = false;
             }
         }
 

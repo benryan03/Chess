@@ -3263,6 +3263,7 @@
             this.CapturedWhitePiece0.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece0.TabIndex = 3;
             this.CapturedWhitePiece0.TabStop = false;
+            this.CapturedWhitePiece0.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece1
             // 
@@ -3273,6 +3274,7 @@
             this.CapturedWhitePiece1.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece1.TabIndex = 4;
             this.CapturedWhitePiece1.TabStop = false;
+            this.CapturedWhitePiece1.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece2
             // 
@@ -3283,6 +3285,7 @@
             this.CapturedWhitePiece2.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece2.TabIndex = 5;
             this.CapturedWhitePiece2.TabStop = false;
+            this.CapturedWhitePiece2.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece3
             // 
@@ -3293,6 +3296,7 @@
             this.CapturedWhitePiece3.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece3.TabIndex = 6;
             this.CapturedWhitePiece3.TabStop = false;
+            this.CapturedWhitePiece3.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece4
             // 
@@ -3303,6 +3307,7 @@
             this.CapturedWhitePiece4.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece4.TabIndex = 7;
             this.CapturedWhitePiece4.TabStop = false;
+            this.CapturedWhitePiece4.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece5
             // 
@@ -3313,6 +3318,7 @@
             this.CapturedWhitePiece5.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece5.TabIndex = 8;
             this.CapturedWhitePiece5.TabStop = false;
+            this.CapturedWhitePiece5.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece6
             // 
@@ -3323,6 +3329,7 @@
             this.CapturedWhitePiece6.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece6.TabIndex = 9;
             this.CapturedWhitePiece6.TabStop = false;
+            this.CapturedWhitePiece6.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece7
             // 
@@ -3333,6 +3340,7 @@
             this.CapturedWhitePiece7.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece7.TabIndex = 10;
             this.CapturedWhitePiece7.TabStop = false;
+            this.CapturedWhitePiece7.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece8
             // 
@@ -3343,6 +3351,7 @@
             this.CapturedWhitePiece8.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece8.TabIndex = 11;
             this.CapturedWhitePiece8.TabStop = false;
+            this.CapturedWhitePiece8.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece9
             // 
@@ -3353,6 +3362,7 @@
             this.CapturedWhitePiece9.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece9.TabIndex = 12;
             this.CapturedWhitePiece9.TabStop = false;
+            this.CapturedWhitePiece9.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece10
             // 
@@ -3363,6 +3373,7 @@
             this.CapturedWhitePiece10.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece10.TabIndex = 13;
             this.CapturedWhitePiece10.TabStop = false;
+            this.CapturedWhitePiece10.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece11
             // 
@@ -3373,6 +3384,7 @@
             this.CapturedWhitePiece11.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece11.TabIndex = 14;
             this.CapturedWhitePiece11.TabStop = false;
+            this.CapturedWhitePiece11.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece12
             // 
@@ -3383,6 +3395,7 @@
             this.CapturedWhitePiece12.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece12.TabIndex = 15;
             this.CapturedWhitePiece12.TabStop = false;
+            this.CapturedWhitePiece12.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece13
             // 
@@ -3393,6 +3406,7 @@
             this.CapturedWhitePiece13.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece13.TabIndex = 16;
             this.CapturedWhitePiece13.TabStop = false;
+            this.CapturedWhitePiece13.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedWhitePiece14
             // 
@@ -3403,6 +3417,7 @@
             this.CapturedWhitePiece14.Size = new System.Drawing.Size(50, 50);
             this.CapturedWhitePiece14.TabIndex = 17;
             this.CapturedWhitePiece14.TabStop = false;
+            this.CapturedWhitePiece14.Click += new System.EventHandler(this.ReviveWhitePiece);
             // 
             // CapturedBlackPiece0
             // 
@@ -3413,6 +3428,7 @@
             this.CapturedBlackPiece0.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece0.TabIndex = 32;
             this.CapturedBlackPiece0.TabStop = false;
+            this.CapturedBlackPiece0.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece1
             // 
@@ -3423,6 +3439,7 @@
             this.CapturedBlackPiece1.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece1.TabIndex = 31;
             this.CapturedBlackPiece1.TabStop = false;
+            this.CapturedBlackPiece1.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece2
             // 
@@ -3433,6 +3450,7 @@
             this.CapturedBlackPiece2.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece2.TabIndex = 30;
             this.CapturedBlackPiece2.TabStop = false;
+            this.CapturedBlackPiece2.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece3
             // 
@@ -3443,6 +3461,7 @@
             this.CapturedBlackPiece3.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece3.TabIndex = 29;
             this.CapturedBlackPiece3.TabStop = false;
+            this.CapturedBlackPiece3.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece4
             // 
@@ -3453,6 +3472,7 @@
             this.CapturedBlackPiece4.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece4.TabIndex = 28;
             this.CapturedBlackPiece4.TabStop = false;
+            this.CapturedBlackPiece4.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece5
             // 
@@ -3463,6 +3483,7 @@
             this.CapturedBlackPiece5.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece5.TabIndex = 27;
             this.CapturedBlackPiece5.TabStop = false;
+            this.CapturedBlackPiece5.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece6
             // 
@@ -3473,6 +3494,7 @@
             this.CapturedBlackPiece6.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece6.TabIndex = 26;
             this.CapturedBlackPiece6.TabStop = false;
+            this.CapturedBlackPiece6.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece7
             // 
@@ -3483,6 +3505,7 @@
             this.CapturedBlackPiece7.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece7.TabIndex = 25;
             this.CapturedBlackPiece7.TabStop = false;
+            this.CapturedBlackPiece7.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece8
             // 
@@ -3493,6 +3516,7 @@
             this.CapturedBlackPiece8.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece8.TabIndex = 24;
             this.CapturedBlackPiece8.TabStop = false;
+            this.CapturedBlackPiece8.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece9
             // 
@@ -3503,6 +3527,7 @@
             this.CapturedBlackPiece9.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece9.TabIndex = 23;
             this.CapturedBlackPiece9.TabStop = false;
+            this.CapturedBlackPiece9.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece10
             // 
@@ -3513,6 +3538,7 @@
             this.CapturedBlackPiece10.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece10.TabIndex = 22;
             this.CapturedBlackPiece10.TabStop = false;
+            this.CapturedBlackPiece10.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece11
             // 
@@ -3523,6 +3549,7 @@
             this.CapturedBlackPiece11.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece11.TabIndex = 21;
             this.CapturedBlackPiece11.TabStop = false;
+            this.CapturedBlackPiece11.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece12
             // 
@@ -3533,6 +3560,7 @@
             this.CapturedBlackPiece12.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece12.TabIndex = 20;
             this.CapturedBlackPiece12.TabStop = false;
+            this.CapturedBlackPiece12.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece13
             // 
@@ -3543,6 +3571,7 @@
             this.CapturedBlackPiece13.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece13.TabIndex = 19;
             this.CapturedBlackPiece13.TabStop = false;
+            this.CapturedBlackPiece13.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // CapturedBlackPiece14
             // 
@@ -3553,6 +3582,7 @@
             this.CapturedBlackPiece14.Size = new System.Drawing.Size(50, 50);
             this.CapturedBlackPiece14.TabIndex = 18;
             this.CapturedBlackPiece14.TabStop = false;
+            this.CapturedBlackPiece14.Click += new System.EventHandler(this.ReviveBlackPiece);
             // 
             // Form1
             // 
